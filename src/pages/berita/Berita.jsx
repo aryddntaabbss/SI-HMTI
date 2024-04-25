@@ -1,7 +1,7 @@
 import React from "react";
 
-const berita = () => {
+const Berita = () => {
   return <div>Berita Page Here</div>;
 };
 
-export default berita;
+export default Berita;

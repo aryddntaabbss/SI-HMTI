@@ -1,9 +1,9 @@
 import React from 'react'
 
-const beranda = () => {
+const Beranda = () => {
   return (
     <div>Beranda Page Here</div>
   )
 }
 
-export default beranda
+export default Beranda
