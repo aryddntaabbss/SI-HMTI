@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const Beranda = () => {
   return (
-    <div>Beranda Page Here</div>
-  )
-}
+    <>
+      <div>Beranda Page Here</div>
+    </>
+  );
+};
 
-export default Beranda
+export default Beranda;
