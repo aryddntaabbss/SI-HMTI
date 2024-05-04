@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
+import { LOGIN_URL } from "../../routes/apiUrl";
 
 function SignIN() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const baseURL = process.env.BASE_HMTI_API_URL;
 
   const signInHandler = async (e) => {
     e.preventDefault();
@@ -15,7 +15,7 @@ function SignIN() {
     //   alert("masukkan email dan password");
     // } else {
     //   try {
-    //     const response = await fetch(`${baseURL}/login`, {
+    //     const response = await fetch(`${LOGIN_URL}/login`, {
     //       method: "POST",
     //       headers: {
     //         "Content-Type": "application/json",
