@@ -4,6 +4,10 @@ import Beranda from "../pages/beranda/Beranda";
 import Berita from "../pages/berita/Berita";
 import DetailBerita from "../pages/berita/DetailBerita";
 import SignIN from "../pages/auth/SignIN";
+import EmailVerification from "../pages/auth/EmailVerification";
+import OtpVerification from "../pages/auth/OtpVerification";
+import ResetPassword from "../pages/auth/ResetPassword";
+
 
 // export const router = createBrowserRouter([
 //   {
@@ -35,9 +39,9 @@ const AppRoutes = () => {
         {/*** General Route ***/}
 
         <Route path="/sign-in" element={<SignIN />} />
-        {/* <Route path="/email-verification" element={<EmailVerification />} />
+        <Route path="/email-verification" element={<EmailVerification />} />
         <Route path="/otp-verification" element={<OtpVerification />} />
-        <Route path="/reset-password" element={<ResetPassword />} /> */}
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/" element={<Beranda />} />
         <Route path="/berita" element={<Berita />} />
         <Route path="/berita-detail" element={<DetailBerita />} />
