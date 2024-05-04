@@ -44,7 +44,7 @@ const AppRoutes = () => {
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/" element={<Beranda />} />
         <Route path="/berita" element={<Berita />} />
-        <Route path="/berita-detail" element={<DetailBerita />} />
+        <Route path="/berita/:slug" element={<DetailBerita />} />
 
         {/*** Private Route ***/}
 
