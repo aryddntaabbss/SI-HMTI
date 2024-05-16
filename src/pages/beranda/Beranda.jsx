@@ -1,5 +1,5 @@
 import React from "react";
-import GuestLayout from "../../components/layouts/GuestLayout";
+import GuestLayout from "../../layouts/GuestLayout";
 
 const Beranda = () => {
   return (
