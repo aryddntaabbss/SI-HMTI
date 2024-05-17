@@ -8,17 +8,8 @@ import axios from "axios";
 function SignIN() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   fetch('https://backend-web.htmi-unkhair.my.id/api/news')
-  //     .then((res) => {
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       console.log(data);
-  //     });
-  // }, []);
 
   const signInHandler = async (e) => {
     e.preventDefault();
@@ -26,53 +17,25 @@ function SignIN() {
       alert("masukkan email dan password");
     } else {
       try {
-        const response = await axios.post(
+        await axios.post(
           `https://backend-web.htmi-unkhair.my.id/api/login`,
-          { email, password },
+          { 
+            email: email, 
+            password: password 
+          },
           {
             headers: {
-              "Content-Type": "application/json",
+            "Content-Type": "application/json",
             },
-          }
-        );
-          console.log(response.data);
+          });
+          navigate('/dashboard')
+
       } catch (error) {
         console.error("Error:", error);
         alert("terjadi kesalahan");
       }
     }
   };
-
-  // const signInHandler = async (e) => {
-  //   e.preventDefault();
-  //   if (!email || !password) {
-  //     alert("Masukkan email dan password");
-  //   } else {
-  //     try {
-  //       const response = await fetch(
-  //         `https://backend-web.htmi-unkhair.my.id/api/login`,
-  //         {
-  //           method: "POST",
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //           },
-  //           body: JSON.stringify({ email, password }),
-  //         }
-  //       );
-  
-  //       if (!response.ok) {
-  //         throw new Error("Gagal melakukan permintaan.");
-  //       }
-  
-  //       const responseData = await response.json();
-  //       console.log(responseData);
-  //     } catch (error) {
-  //       console.error("Error:", error);
-  //       alert("Terjadi kesalahan");
-  //     }
-  //   }
-  // };
-  
 
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-gradient-to-tr from-dark-blue to-good-blue md:p-44 sm:p-28 p-7">
