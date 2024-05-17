@@ -1,23 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { RiLockPasswordFill } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import axios from "axios";
 // import { LOGIN_URL } from "../../routes/apiUrl";
 
 function SignIN() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [msg, setMsg] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-
 
   const signInHandler = async (e) => {
     e.preventDefault();
     if (!email || !password) {
-      alert("masukkan email dan password");
+      setMsg("Masukkan email dan password dengan lengkap 😡");
     } else {
+      setIsSubmitting(true);
       try {
-        await axios.post(
+        const response = await axios.post(
           `https://backend-web.htmi-unkhair.my.id/api/login`,
           { 
             email: email, 
@@ -25,14 +28,22 @@ function SignIN() {
           },
           {
             headers: {
-            "Content-Type": "application/json",
+              "Content-Type": "application/json",
             },
-          });
-          navigate('/dashboard')
-
+          }
+        );
+        
+        if (response.status === 200) {
+          navigate('/dashboard');
+        }
       } catch (error) {
-        console.error("Error:", error);
-        alert("terjadi kesalahan");
+        if (error.response && error.response.status === 400) {
+          setMsg(`${error.response.data.errors} 😡`);
+        } else {
+          console.log("Error:", error);
+        }
+      } finally {
+        setIsSubmitting(false);
       }
     }
   };
@@ -68,13 +79,23 @@ function SignIN() {
           <div className="mb-2 relative">
             <input
               name="password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               className="block w-full pl-4 pr-9 py-2 mt-2 text-dark-blue bg-transparent border-2 border-dark-blue rounded-md focus:border-good-blue focus:ring-gray-300 focus:outline-none focus:ring focus:ring-opacity-40"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <RiLockPasswordFill className="absolute inset-y-3 right-0 flex items-center mr-3 text-dark-blue focus:outline-none" />
+            {showPassword ? (
+              <AiFillEyeInvisible 
+                className="absolute inset-y-3 right-0 flex items-center mr-3 text-dark-blue cursor-pointer"
+                onClick={() => setShowPassword(false)} 
+              />
+            ) : (
+              <AiFillEye 
+                className="absolute inset-y-3 right-0 flex items-center mr-3 text-dark-blue cursor-pointer"
+                onClick={() => setShowPassword(true)} 
+              />
+            )}
           </div>
           <Link
             to="/email-verification"
@@ -82,15 +103,16 @@ function SignIN() {
           >
             Forgot Password?
           </Link>
-          <div className="mt-4">
+          <div className="mt-4 mb-4">
             <button
-              // onClick={signInHandler}
               type="submit"
-              className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-dark-blue rounded-md focus:outline-none focus:bg-good-blue"
+              className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-dark-blue rounded-md focus:outline-none"
+              disabled={isSubmitting}
             >
-              Login
+              {isSubmitting ? "Logging in..." : "Login"}
             </button>
           </div>
+          <p className="w-full text-center text-red-700 text-sm font-bold">{msg}</p>
         </form>
       </div>
     </div>
