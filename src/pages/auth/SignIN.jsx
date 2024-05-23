@@ -1,46 +1,56 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { MdEmail } from "react-icons/md";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import axios from "axios";
-// import { LOGIN_URL } from "../../routes/apiUrl";
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { MdEmail } from 'react-icons/md';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { setAuthData} from '../../redux/authSlice';
+import { BASE_API_URL } from "../../constants/apiURL";
 
 function SignIN() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [msg, setMsg] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [msg, setMsg] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const signInHandler = async (e) => {
     e.preventDefault();
     if (!email || !password) {
-      setMsg("Masukkan email dan password dengan lengkap 😡");
+      setMsg('Masukkan email dan password dengan lengkap 😡');
     } else {
       setIsSubmitting(true);
       try {
         const response = await axios.post(
-          `https://backend-web.htmi-unkhair.my.id/api/login`,
+          `${BASE_API_URL}/api/login`,
           { 
             email: email, 
             password: password 
           },
           {
             headers: {
-              "Content-Type": "application/json",
+              'Content-Type': 'application/json',
             },
           }
         );
         
         if (response.status === 200) {
+          const authData = {
+            email: response.data.data.email,
+            id: response.data.data.id,
+            token: response.data.data.token,
+            username: response.data.data.username,
+          };
+          dispatch(setAuthData(authData));
           navigate('/dashboard');
         }
       } catch (error) {
         if (error.response && error.response.status === 400) {
           setMsg(`${error.response.data.errors} 😡`);
         } else {
-          console.log("Error:", error);
+          console.log('Error:', error);
         }
       } finally {
         setIsSubmitting(false);
@@ -79,7 +89,7 @@ function SignIN() {
           <div className="mb-2 relative">
             <input
               name="password"
-              type={showPassword ? "text" : "password"}
+              type={showPassword ? 'text' : 'password'}
               placeholder="Password"
               className="block w-full pl-4 pr-9 py-2 mt-2 text-dark-blue bg-transparent border-2 border-dark-blue rounded-md focus:border-good-blue focus:ring-gray-300 focus:outline-none focus:ring focus:ring-opacity-40"
               value={password}
@@ -109,7 +119,7 @@ function SignIN() {
               className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-dark-blue rounded-md focus:outline-none"
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Logging in..." : "Login"}
+              {isSubmitting ? 'Logging in...' : 'Login'}
             </button>
           </div>
           <p className="w-full text-center text-red-700 text-sm font-bold">{msg}</p>

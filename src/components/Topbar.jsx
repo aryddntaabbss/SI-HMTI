@@ -9,8 +9,16 @@ import { BellIcon, CheckIcon } from "@heroicons/react/24/outline";
 import { Menu, Transition, Popover } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import UserImage from "../assets/img/hmti-logo.png";
+import { clearAuthData } from '../redux/authSlice';
+import { useDispatch } from 'react-redux';
 
 const TopBar = ({ showNav, setShowNav }) => {
+  const dispatch = useDispatch();
+
+  const logOutHandler = () => {
+    dispatch(clearAuthData());
+  } 
+
   return (
     <div
       className={`fixed w-full bg-white h-16 flex justify-between items-center transition-all shadow-sm duration-[400ms] ${
@@ -138,13 +146,13 @@ const TopBar = ({ showNav, setShowNav }) => {
                   </Link>
                 </Menu.Item>
                 <Menu.Item>
-                  <Link
-                    to="#"
-                    className="flex hover:bg-blue-500 hover:text-white text-gray-700 rounded p-2 text-sm group transition-colors items-center"
+                  <button
+                  onClick={logOutHandler}
+                    className="flex hover:bg-blue-500 hover:text-white text-gray-700 rounded p-2 text-sm group transition-colors items-center w-full"
                   >
                     <ArrowLeftStartOnRectangleIcon className="h-4 w-4 mr-2" />
                     Log Out
-                  </Link>
+                  </button>
                 </Menu.Item>
               </div>
             </Menu.Items>

@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { selectAuthData } from "../../../redux/authSlice";
 import MainLayout from "../../../layouts/MainLayout";
 import dataTabel from "./dataTabel";
 
@@ -11,6 +14,14 @@ import {
 } from "@material-tailwind/react";
 
 const Tabel = () => {
+  const navigate = useNavigate();
+  const authData = useSelector(selectAuthData);
+
+  useEffect(() => {
+    if (!authData.token) {
+      navigate("/sign-in");
+    }
+  }, [authData, navigate]);
   return (
     <>
       <MainLayout>

@@ -1,11 +1,48 @@
 import React, { useState } from "react";
 import { MdEmail } from "react-icons/md";
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { BASE_API_URL } from "../../constants/apiURL";
 
 const EmailVerification = () => {
   const [email, setEmail] = useState("");
+  const [msg, setMsg] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const navigate = useNavigate();
 
   const EmailVerificationHandler = async (e) => {
     e.preventDefault();
+    if (!email) {
+      setMsg('Masukkan email terlebih dahulu 😡');
+    } else {
+      setIsSubmitting(true);
+      try {
+        const response = await axios.post(
+          `${BASE_API_URL}/api/forgot-password`,
+          { 
+            email: email,
+          },
+          {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        );
+        
+        if (response.status === 200) {
+          navigate("/otp-verification")
+        }
+      } catch (error) {
+        if (error.response && error.response.status === 422) {
+          setMsg(error.response.data.message);
+        } else {
+          console.log('Error:', error);
+        }
+      } finally {
+        setIsSubmitting(false);
+      }
+    }
   }
 
   return (
@@ -29,10 +66,12 @@ const EmailVerification = () => {
             <button
               onClick={EmailVerificationHandler}
               className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-dark-blue rounded-md focus:outline-none focus:bg-good-blue"
+              disabled={isSubmitting}
             >
-              Submit
+              {isSubmitting ? 'Submitting...' : 'Submit'}
             </button>
           </div>
+          <p className="w-full text-center text-red-700 text-sm font-bold pt-5">{msg}</p>
       </div>
     </div>
   );
