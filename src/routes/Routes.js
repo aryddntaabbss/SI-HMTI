@@ -7,9 +7,6 @@ import EmailVerification from "../pages/auth/EmailVerification";
 import OtpVerification from "../pages/auth/OtpVerification";
 import ResetPassword from "../pages/auth/ResetPassword";
 
-import Dashboard from "../pages/admin/dashboard/Dashboard";
-import Tabel from "../pages/admin/tabel/Tabel";
-
 const AppRoutes = () =>
 {
 
@@ -25,10 +22,6 @@ const AppRoutes = () =>
         <Route path="/" element={ <Beranda /> } />
         <Route path="/berita" element={ <Berita /> } />
         <Route path="/berita/:slug" element={ <DetailBerita /> } />
-
-        {/* Dashboard Route */ }
-        <Route path="/dashboard" element={ <Dashboard /> } />
-        <Route path="/tabel" element={ <Tabel /> } />
 
       </Routes>
     </Router>
