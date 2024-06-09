@@ -8,6 +8,7 @@ import OtpVerification from "../pages/auth/OtpVerification";
 import ResetPassword from "../pages/auth/ResetPassword";
 import Struktur from "../pages/profile/Struktur";
 import Profile from "../pages/profile/Profile";
+import VisiMisi from "../pages/profile/VisiMisi";
 
 const AppRoutes = () =>
 {
@@ -27,6 +28,8 @@ const AppRoutes = () =>
 
         <Route path="/profile" element={ <Profile /> } />
         <Route path="/struktur" element={ <Struktur /> } />
+        <Route path="/visi-misi" element={ <VisiMisi /> } />
+
 
       </Routes>
     </Router>

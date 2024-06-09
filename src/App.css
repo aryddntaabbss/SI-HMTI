@@ -8,3 +8,7 @@
   font-family: 'Poppins';
   scroll-behavior: smooth;
 }
+
+.text-border {
+  -webkit-text-stroke: 1px #8FB6EF; /* Border color and width */
+}
