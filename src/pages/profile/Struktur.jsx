@@ -2,10 +2,12 @@ import BidangPengurus from "../../components/BidangPengurus";
 import CardPengurus from "../../components/CardPengurus";
 import SidebarPengurus from "../../components/SidebarPengurus";
 import GuestLayout from "../../layouts/GuestLayout";
+import TopLink from "./../../components/TopLink";
 
 const Struktur = () => {
   return (
     <GuestLayout>
+      <TopLink />
       <div className="flex flex-col justify-center items-center py-5 text-dark-blue dark:text-white text-lg font-semibold">
         <h1>Struktur Pengurus Organisasi</h1>
         <h1>Himpunan Mahasiswa Informatika</h1>
@@ -16,7 +18,6 @@ const Struktur = () => {
         <SidebarPengurus />
 
         <div className="flex flex-col items-center w-full">
-
           {/* KETUM, SEKUM, BENDUM */}
           <div className="flex justify-center gap-2 md:gap-14">
             {/* BENDAHARA UMUM */}
@@ -68,124 +69,129 @@ const Struktur = () => {
             />
           </BidangPengurus>
 
-
           {/* HUMAS */}
           <BidangPengurus id={"humas"} title={"HUBUNGAN MASYARAKAT"}>
-          <CardPengurus
+            <CardPengurus
               title="Ketua Bidang"
               nama="Muhammad Akmal Basahona"
               image="https://api.dicebear.com/8.x/notionists/svg?seed=Chester"
-          />
-          <CardPengurus
+            />
+            <CardPengurus
               title="Sekertaris Bidang"
               nama="Azharirama Hamid"
               image="https://api.dicebear.com/8.x/notionists/svg?seed=Charlie"
               mt="32"
-          />
+            />
           </BidangPengurus>
 
           {/* MINAT BAKAT */}
           <BidangPengurus id={"minat-bakat"} title={"MINAT DAN BAKAT"}>
-          <CardPengurus
+            <CardPengurus
               title="Ketua Bidang"
               nama="Agil Aryaddinata Abbas"
               image="https://api.dicebear.com/8.x/notionists/svg?seed=Chester"
-          />
-          <CardPengurus
+            />
+            <CardPengurus
               title="Sekertaris Bidang"
               nama="M. Mulkan A, Mufti"
               image="https://api.dicebear.com/8.x/notionists/svg?seed=Charlie"
               mt="32"
-          />
+            />
           </BidangPengurus>
 
           {/* KEUANGAN */}
           <BidangPengurus id={"keuangan"} title={"Keuangan"}>
-          <CardPengurus
+            <CardPengurus
               title="Ketua Bidang"
               nama="Dela Laheru"
               image="https://api.dicebear.com/8.x/notionists/svg?seed=Gizmo"
-          />
-          <CardPengurus
+            />
+            <CardPengurus
               title="Sekertaris Bidang"
               nama="Destitha Almaqvira Bachmid"
               image="https://api.dicebear.com/8.x/notionists/svg?seed=Coco"
               mt="32"
-          />
+            />
           </BidangPengurus>
           {/* KEAGAMAAN */}
           <BidangPengurus id={"keagamaan"} title={"KEAGAMAAN"}>
-          <CardPengurus
+            <CardPengurus
               title="Ketua Bidang"
               nama="Zulfikri Ahmad"
               image="https://api.dicebear.com/8.x/notionists/svg?seed=Felix"
-          />
-          <CardPengurus
+            />
+            <CardPengurus
               title="Sekertaris Bidang"
               nama="Jerryantho Pareda"
               image="https://api.dicebear.com/8.x/notionists/svg?seed=Charlie"
               mt="32"
-          />
+            />
           </BidangPengurus>
 
           {/* PEMBERDAYAAN WANITA */}
-          <BidangPengurus id={"pemberdayaan-wanita"} title={"PEMBERDAYAAN WANITA"}>
-          <CardPengurus
+          <BidangPengurus
+            id={"pemberdayaan-wanita"}
+            title={"PEMBERDAYAAN WANITA"}
+          >
+            <CardPengurus
               title="Ketua Bidang"
               nama="Anggraini Andari"
               image="https://api.dicebear.com/8.x/notionists/svg?seed=Gizmo"
-          />
-          <CardPengurus
+            />
+            <CardPengurus
               title="Sekertaris Bidang"
               nama="Minarsih Nurdin"
               image="https://api.dicebear.com/8.x/notionists/svg?seed=Coco"
               mt="32"
-          />
+            />
           </BidangPengurus>
 
           {/* P3RT */}
-          <BidangPengurus id={"p3rt"} title={"PENELITIAN, PENGEMBANGAN, DAN PEMBERDAYAAN RISET TEKNOLOGI"}>
-          <CardPengurus
+          <BidangPengurus
+            id={"p3rt"}
+            title={"PENELITIAN, PENGEMBANGAN, DAN PEMBERDAYAAN RISET TEKNOLOGI"}
+          >
+            <CardPengurus
               title="Ketua Bidang"
               nama="Wahyu Jihad Umaternate"
               image="https://api.dicebear.com/8.x/notionists/svg?seed=Chester"
-          />
-          <CardPengurus
+            />
+            <CardPengurus
               title="Sekertaris Bidang"
               nama="Rizki M Nur"
               image="https://api.dicebear.com/8.x/notionists/svg?seed=Charlie"
               mt="32"
-          />
+            />
           </BidangPengurus>
 
           {/* KESEKRETARIATAN */}
           <BidangPengurus id={"kesekretariatan"} title={"KESEKRETARIATAN"}>
-          <CardPengurus
+            <CardPengurus
               title="Ketua Bidang"
               nama="Aulia Abdulkadir"
               image="https://api.dicebear.com/8.x/notionists/svg?seed=Chester"
-          />
-          <CardPengurus
+            />
+            <CardPengurus
               title="Sekertaris Bidang"
               nama="Akbbar Alif Ramadhan"
               image="https://api.dicebear.com/8.x/notionists/svg?seed=Charlie"
               mt="32"
-          />
+            />
           </BidangPengurus>
 
           {/* GAM */}
           <BidangPengurus id={"gam"} title={"GERAKAN AKSI MAHASISWA"}>
-          <CardPengurus
+            <CardPengurus
               title="Ketua Bidang"
               nama="Agam La Mudia"
               image="https://api.dicebear.com/8.x/notionists/svg?seed=Chester"
-          />
-          <CardPengurus
+            />
+            <CardPengurus
               title="Sekertaris Bidang"
               nama="Oktavianto Leibo"
               image="https://api.dicebear.com/8.x/notionists/svg?seed=Charlie"
               mt="32"
-          />
+            />
           </BidangPengurus>
         </div>
       </div>

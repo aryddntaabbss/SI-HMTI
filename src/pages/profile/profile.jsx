@@ -1,6 +1,6 @@
 import React from "react";
 import GuestLayout from "../../layouts/GuestLayout";
-import TopLink from "./../../components/TopLink";
+import TopLink from "../../components/TopLink";
 
 const Profile = () => {
   return (
@@ -11,7 +11,7 @@ const Profile = () => {
           <div className="flex items-center justify-center">
             <div>
               <h2 className="text-5xl font-bold mb-4">Sejarah HMTI</h2>
-              <p className="text-2xl text-gray-700  dark:text-white">
+              <p className="text-2xl text-gray-700 dark:text-white">
                 Hunt bunch vessel advice big not apart notebook sympathetic
                 whether milk split left loyal page wander secrecy winter explore
                 jaw pot oar adventure rescue pastry he examine tough view relate
@@ -29,14 +29,14 @@ const Profile = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-8">
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center order-2 md:order-1">
             <img
               src={`${process.env.PUBLIC_URL}/assets/img/berita-hero.jpg`}
               alt="Biografi"
               className="w-3/5 h-auto rounded-lg shadow-lg"
             />
           </div>
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center order-1 md:order-2">
             <div>
               <h2 className="text-5xl font-bold mb-4">
                 Desain & Filosofi Logo

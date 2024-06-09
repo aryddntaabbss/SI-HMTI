@@ -24,7 +24,7 @@ const TopLink = () => {
             <hr className="w-20 border-gray-300 sm:mx-auto lg:my-2" />
           </NavLink>
           <NavLink
-            to="/profiless"
+            to="/struktur"
             className="px-4 text-center py-2 text-sm font-medium text-gray-500 hover:text-black dark:text-gray-500 dark:hover:text-white"
             activeClassName="text-black"
           >
