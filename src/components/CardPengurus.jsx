@@ -1,9 +1,10 @@
 import React from "react";
 
-const CardPengurus = ({ id, title, nama, image, mt }) => {
+const CardPengurus = ({ id, title, nama, image, className  }) => {
+  // console.log(mt)
   return (
     <>
-      <div id={id} className={`${mt && `mt-${mt} `} flex flex-col items-center `}>
+      <div id={id} className={`flex flex-col items-center ${className}`}>
         <h2 className="py-3 text-center text-sm md:text-base font-semibold">{title}</h2>
         <div className="h-[150px] w-[120px] md:h-[300px] md:w-[250px] border-2 border-good-blue dark:border-white rounded-3xl shadow-lg shadow-good-blue/40 dark:shadow-white/30 bg-white dark:bg-bad-blue">
           <img
