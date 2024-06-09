@@ -6,6 +6,7 @@ import SignIN from "../pages/auth/SignIN";
 import EmailVerification from "../pages/auth/EmailVerification";
 import OtpVerification from "../pages/auth/OtpVerification";
 import ResetPassword from "../pages/auth/ResetPassword";
+import Struktur from "../pages/profile/Struktur";
 
 const AppRoutes = () =>
 {
@@ -22,6 +23,8 @@ const AppRoutes = () =>
         <Route path="/" element={ <Beranda /> } />
         <Route path="/berita" element={ <Berita /> } />
         <Route path="/berita/:slug" element={ <DetailBerita /> } />
+
+        <Route path="/struktur" element={ <Struktur /> } />
 
       </Routes>
     </Router>
