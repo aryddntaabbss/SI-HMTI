@@ -6,9 +6,7 @@ import SignIN from "../pages/auth/SignIN";
 import EmailVerification from "../pages/auth/EmailVerification";
 import OtpVerification from "../pages/auth/OtpVerification";
 import ResetPassword from "../pages/auth/ResetPassword";
-import Struktur from "../pages/profile/Struktur";
-import Profile from "../pages/profile/Profile";
-import VisiMisi from "../pages/profile/VisiMisi";
+import { Biografi, VisiMisi, Struktur } from "../pages/profile/Index.jsx";
 
 const AppRoutes = () =>
 {
@@ -26,9 +24,9 @@ const AppRoutes = () =>
         <Route path="/berita" element={ <Berita /> } />
         <Route path="/berita/:slug" element={ <DetailBerita /> } />
 
-        <Route path="/profile" element={ <Profile /> } />
-        <Route path="/struktur" element={ <Struktur /> } />
-        <Route path="/visi-misi" element={ <VisiMisi /> } />
+        <Route path="/profile/biografi" element={ <Biografi /> } />
+        <Route path="/profile/struktur" element={ <Struktur /> } />
+        <Route path="/profile/visi-misi" element={ <VisiMisi /> } />
 
 
       </Routes>

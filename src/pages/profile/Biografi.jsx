@@ -2,7 +2,7 @@ import React from "react";
 import GuestLayout from "../../layouts/GuestLayout";
 import TopLink from "../../components/TopLink";
 
-const Profile = () => {
+const Biografi = () => {
   return (
     <GuestLayout>
       <TopLink />
@@ -54,4 +54,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Biografi;

@@ -13,7 +13,7 @@ const VisiMisi = () => {
               VISI
             </span>
             <h1
-              className="text-8xl italic text-blue-100 dark:text-dark-blue text-border relative z-0"
+              className="text-8xl italic text-gray-100 dark:text-dark-blue text-border relative z-0"
               data-text="Visi"
             >
               VISI
@@ -31,7 +31,7 @@ const VisiMisi = () => {
               MISI
             </span>
             <h1
-              className="text-8xl italic text-blue-100 dark:text-dark-blue text-border relative z-0"
+              className="text-8xl italic text-gray-100 dark:text-dark-blue text-border relative z-0"
               data-text="Misi"
             >
               MISI
@@ -64,7 +64,7 @@ const VisiMisi = () => {
               TUJUAN
             </span>
             <h1
-              className="text-8xl italic text-blue-100 dark:text-dark-blue text-border relative z-0"
+              className="text-8xl italic text-gray-100 dark:text-dark-blue text-border relative z-0"
               data-text="Tujuan"
             >
               TUJUAN
