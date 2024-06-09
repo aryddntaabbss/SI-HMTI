@@ -1,7 +1,6 @@
 import React from "react";
 import GuestLayout from "./../../layouts/GuestLayout";
 import TopLink from "./../../components/TopLink";
-import "../../index.css"; // Import the custom CSS file
 
 const VisiMisi = () => {
   return (
