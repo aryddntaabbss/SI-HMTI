@@ -21,13 +21,13 @@ const Navbar = () => {
               <Link to={"/berita"}>Berita</Link>
             </li>
             <li>
-              <Link to={""}>Galeri</Link>
+              <Link to={"/galery"}>Galeri</Link>
             </li>
             <li>
               <Link to={""}>Projects</Link>
             </li>
             <li>
-              <Link to={""}>Kontak Kami</Link>
+              <Link to={"/contact"}>Kontak Kami</Link>
             </li>
           </ul>
         </nav>
