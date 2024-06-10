@@ -46,16 +46,25 @@ const Struktur = () => {
               className="mt-32"
             />
           </div>
-
           <h1
             id="bidang-bidang"
             className="border-t-2 border-b-2 border-dark-blue/50 dark:border-white/50 mt-20 mb-16 py-2 px-10 text-center text-lg md:text-2xl font-semibold"
           >
             BIDANG-BIDANG
           </h1>
-
           {/* PAO */}
-          <BidangPengurus id="pao" title={"PENGGERAK APARATUR ORGANISASI"}>
+          <div className="mb-4 font-bold text-center relative">
+            <span className="text-5xl absolute inset-0 flex justify-center items-center text-black dark:text-white z-10">
+              PENGERAK APARATUR ORGANISASI
+            </span>
+            <h1
+              className="text-8xl italic text-gray-100 dark:text-dark-blue text-border relative z-0"
+              data-text="Misi"
+            >
+              PENGERAK APARATUR ORGANISASI
+            </h1>
+          </div>
+          <BidangPengurus id="pao">
             <CardPengurus
               title="Ketua Bidang"
               nama="Rizki Hi. Ibrahim"
@@ -68,9 +77,19 @@ const Struktur = () => {
               className="mt-32"
             />
           </BidangPengurus>
-
           {/* HUMAS */}
-          <BidangPengurus id={"humas"} title={"HUBUNGAN MASYARAKAT"}>
+          <div className="mb-4 font-bold text-center relative">
+            <span className="text-5xl absolute inset-0 flex justify-center items-center text-black dark:text-white z-10">
+              HUBUNGAN MASYARAKAT
+            </span>
+            <h1
+              className="text-8xl italic text-gray-100 dark:text-dark-blue text-border relative z-0"
+              data-text="Misi"
+            >
+              HUBUNGAN MASYARAKAT
+            </h1>
+          </div>
+          <BidangPengurus id={"humas"}>
             <CardPengurus
               title="Ketua Bidang"
               nama="Muhammad Akmal Basahona"
@@ -83,9 +102,19 @@ const Struktur = () => {
               className="mt-32"
             />
           </BidangPengurus>
-
           {/* MINAT BAKAT */}
-          <BidangPengurus id={"minat-bakat"} title={"MINAT DAN BAKAT"}>
+          <div className="mb-4 font-bold text-center relative">
+            <span className="text-5xl absolute inset-0 flex justify-center items-center text-black dark:text-white z-10">
+              MINAT DAN BAKAT
+            </span>
+            <h1
+              className="text-8xl italic text-gray-100 dark:text-dark-blue text-border relative z-0"
+              data-text="Misi"
+            >
+              MINAT DAN BAKAT
+            </h1>
+          </div>
+          <BidangPengurus id={"minat-bakat"}>
             <CardPengurus
               title="Ketua Bidang"
               nama="Agil Aryaddinata Abbas"
@@ -98,9 +127,19 @@ const Struktur = () => {
               className="mt-32"
             />
           </BidangPengurus>
-
           {/* KEUANGAN */}
-          <BidangPengurus id={"keuangan"} title={"Keuangan"}>
+          <div className="mb-4 font-bold text-center relative">
+            <span className="text-5xl absolute inset-0 flex justify-center items-center text-black dark:text-white z-10">
+              KEUANGAN
+            </span>
+            <h1
+              className="text-8xl italic text-gray-100 dark:text-dark-blue text-border relative z-0"
+              data-text="Misi"
+            >
+              KEUANGAN
+            </h1>
+          </div>
+          <BidangPengurus id={"keuangan"}>
             <CardPengurus
               title="Ketua Bidang"
               nama="Dela Laheru"
@@ -114,7 +153,18 @@ const Struktur = () => {
             />
           </BidangPengurus>
           {/* KEAGAMAAN */}
-          <BidangPengurus id={"keagamaan"} title={"KEAGAMAAN"}>
+          <div className="mb-4 font-bold text-center relative">
+            <span className="text-5xl absolute inset-0 flex justify-center items-center text-black dark:text-white z-10">
+              KEAGAMAAN
+            </span>
+            <h1
+              className="text-8xl italic text-gray-100 dark:text-dark-blue text-border relative z-0"
+              data-text="Misi"
+            >
+              KEAGAMAAN
+            </h1>
+          </div>
+          <BidangPengurus id={"keagamaan"}>
             <CardPengurus
               title="Ketua Bidang"
               nama="Zulfikri Ahmad"
@@ -127,12 +177,19 @@ const Struktur = () => {
               className="mt-32"
             />
           </BidangPengurus>
-
           {/* PEMBERDAYAAN WANITA */}
-          <BidangPengurus
-            id={"pemberdayaan-wanita"}
-            title={"PEMBERDAYAAN WANITA"}
-          >
+          <div className="mb-4 font-bold text-center relative">
+            <span className="text-5xl absolute inset-0 flex justify-center items-center text-black dark:text-white z-10">
+              PEMBERDAYAAN WANITA
+            </span>
+            <h1
+              className="text-8xl italic text-gray-100 dark:text-dark-blue text-border relative z-0"
+              data-text="Misi"
+            >
+              PEMBERDAYAAN WANITA
+            </h1>
+          </div>
+          <BidangPengurus id={"pemberdayaan-wanita"}>
             <CardPengurus
               title="Ketua Bidang"
               nama="Anggraini Andari"
@@ -145,12 +202,19 @@ const Struktur = () => {
               className="mt-32"
             />
           </BidangPengurus>
-
           {/* P3RT */}
-          <BidangPengurus
-            id={"p3rt"}
-            title={"PENELITIAN, PENGEMBANGAN, DAN PEMBERDAYAAN RISET TEKNOLOGI"}
-          >
+          <div className="mb-4 font-bold text-center relative">
+            <span className="text-5xl absolute inset-0 flex justify-center items-center text-black dark:text-white z-10">
+              P3RT
+            </span>
+            <h1
+              className="text-8xl italic text-gray-100 dark:text-dark-blue text-border relative z-0"
+              data-text="Misi"
+            >
+              P3RT
+            </h1>
+          </div>
+          <BidangPengurus id={"p3rt"}>
             <CardPengurus
               title="Ketua Bidang"
               nama="Wahyu Jihad Umaternate"
@@ -163,9 +227,20 @@ const Struktur = () => {
               className="mt-32"
             />
           </BidangPengurus>
-
           {/* KESEKRETARIATAN */}
-          <BidangPengurus id={"kesekretariatan"} title={"KESEKRETARIATAN"}>
+          <div className="mb-4 font-bold text-center relative">
+            <span className="text-5xl absolute inset-0 flex justify-center items-center text-black dark:text-white z-10">
+              KESEKRETARIATAN
+            </span>
+            <h1
+              className="text-8xl italic text-gray-100 dark:text-dark-blue text-border relative z-0"
+              data-text="Misi"
+            >
+              KESEKRETARIATAN
+            </h1>
+          </div>
+          PENELITIAN, PENGEMBANGAN, DAN PEMBERDAYAAN RISET TEKNOLOGI
+          <BidangPengurus id={"kesekretariatan"}>
             <CardPengurus
               title="Ketua Bidang"
               nama="Aulia Abdulkadir"
@@ -178,9 +253,19 @@ const Struktur = () => {
               className="mt-32"
             />
           </BidangPengurus>
-
           {/* GAM */}
-          <BidangPengurus id={"gam"} title={"GERAKAN AKSI MAHASISWA"}>
+          <div className="mb-4 font-bold text-center relative">
+            <span className="text-5xl absolute inset-0 flex justify-center items-center text-black dark:text-white z-10">
+              GERAKAN AKSI MAHASISWA
+            </span>
+            <h1
+              className="text-8xl italic text-gray-100 dark:text-dark-blue text-border relative z-0"
+              data-text="Misi"
+            >
+              GERAKAN AKSI MAHASISWA
+            </h1>
+          </div>
+          <BidangPengurus id={"gam"}>
             <CardPengurus
               title="Ketua Bidang"
               nama="Agam La Mudia"
