@@ -12,3 +12,11 @@
 .text-border {
   -webkit-text-stroke: 1px #8FB6EF; /* Border color and width */
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+}
