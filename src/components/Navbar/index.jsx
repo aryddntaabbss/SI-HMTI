@@ -1,14 +1,14 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import DarkModeToggle from "./DarkModeToggle";
 import LogoHmti from "../../assets/img/hmti-logo.png";
 import MobileNav from "./MobileNav";
-import { useState } from "react";
+import NavList from "./NavList";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <>
+    <header className="">
       <div
         className={`flex ${
           isOpen && "fixed z-50"
@@ -18,27 +18,7 @@ const Navbar = () => {
           <img src={LogoHmti} alt="HMTI" className="w-10 md:w-14" />
           <nav className="hidden md:flex justify-between items-center w-full">
             <ul className="flex gap-10 font-medium">
-              <li>
-                <Link to={"/"}>Beranda</Link>
-              </li>
-              <li>
-                <Link to={"/profile/biografi"}>Profil</Link>
-              </li>
-              <li>
-                <Link to={""}>Event</Link>
-              </li>
-              <li>
-                <Link to={"/berita"}>Berita</Link>
-              </li>
-              <li>
-                <Link to={"/galery"}>Galeri</Link>
-              </li>
-              <li>
-                <Link to={""}>Projects</Link>
-              </li>
-              <li>
-                <Link to={"/contact"}>Kontak Kami</Link>
-              </li>
+              <NavList />
             </ul>
             <DarkModeToggle />
           </nav>
@@ -51,7 +31,7 @@ const Navbar = () => {
         </button>
       </div>
       <MobileNav isOpen={isOpen} />
-    </>
+    </header>
   );
 };
 
