@@ -16,6 +16,15 @@ module.exports = {
         DEFAULT: "-1px 3px 4px var(--tw-shadow-color)",
         lg: "0 8px 16px var(--tw-shadow-color)",
       },
+      animation: {
+        slideup: 'slideup 0.2s ease-out'
+      },
+      keyframes: {
+        slideup: {
+          '0%': { transform: 'translateY(100%)' },
+          '100%': { transform: 'translateY(0)' },
+        }
+      }
     },
   },
   plugins: [
