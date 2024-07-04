@@ -7,7 +7,7 @@ import EmailVerification from "../pages/auth/EmailVerification";
 import OtpVerification from "../pages/auth/OtpVerification";
 import ResetPassword from "../pages/auth/ResetPassword";
 import { Biografi, VisiMisi, Struktur } from "../pages/profile/Index.jsx";
-// import Galery from "../pages/galery/Galery";
+import Galery from "../pages/galery/Galery";
 import Contact from "../pages/contact/Contact";
 
 const AppRoutes = () =>
@@ -30,7 +30,7 @@ const AppRoutes = () =>
         <Route path="/profile/struktur" element={ <Struktur /> } />
         <Route path="/profile/visi-misi" element={ <VisiMisi /> } />
 
-        {/* <Route path="/galery" element={ <Galery /> } /> */}
+        <Route path="/galery" element={ <Galery /> } />
         <Route path="/contact" element={ <Contact /> } />
 
 
