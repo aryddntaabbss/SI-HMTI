@@ -16,43 +16,45 @@ const Galery = () => {
 
   return (
     <GuestLayout>
-      <section className="h-screen bg-gradient-to-br from-blue-100 to-blue-300 dark:from-dark-blue dark:to-dark-blue flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-5xl font-bold mb-4">Galeri HMTI</h1>
-          <p className="text-3xl mb-8">
-            Simpan Sejuta Cerita, Biarkan <br /> Kenangan Berbicara
-          </p>
-          <form
-            className="relative flex items-center justify-center mb-8"
-            onSubmit={handleSearchSubmit}
-          >
-            <input
-              type="text"
-              value={searchTerm}
-              onChange={handleSearchChange}
-              placeholder="Cari Gambar..."
-              className="w-full max-w-lg px-4 py-2 border-0 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <button
-              type="submit"
-              className="absolute right-4 bg-transparent text-blue-500"
+      <section className="h-screen bg-gradient-to-br from-blue-100 to-blue-300 dark:from-dark-blue dark:to-dark-blue flex items-center">
+        <div className="container mx-auto px-8 lg:px-32">
+          <div className="max-w-lg">
+            <h1 className="text-5xl font-bold mb-4">Galeri HMTI</h1>
+            <p className="text-3xl mb-8">
+              Simpan Sejuta Cerita, Biarkan <br /> Kenangan Berbicara
+            </p>
+            <form
+              className="relative flex items-center mb-8"
+              onSubmit={handleSearchSubmit}
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={handleSearchChange}
+                placeholder="Cari Gambar..."
+                className="w-full px-4 py-2 border-0 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <button
+                type="submit"
+                className="absolute right-4 bg-transparent text-blue-500"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1116.65 7.65a7.5 7.5 0 010 10.7z"
-                ></path>
-              </svg>
-            </button>
-          </form>
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1116.65 7.65a7.5 7.5 0 010 10.7z"
+                  ></path>
+                </svg>
+              </button>
+            </form>
+          </div>
         </div>
       </section>
 
