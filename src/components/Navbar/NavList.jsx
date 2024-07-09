@@ -10,7 +10,7 @@ const NavList = () => {
         <Link to={"/profile/biografi"}>Profil</Link>
       </li>
       <li>
-        <Link to={"/comingsoon"}>Event</Link>
+        <Link to={""}>Event</Link>
       </li>
       <li>
         <Link to={"/berita"}>Berita</Link>
@@ -19,7 +19,7 @@ const NavList = () => {
         <Link to={"/galery"}>Galeri</Link>
       </li>
       <li>
-        <Link to={"/comingsoon"}>Projects</Link>
+        <Link to={"/projects"}>Projects</Link>
       </li>
       <li>
         <Link to={"/contact"}>Kontak Kami</Link>
