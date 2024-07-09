@@ -9,19 +9,20 @@ const Struktur = () => {
   return (
     <GuestLayout>
       <TopLink />
-      <div className="flex flex-col justify-center items-center py-5 text-dark-blue dark:text-white text-lg font-semibold">
-        <h1>Struktur Pengurus Organisasi</h1>
-        <h1>Himpunan Mahasiswa Informatika</h1>
-        <h1>Periode 2024/2025</h1>
-      </div>
-
-      <div className="flex min-h-[80vh] py-5 overflow-x-hidden md:overflow-x-auto">
-        <SidebarPengurus />
-
-        <div className="flex flex-col items-center w-full">
+      <div className="flex min-h-screen overflow-hidden">
+        {/* Sidebar */}
+        <div className="fixed lg:w-1/4 h-full p-4 overflow-y-auto">
+          <SidebarPengurus />
+        </div>
+        {/* Main Content */}
+        <div className="lg:ml-[25%] lg:w-3/4 flex flex-col items-center py-5 overflow-hidden">
+          <div className="flex flex-col justify-center items-center py-5 text-dark-blue dark:text-white text-lg font-semibold">
+            <h1>Struktur Pengurus Organisasi</h1>
+            <h1>Himpunan Mahasiswa Informatika</h1>
+            <h1>Periode 2024/2025</h1>
+          </div>
           {/* KETUM, SEKUM, BENDUM */}
           <div className="flex justify-center gap-2 md:gap-14">
-            {/* BENDAHARA UMUM */}
             <CardPengurus
               id="bendahara-umum"
               title="Bendahara Umum"
@@ -29,16 +30,12 @@ const Struktur = () => {
               image="https://api.dicebear.com/8.x/notionists/svg?seed=Gizmo"
               className="mt-60"
             />
-
-            {/* KETUA UMUM */}
             <CardPengurus
               id="ketua-umum"
               title="Ketua Umum"
               nama="M. Fikri Ramadhani"
               image="https://api.dicebear.com/8.x/notionists/svg?seed=Abby"
             />
-
-            {/* SEKERTARIS UMUM */}
             <CardPengurus
               id="sekertaris-umum"
               title="Sekertaris Umum"
@@ -53,7 +50,6 @@ const Struktur = () => {
           >
             BIDANG-BIDANG
           </h1>
-
           {/* PENGGERAK APARATUR ORGANISASI */}
           <HeaderStruktur id="pao" title="PENGERAK APARATUR ORGANISASI" />
           <BidangPengurus>
@@ -69,7 +65,6 @@ const Struktur = () => {
               className="mt-32"
             />
           </BidangPengurus>
-
           {/* HUMAS */}
           <HeaderStruktur id="humas" title="HUBUNGAN MASYARAKAT" />
           <BidangPengurus>
@@ -85,7 +80,6 @@ const Struktur = () => {
               className="mt-32"
             />
           </BidangPengurus>
-
           {/* MINAT BAKAT */}
           <HeaderStruktur id="minat-bakat" title="MINAT DAN BAKAT" />
           <BidangPengurus>
@@ -101,7 +95,6 @@ const Struktur = () => {
               className="mt-32"
             />
           </BidangPengurus>
-
           {/* KEUANGAN */}
           <HeaderStruktur id="keuangan" title="KEUANGAN" />
           <BidangPengurus>
@@ -117,7 +110,6 @@ const Struktur = () => {
               className="mt-32"
             />
           </BidangPengurus>
-
           {/* KEAGAMAAN */}
           <HeaderStruktur id="keagamaan" title="KEAGAMAAN" />
           <BidangPengurus>
@@ -133,7 +125,6 @@ const Struktur = () => {
               className="mt-32"
             />
           </BidangPengurus>
-          
           {/* PEMBERDAYAAN WANITA */}
           <HeaderStruktur
             id="pemberdayaan-wanita"
@@ -152,7 +143,6 @@ const Struktur = () => {
               className="mt-32"
             />
           </BidangPengurus>
-
           {/* P3RT */}
           <HeaderStruktur id="p3rt" title="P3RT" />
           <BidangPengurus>
@@ -168,7 +158,6 @@ const Struktur = () => {
               className="mt-32"
             />
           </BidangPengurus>
-
           {/* KESEKRETARIATAN */}
           <HeaderStruktur id="kesekretariatan" title="KESEKRETARIATAN" />
           <BidangPengurus>
@@ -184,7 +173,6 @@ const Struktur = () => {
               className="mt-32"
             />
           </BidangPengurus>
-
           {/* GAM */}
           <HeaderStruktur id="gam" title="GERAKAN AKSI MAHASISWA" />
           <BidangPengurus>
