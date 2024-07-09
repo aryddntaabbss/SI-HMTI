@@ -25,10 +25,10 @@ const ComingSoon = () => {
             className="text-5xl font-bold mb-2 text-blue-700"
             data-aos="fade-up"
           >
-            Cooking Our Website.
+            Comming Soon
           </h1>
           <p className="text-xl mb-4" data-aos="fade-up">
-            We are going to launch our Pages Very Soon. Stay Tune.
+            We are going to launch this Pages Very Soon. Stay Tune.
           </p>
         </div>
       </div>
