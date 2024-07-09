@@ -16,7 +16,7 @@ const VisiMisi = () => {
   return (
     <GuestLayout>
       <TopLink />
-      <div className="container mx-auto py-10 px-4 relative">
+      <div className="container mx-auto py-10 px-4 relative overflow-hidden">
         <div className="mb-10 relative">
           <HeaderStruktur id="visi" title="VISI" />
           <p className="text-2xl lg:px-96 text-gray-700 dark:text-white text-center">

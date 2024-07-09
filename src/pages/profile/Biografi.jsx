@@ -14,7 +14,7 @@ const Biografi = () => {
   return (
     <GuestLayout>
       <TopLink />
-      <div className="container mx-auto px-16">
+      <div className="container mx-auto px-16 overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-8">
           <div className="flex items-center justify-center">
             <div data-aos="fade-right">
