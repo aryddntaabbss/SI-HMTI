@@ -2,9 +2,25 @@ import plugin from "tailwindcss/plugin";
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: "class",
-  content: ["./src/**/*.{js,jsx,ts,tsx}","./public/index.html"],
+  content: [ "./src/**/*.{js,jsx,ts,tsx}", "./public/index.html" ],
   theme: {
     extend: {
+      screens: {
+        'sm': '640px',
+        // => @media (min-width: 640px) { ... }
+
+        'md': '768px',
+        // => @media (min-width: 768px) { ... }
+
+        'lg': '1024px',
+        // => @media (min-width: 1024px) { ... }
+
+        'xl': '1280px',
+        // => @media (min-width: 1280px) { ... }
+
+        '2xl': '1536px',
+        // => @media (min-width: 1536px) { ... }
+      },
       colors: {
         "good-blue": "#126BF1",
         "dark-blue": "#162741",
@@ -28,15 +44,16 @@ module.exports = {
     },
   },
   plugins: [
-    plugin(function ({ matchUtilities, theme }) {
+    plugin( function ( { matchUtilities, theme } )
+    {
       matchUtilities(
         {
-          "text-shadow": (value) => ({
+          "text-shadow": ( value ) => ( {
             textShadow: value,
-          }),
+          } ),
         },
-        { values: theme("textShadow") }
+        { values: theme( "textShadow" ) }
       );
-    }),
+    } ),
   ],
 };

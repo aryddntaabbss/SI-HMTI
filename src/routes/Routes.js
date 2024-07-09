@@ -9,6 +9,7 @@ import ResetPassword from "../pages/auth/ResetPassword";
 import { Biografi, VisiMisi, Struktur } from "../pages/profile/Index.jsx";
 import Galery from "../pages/galery/Galery";
 import Contact from "../pages/contact/Contact";
+import ComingSoon from "../pages/ComingSoon.jsx";
 
 const AppRoutes = () =>
 {
@@ -33,6 +34,7 @@ const AppRoutes = () =>
         <Route path="/galery" element={ <Galery /> } />
         <Route path="/contact" element={ <Contact /> } />
 
+        <Route path="/comingsoon" element={ <ComingSoon /> } />
 
 
       </Routes>
