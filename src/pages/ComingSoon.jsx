@@ -12,7 +12,7 @@ const ComingSoon = () => {
 
   return (
     <GuestLayout>
-      <div className="h-screen flex items-center justify-center relative">
+      <div className="h-screen flex items-center justify-center relative px-6">
         <div className="text-center" data-aos="fade-in">
           <div className="mb-4" data-aos="zoom-in">
             <img
