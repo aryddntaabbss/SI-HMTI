@@ -1,20 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import GuestLayout from "../../layouts/GuestLayout";
 import { Link } from "react-router-dom";
 import CardSemuaBerita from "../../components/CardSemuaBerita";
 import { CiSearch } from "react-icons/ci";
 import CardWithPic from "../../components/CardBeritaPilihan/CardWithPic";
 import CardWithoutPic from "../../components/CardBeritaPilihan/CardWithoutPic";
+import AOS from "aos";
 
 const Berita = () => {
   const [searchInput, setSearchInput] = useState("");
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Durasi animasi dalam milidetik
+    });
+  }, []);
 
   const handleSearch = () => {
     alert(searchInput);
   };
 
   const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       handleSearch();
     }
   };
@@ -22,11 +29,11 @@ const Berita = () => {
   return (
     <>
       <GuestLayout>
-        <div className="flex flex-col-reverse w-full px-3 py-14 lg:p-16 lg:flex-row">
+        <div className="flex flex-col-reverse w-full px-3 py-14 lg:p-16 lg:flex-row overflow-hidden">
           <div className="w-full lg:w-2/3 px-3">
             <div className="relative w-full">
               <div className="overflow-x-auto whitespace-nowrap px-4 border-b-2 border-t-2 border-gray-400 py-3 scrollbar-hide">
-                <nav className="flex gap-10">
+                <nav data-aos="fade-right" className="flex gap-10">
                   <Link to={"#"} className="text-md pl-4 font-bold lg:text-xl">
                     Untuk Anda
                   </Link>
@@ -46,7 +53,7 @@ const Berita = () => {
             </div>
 
             {/* card semua berita */}
-            <div className="flex flex-col w-full gap-7 pt-9">
+            <div data-aos="fade-up" className="flex flex-col w-full gap-7 pt-9">
               <CardSemuaBerita />
               <CardSemuaBerita />
               <CardSemuaBerita />
@@ -60,7 +67,7 @@ const Berita = () => {
           </div>
           <div className="w-full lg:w-2/6 px-3 mb-8 lg:mb-0">
             {/* search */}
-            <div className="w-full relative pt-1">
+            <div data-aos="fade-left" className="w-full relative pt-1">
               <input
                 placeholder="Cari berita..."
                 className="w-full rounded-full pl-4 outline-good-blue dark:outline-white dark:bg-bad-blue pr-14 py-3 shadow-md"
@@ -75,12 +82,15 @@ const Berita = () => {
             </div>
             {/* search */}
 
-            <h1 className="text-xl font-bold text-center w-full py-8">
+            <h1
+              data-aos="fade-up"
+              className="text-xl font-bold text-center w-full py-8"
+            >
               Berita Pilihan
             </h1>
 
             {/* card berita terpilih */}
-            <div className="flex flex-col w-full gap-6">
+            <div data-aos="fade-up" className="flex flex-col w-full gap-6">
               <CardWithPic />
               <CardWithoutPic />
               <CardWithoutPic />

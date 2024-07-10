@@ -78,53 +78,82 @@ const Beranda = () => {
           data-aos="fade-up"
           className="w-full text-center text-xl font-bold lg:text-2xl italic pt-4 pb-8"
         >
-          Semangat Ber-inovasi
+          Semangat Berinovasi
         </h1>
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8">
           <Link
+            to={"/event"}
             data-aos="fade-up"
-            className="relative w-full h-96 rounded-lg overflow-hidden hover:scale-105 ease-in-out transition-all shadow-lg"
+            className="relative w-full rounded-lg overflow-hidden hover:scale-105 ease-in-out transition-all shadow-lg"
+            style={{ height: "550px" }}
           >
             <img
               src="/assets/img/horizontal1.jpg"
               alt="Gambar Event"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark-blue to-transparent bg-opacity-50 flex items-center justify-center"></div>
-            <div className="absolute inset-0 flex items-end justify-start p-4">
-              <h3 className="text-light-blue text-3xl font-bold">
-                MARCH EVENT
-              </h3>
+            <div className="absolute inset-0 bg-gradient-to-r from-dark-blue to-transparent bg-opacity-50 flex items-center justify-end p-8">
+              <div className="font-bold text-center flex flex-col rotate-90">
+                <h1
+                  className="text-8xl italic text-transparent text-border relative z-0"
+                  style={{ whiteSpace: "nowrap" }}
+                >
+                  MARCH EVENT
+                </h1>
+                <h1 className="font-bold text-6xl text-white pb-72 lg:pb-60">
+                  MARCH EVENT
+                </h1>
+              </div>
             </div>
           </Link>
           <Link
+            to={"/event"}
             data-aos="fade-up"
-            className="relative w-full h-96 rounded-lg overflow-hidden hover:scale-105 ease-in-out transition-all shadow-lg"
+            className="relative w-full rounded-lg overflow-hidden hover:scale-105 ease-in-out transition-all shadow-lg"
+            style={{ height: "550px" }}
           >
             <img
-              src="/assets/img/horizontal1.jpg"
+              src="/assets/img/horizontal2.jpg"
               alt="Gambar Event"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark-blue to-transparent bg-opacity-50 flex items-center justify-center"></div>
-            <div className="absolute inset-0 flex items-end justify-start p-4">
-              <h3 className="text-light-blue text-3xl font-bold">
-                DIES NATALIS
-              </h3>
+            <div className="absolute inset-0 bg-gradient-to-r from-dark-blue to-transparent bg-opacity-50 flex items-center justify-end p-8">
+              <div className="font-bold text-center flex flex-col rotate-90">
+                <h1
+                  className="text-8xl italic text-transparent text-border relative z-0"
+                  style={{ whiteSpace: "nowrap" }}
+                >
+                  DIES NATALIS
+                </h1>
+                <h1 className="font-bold text-6xl text-white pb-60 lg:pb-52">
+                  DIES NATALIS
+                </h1>
+              </div>
             </div>
           </Link>
           <Link
+            to={"/event"}
             data-aos="fade-up"
-            className="relative w-full h-96 rounded-lg overflow-hidden hover:scale-105 ease-in-out transition-all shadow-lg"
+            className="relative w-full rounded-lg overflow-hidden hover:scale-105 ease-in-out transition-all shadow-lg"
+            style={{ height: "550px" }}
           >
             <img
-              src="/assets/img/horizontal1.jpg"
+              src="/assets/img/horizontal3.jpg"
               alt="Gambar Event"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-dark-blue to-transparent bg-opacity-50 flex items-center justify-center"></div>
-            <div className="absolute inset-0 flex items-end justify-start p-4">
-              <h3 className="text-light-blue text-3xl font-bold">IT-EXPO</h3>
+            <div className="absolute inset-0 bg-gradient-to-r from-dark-blue to-transparent bg-opacity-50 flex items-center justify-end p-8">
+              <div className="font-bold text-center flex flex-col rotate-90">
+                <h1
+                  className="text-8xl italic text-transparent text-border relative z-0"
+                  style={{ whiteSpace: "nowrap" }}
+                >
+                  IT-EXPO
+                </h1>
+                <h1 className="font-bold text-6xl text-white pb-0 lg:pb-0">
+                  IT-EXPO
+                </h1>
+              </div>
             </div>
           </Link>
         </div>

@@ -2,9 +2,10 @@ import React from "react";
 import LogoHmti from "../../assets/img/hmti-logo.png";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear()
   return (
     <>
-      <footer className="bg-blue-600 ">
+      <footer className="bg-blue-600 pt-5 lg:pt-0">
         <div className="mx-auto w-full max-w-screen-xl px-10 pb-4 lg:pt-10">
           <div className="md:flex md:justify-between">
             <div className="mb-6 md:mb-0">
@@ -181,7 +182,7 @@ const Footer = () => {
             <span className="text-sm text-white sm:text-center ">
               Copyright ©{" "}
               <a href="/" className="hover:underline">
-                2024 by HMTI UNKHAIR | Masa Periodisasi 2024-2025
+                {currentYear} by HMTI UNKHAIR | Masa Periodisasi 2024-2025
               </a>
             </span>
           </div>
