@@ -58,7 +58,7 @@ const Beranda = () => {
       >
         <path
           className="fill-light-blue dark:fill-bad-blue"
-          fill-opacity="1"
+          fillOpacity="1"
           d="M0,192L60,170.7C120,149,240,107,360,122.7C480,139,600,213,720,245.3C840,277,960,267,1080,229.3C1200,192,1320,128,1380,96L1440,64L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
         ></path>
       </svg>
@@ -78,6 +78,7 @@ const Beranda = () => {
         >
           {Array.from({ length: 6 }).map((_, index) => (
             <NewsCard
+              key={index}
               id={index}
               author={"Asep Surasep"}
               date={"12, Juni 2024"}
@@ -116,13 +117,14 @@ const Beranda = () => {
           <div className="w-full flex flex-row gap-8">
             {Array.from({ length: 6 }).map((_, index) => (
               <NewsCardSmartphone
-              id={index}
-              author={"Asep Surasep"}
-              date={"12, Juni 2024"}
-              image={"/assets/img/400x400.png"}
-              title={"Ini berita Viral terbaru yang memancing keributan"}
-              kategori={"Kategori"}
-            />
+                key={index}
+                id={index}
+                author={"Asep Surasep"}
+                date={"12, Juni 2024"}
+                image={"/assets/img/400x400.png"}
+                title={"Ini berita Viral terbaru yang memancing keributan"}
+                kategori={"Kategori"}
+              />
             ))}
           </div>
         </div>
@@ -139,12 +141,16 @@ const Beranda = () => {
 
       {/* galery */}
       <div className="w-full bg-light-blue dark:bg-bad-blue pt-16 px-6 lg:px-16 overflow-hidden">
-      <SectionTitle title={"HMTI GALLERY"} />
+        <SectionTitle title={"HMTI GALLERY"} />
         <section data-aos="fade-up" className="py-8">
           <div className="container mx-auto px-0">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {Array.from({ length: 6 }).map((_, index) => (
-                <ImageCard id={index} image={`${process.env.PUBLIC_URL}/assets/img/500x400.png`}/>
+              {Array.from({ length: 6 }).map((_, index) => (
+                <ImageCard
+                  key={index}
+                  id={index}
+                  image={`${process.env.PUBLIC_URL}/assets/img/500x400.png`}
+                />
               ))}
             </div>
           </div>
@@ -159,7 +165,7 @@ const Beranda = () => {
       >
         <path
           className="fill-blue-600"
-          fill-opacity="1"
+          fillOpacity="1"
           d="M0,160L48,181.3C96,203,192,245,288,224C384,203,480,117,576,74.7C672,32,768,32,864,74.7C960,117,1056,203,1152,202.7C1248,203,1344,117,1392,74.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
         ></path>
       </svg>

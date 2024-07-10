@@ -22,7 +22,7 @@ const AppRoutes = () => {
 				<Route path="/otp-verification" element={<OtpVerification />} />
 				<Route path="/reset-password" element={<ResetPassword />} />
 				<Route path="/" element={<Beranda />} />
-				<Route path="/berita" element={<Berita />} />
+				<Route path="/berita/kategori/:kategoriBerita" element={<Berita />} />
 				<Route path="/berita/:slug" element={<DetailBerita />} />
 
 				<Route path="/profile/biografi" element={<Biografi />} />

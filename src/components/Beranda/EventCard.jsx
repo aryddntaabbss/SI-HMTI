@@ -16,7 +16,7 @@ const EventCard = ({link, image, title}) => {
       <div className="absolute inset-0 bg-gradient-to-r from-dark-blue to-transparent bg-opacity-50 flex items-center justify-center p-8">
         <div className="font-bold text-center flex flex-col rotate-90 pt-40">
           <h1
-            className="text-8xl italic text-transparent text-border relative z-0"
+            className="text-8xl italic text-transparent text-border-2 relative z-0"
             style={{ whiteSpace: "nowrap" }}
           >
             {title}

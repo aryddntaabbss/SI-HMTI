@@ -13,6 +13,10 @@
   -webkit-text-stroke: 1px #8FB6EF; /* Border color and width */
 }
 
+.text-border-2 {
+  -webkit-text-stroke: 1.5px #E8EEF8; /* Border color and width */
+}
+
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }

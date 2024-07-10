@@ -13,7 +13,7 @@ const NavList = () => {
         <Link to={""}>Event</Link>
       </li>
       <li>
-        <Link to={"/berita"}>Berita</Link>
+        <Link to={"/berita/kategori/semua-berita"}>Berita</Link>
       </li>
       <li>
         <Link to={"/galery"}>Galeri</Link>
