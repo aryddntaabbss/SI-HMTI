@@ -1,11 +1,37 @@
+import { useEffect, useState } from "react";
 import BidangPengurus from "../../components/BidangPengurus";
 import CardPengurus from "../../components/CardPengurus";
 import HeaderStruktur from "../../components/HeaderStruktur";
 import SidebarPengurus from "../../components/SidebarPengurus";
 import GuestLayout from "../../layouts/GuestLayout";
 import TopLink from "./../../components/TopLink";
+import axios from "axios";
+import { BASE_API_URL } from "../../constants/apiURL";
+import { stringDash, stringTanpaKurung } from "../../libs/string-libs";
 
 const Struktur = () => {
+
+  const [pengurus, setPengurus] = useState()
+
+  const fetchPengurus = async () => {
+    try {
+      const response = await axios.get(
+        `${BASE_API_URL}/api/struktur`
+      );
+      setPengurus(response.data);
+    } catch (error) {
+      // console.error("Error:", error);
+      // setError(true);
+    }
+    // setLoading(false);
+  }
+
+  useEffect(() => {
+    fetchPengurus()
+  }, [])
+
+  // console.log()
+
   return (
     <GuestLayout>
       <TopLink />
@@ -26,21 +52,21 @@ const Struktur = () => {
             <CardPengurus
               id="bendahara-umum"
               title="Bendahara Umum"
-              nama="Ratih Sagita Safril"
-              image="https://api.dicebear.com/8.x/notionists/svg?seed=Gizmo"
-              className="mt-60"
+              nama={pengurus?.bendum.nama}
+              image={`${BASE_API_URL}/storage/${pengurus?.bendum.image}`}
+              className="mt-60 md:mt-52"
             />
             <CardPengurus
               id="ketua-umum"
               title="Ketua Umum"
-              nama="M. Fikri Ramadhani"
-              image="https://api.dicebear.com/8.x/notionists/svg?seed=Abby"
+              nama={pengurus?.ketum.nama}
+              image={`${BASE_API_URL}/storage/${pengurus?.ketum.image}`}
             />
             <CardPengurus
               id="sekertaris-umum"
               title="Sekertaris Umum"
-              nama="Alriskhandy M. Idris"
-              image="https://api.dicebear.com/8.x/notionists/svg?seed=Angel"
+              nama={pengurus?.sekum.nama}
+              image={`${BASE_API_URL}/storage/${pengurus?.sekum.image}`}
               className="mt-60 md:mt-32"
             />
           </div>
@@ -50,144 +76,31 @@ const Struktur = () => {
           >
             BIDANG-BIDANG
           </h1>
-          {/* PENGGERAK APARATUR ORGANISASI */}
-          <HeaderStruktur id="pao" title="PENGERAK APARATUR ORGANISASI" />
-          <BidangPengurus>
-            <CardPengurus
-              title="Ketua Bidang"
-              nama="Rizki Hi. Ibrahim"
-              image="https://api.dicebear.com/8.x/notionists/svg?seed=Chester"
-            />
-            <CardPengurus
-              title="Sekertaris Bidang"
-              nama="Julfikar Ismail"
-              image="https://api.dicebear.com/8.x/notionists/svg?seed=Charlie"
-              className="mt-32"
-            />
-          </BidangPengurus>
-          {/* HUMAS */}
-          <HeaderStruktur id="humas" title="HUBUNGAN MASYARAKAT" />
-          <BidangPengurus>
-            <CardPengurus
-              title="Ketua Bidang"
-              nama="Muhammad Akmal Basahona"
-              image="https://api.dicebear.com/8.x/notionists/svg?seed=Chester"
-            />
-            <CardPengurus
-              title="Sekertaris Bidang"
-              nama="Azharirama Hamid"
-              image="https://api.dicebear.com/8.x/notionists/svg?seed=Charlie"
-              className="mt-32"
-            />
-          </BidangPengurus>
-          {/* MINAT BAKAT */}
-          <HeaderStruktur id="minat-bakat" title="MINAT DAN BAKAT" />
-          <BidangPengurus>
-            <CardPengurus
-              title="Ketua Bidang"
-              nama="Agil Aryaddinata Abbas"
-              image="https://api.dicebear.com/8.x/notionists/svg?seed=Chester"
-            />
-            <CardPengurus
-              title="Sekertaris Bidang"
-              nama="M. Mulkan A, Mufti"
-              image="https://api.dicebear.com/8.x/notionists/svg?seed=Charlie"
-              className="mt-32"
-            />
-          </BidangPengurus>
-          {/* KEUANGAN */}
-          <HeaderStruktur id="keuangan" title="KEUANGAN" />
-          <BidangPengurus>
-            <CardPengurus
-              title="Ketua Bidang"
-              nama="Dela Laheru"
-              image="https://api.dicebear.com/8.x/notionists/svg?seed=Gizmo"
-            />
-            <CardPengurus
-              title="Sekertaris Bidang"
-              nama="Destitha Almaqvira Bachmid"
-              image="https://api.dicebear.com/8.x/notionists/svg?seed=Coco"
-              className="mt-32"
-            />
-          </BidangPengurus>
-          {/* KEAGAMAAN */}
-          <HeaderStruktur id="keagamaan" title="KEAGAMAAN" />
-          <BidangPengurus>
-            <CardPengurus
-              title="Ketua Bidang"
-              nama="Zulfikri Ahmad"
-              image="https://api.dicebear.com/8.x/notionists/svg?seed=Felix"
-            />
-            <CardPengurus
-              title="Sekertaris Bidang"
-              nama="Jerryantho Pareda"
-              image="https://api.dicebear.com/8.x/notionists/svg?seed=Charlie"
-              className="mt-32"
-            />
-          </BidangPengurus>
-          {/* PEMBERDAYAAN WANITA */}
-          <HeaderStruktur
-            id="pemberdayaan-wanita"
-            title="PEMBERDAYAAN WANITA"
-          />
-          <BidangPengurus>
-            <CardPengurus
-              title="Ketua Bidang"
-              nama="Anggraini Andari"
-              image="https://api.dicebear.com/8.x/notionists/svg?seed=Gizmo"
-            />
-            <CardPengurus
-              title="Sekertaris Bidang"
-              nama="Minarsih Nurdin"
-              image="https://api.dicebear.com/8.x/notionists/svg?seed=Coco"
-              className="mt-32"
-            />
-          </BidangPengurus>
-          {/* P3RT */}
-          <HeaderStruktur id="p3rt" title="P3RT" />
-          <BidangPengurus>
-            <CardPengurus
-              title="Ketua Bidang"
-              nama="Wahyu Jihad Umaternate"
-              image="https://api.dicebear.com/8.x/notionists/svg?seed=Chester"
-            />
-            <CardPengurus
-              title="Sekertaris Bidang"
-              nama="Rizki M Nur"
-              image="https://api.dicebear.com/8.x/notionists/svg?seed=Charlie"
-              className="mt-32"
-            />
-          </BidangPengurus>
-          {/* KESEKRETARIATAN */}
-          <HeaderStruktur id="kesekretariatan" title="KESEKRETARIATAN" />
-          <BidangPengurus>
-            <CardPengurus
-              title="Ketua Bidang"
-              nama="Aulia Abdulkadir"
-              image="https://api.dicebear.com/8.x/notionists/svg?seed=Chester"
-            />
-            <CardPengurus
-              title="Sekertaris Bidang"
-              nama="Akbbar Alif Ramadhan"
-              image="https://api.dicebear.com/8.x/notionists/svg?seed=Charlie"
-              className="mt-32"
-            />
-          </BidangPengurus>
-          {/* GAM */}
-          <HeaderStruktur id="gam" title="GERAKAN AKSI MAHASISWA" />
-          <BidangPengurus>
-            <CardPengurus
-              title="Ketua Bidang"
-              nama="Agam La Mudia"
-              image="https://api.dicebear.com/8.x/notionists/svg?seed=Chester"
-            />
-            <CardPengurus
-              title="Sekertaris Bidang"
-              nama="Oktavianto Leibo"
-              image="https://api.dicebear.com/8.x/notionists/svg?seed=Charlie"
-              className="mt-32"
-            />
-          </BidangPengurus>
+
+          {pengurus?.bidang?.map((bidang, index) => {
+            return (
+              <div key={index}>
+                <HeaderStruktur id={stringDash(stringTanpaKurung(bidang.nama_bidang).toLowerCase())} title={stringTanpaKurung(bidang.nama_bidang).toUpperCase()} />
+                <BidangPengurus>
+                  <CardPengurus
+                    title="Ketua Bidang"
+                    nama={bidang.kabid?.nama}
+                    image={`${BASE_API_URL}/storage/${bidang.kabid?.image}`}
+                  />
+                  <CardPengurus
+                    title="Sekertaris Bidang"
+                    nama={bidang.sekbid?.nama}
+                    image={`${BASE_API_URL}/storage/${bidang.sekbid?.image}`}
+                    className="mt-32"
+                  />
+                </BidangPengurus>
+              </div>
+            )
+          })
+
+          }
+
+          
         </div>
       </div>
     </GuestLayout>

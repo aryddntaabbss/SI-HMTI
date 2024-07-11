@@ -1,6 +1,27 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { BASE_API_URL } from "../constants/apiURL";
+import { stringDash, stringTanpaKurung } from "../libs/string-libs";
 
 const SidebarPengurus = () => {
+  const [pengurus, setPengurus] = useState()
+
+  const fetchPengurus = async () => {
+    try {
+      const response = await axios.get(
+        `${BASE_API_URL}/api/struktur`
+      );
+      setPengurus(response.data);
+    } catch (error) {
+      // console.error("Error:", error);
+      // setError(true);
+    }
+    // setLoading(false);
+  }
+
+  useEffect(() => {
+    fetchPengurus()
+  }, [])
   return (
     <aside className="hidden min-w-[200px] max-w-[225px] ms-16 md:flex flex-col gap-3">
       <a href="#ketua-umum" className="text-dark-blue dark:text-white">
@@ -22,39 +43,14 @@ const SidebarPengurus = () => {
         Bidang-Bidang
       </a>
       <div className="ms-5 flex flex-col gap-3">
-        <a href="#pao" className="text-dark-blue/50 dark:text-white/50 hover:text-dark-blue dark:hover:text-white transition-all">
-          Penggerak Aparatur Organisasi
-        </a>
-        <a href="#humas" className="text-dark-blue/50 dark:text-white/50 hover:text-dark-blue dark:hover:text-white transition-all">
-          Hubungan Masyarakat
-        </a>
-        <a href="#minat-bakat" className="text-dark-blue/50 dark:text-white/50 hover:text-dark-blue dark:hover:text-white transition-all">
-          Minat dan Bakat
-        </a>
-        <a href="#keuangan" className="text-dark-blue/50 dark:text-white/50 hover:text-dark-blue dark:hover:text-white transition-all">
-          Keuangan
-        </a>
-        <a href="#keagamaan" className="text-dark-blue/50 dark:text-white/50 hover:text-dark-blue dark:hover:text-white transition-all">
-          Keagamaan
-        </a>
-        <a
-          href="#pemberdayaan-wanita"
-          className="text-dark-blue/50 dark:text-white/50 hover:text-dark-blue dark:hover:text-white transition-all"
-        >
-          Pemberdayaan Wanita
-        </a>
-        <a href="#p3rt" className="text-dark-blue/50 dark:text-white/50 hover:text-dark-blue dark:hover:text-white transition-all">
-          Penelitian, Pengembangan, dan Pemberdayaan Riset Teknologi
-        </a>
-        <a
-          href="#kesekretariatan"
-          className="text-dark-blue/50 dark:text-white/50 hover:text-dark-blue dark:hover:text-white transition-all"
-        >
-          Kesekretariatan
-        </a>
-        <a href="#gam" className="text-dark-blue/50 dark:text-white/50 hover:text-dark-blue dark:hover:text-white transition-all">
-          Gerakan Aksi Mahasiswa
-        </a>
+        {pengurus?.bidang?.map((bidang, index) => (
+          <a key={index}
+            href={`#${stringDash(stringTanpaKurung(bidang.nama_bidang).toLowerCase())}`}
+            className="text-dark-blue/50 dark:text-white/50 hover:text-dark-blue dark:hover:text-white transition-all"
+          >
+            {stringTanpaKurung(bidang.nama_bidang)}
+          </a>
+        ))}
       </div>
     </aside>
   );
