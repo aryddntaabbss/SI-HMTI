@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { BASE_API_URL } from "../constants/apiURL";
+import { BASE_API_URL } from "../../constants/apiURL";
 
 const CardSemuaBerita = ({ slug, gambar, kategori, judul, penulis, tanggal }) => {
-  // Function to truncate the title to 6 words
+
   const truncateTitle = (title) => {
     const words = title.split(" ");
     return words.slice(0, 6).join(" ");
@@ -19,7 +19,7 @@ const CardSemuaBerita = ({ slug, gambar, kategori, judul, penulis, tanggal }) =>
       <div className="flex flex-col justify-center w-2/3 pl-4 lg:pl-6 gap-1 lg:gap-3">
         <p className="text-xs font-bold text-good-blue">{kategori}</p>
         <h1 className="text-sm lg:text-3xl font-bold">
-          {truncateTitle(judul)}...
+          {truncateTitle(judul)}
         </h1>
         <div className="flex flex-row gap-6">
           <p className="text-xs lg:text-xl">{penulis}</p>

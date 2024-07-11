@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Beranda from "../pages/beranda/Beranda";
 import Berita from "../pages/berita/Berita";
 import DetailBerita from "../pages/berita/DetailBerita";
@@ -10,6 +10,7 @@ import { Biografi, VisiMisi, Struktur } from "../pages/profile/Index.jsx";
 import Galery from "../pages/galery/Galery";
 import Contact from "../pages/contact/Contact";
 import Projects from "../pages/projects/Projects.jsx";
+import SearchBerita from "../pages/berita/SearchBerita.jsx";
 
 const AppRoutes = () => {
 	return (
@@ -22,9 +23,12 @@ const AppRoutes = () => {
 				<Route path="/otp-verification" element={<OtpVerification />} />
 				<Route path="/reset-password" element={<ResetPassword />} />
 				<Route path="/" element={<Beranda />} />
+				<Route path="/berita" element={<Navigate to="/berita/kategori/semua-berita" />} />
 				<Route path="/berita/kategori/:kategoriBerita" element={<Berita />} />
+				<Route path="/berita/cari/:slug" element={<SearchBerita />} />
 				<Route path="/berita/:slug" element={<DetailBerita />} />
 
+				<Route path="/profile" element={<Navigate to="/profile/biografi" />} />
 				<Route path="/profile/biografi" element={<Biografi />} />
 				<Route path="/profile/struktur" element={<Struktur />} />
 				<Route path="/profile/visi-misi" element={<VisiMisi />} />

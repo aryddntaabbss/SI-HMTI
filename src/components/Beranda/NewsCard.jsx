@@ -1,16 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const NewsCard = ({id, author, date, title, kategori, image}) => {
+const NewsCard = ({slug, author, date, title, kategori, image}) => {
+  const truncateTitle = (title) => {
+    const words = title.split(" ");
+    return words.slice(0, 6).join(" ");
+  };
   return (
     <Link
-      key={id}
-      to={"/berita/berita-1"}
+      to={`/berita/${slug}`}
       className="flex flex-col gap-3 w-full lg:hover:scale-105 transition-all"
     >
-      <div className="flex flex-row gap-6">
-        <p className="text-sm lg:text-xl">{author}</p>
-        <p className="text-sm lg:text-xl opacity-50">{date}</p>
+      <div className="flex flex-row gap-3">
+        <p className="text-start">{author}</p>
+        <p className="text-start opacity-50">{date.slice(0, 10)}</p>
       </div>
       <img
         className="object-cover w-full shadow-md h-64 rounded-xl"
@@ -18,7 +21,7 @@ const NewsCard = ({id, author, date, title, kategori, image}) => {
         alt="news image"
       />
       <h1 className="text-xl lg:text-2xl font-bold">
-        {title}...
+      {truncateTitle(title)}
       </h1>
       <div className="inline-block">
         <p className="inline-block p-2 rounded-md bg-good-blue text-white">
