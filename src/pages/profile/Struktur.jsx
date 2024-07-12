@@ -32,11 +32,9 @@ const Struktur = () => {
   return (
     <GuestLayout>
       <TopLink />
-      <div className="flex min-h-screen overflow-hidden">
+      <div className="flex overflow-hidden">
         {/* Sidebar */}
-        <div className="flex lg:w-1/4 h-full p-4">
-          <SidebarPengurus />
-        </div>
+        <SidebarPengurus />
         {/* Main Content */}
         <div className="lg:w-3/4 flex flex-col items-center py-5 ">
           <div className="flex flex-col justify-center items-center py-5 text-dark-blue dark:text-white text-lg font-semibold">
