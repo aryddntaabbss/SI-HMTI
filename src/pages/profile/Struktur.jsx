@@ -32,11 +32,11 @@ const Struktur = () => {
   return (
     <GuestLayout>
       <TopLink />
-      <div className="flex overflow-hidden">
+      <div className="flex flex-col md:flex-row overflow-hidden px-4">
         {/* Sidebar */}
         <SidebarPengurus />
         {/* Main Content */}
-        <div className="lg:w-3/4 flex flex-col items-center py-5 ">
+        <div className="flex flex-col items-center justify-center">
           <div className="flex flex-col justify-center items-center py-5 text-dark-blue dark:text-white text-lg font-semibold">
             <h1>Struktur Pengurus Organisasi</h1>
             <h1>Himpunan Mahasiswa Informatika</h1>
