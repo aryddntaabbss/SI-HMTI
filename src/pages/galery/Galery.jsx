@@ -1,4 +1,6 @@
 import React from "react";
+import SectionTitle from "../../components/Beranda/SectionTitle";
+import ImageCard from "../../components/Beranda/ImageCard";
 import GuestLayout from "../../layouts/GuestLayout";
 
 const Galery = () => {
@@ -16,7 +18,7 @@ const Galery = () => {
 
   return (
     <GuestLayout>
-      <section className="h-screen bg-gradient-to-br from-blue-100 to-blue-300 dark:from-gray-600 dark:to-gray-800 flex items-center justify-center">
+      <div className="w-full bg-light-blue dark:bg-bad-blue flex items-center justify-center lg:my-60">
         <div className="container mx-auto px-8 lg:px-32 text-center">
           <div className="max-w-lg mx-auto">
             <h1 className="text-5xl font-bold mb-4">Galeri HMTI</h1>
@@ -56,86 +58,92 @@ const Galery = () => {
             </form>
           </div>
         </div>
-      </section>
+      </div>
 
-      <section className="py-8">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap gap-4 justify-center">
-            {[
-              "potret1.jpg",
-              "potret2.jpg",
-              "potret3.jpg",
-              "potret4.jpg",
-              "potret2.jpg",
-              "potret3.jpg",
-            ].map((imageName, index) => (
-              <div key={index} className="flex flex-wrap gap-4 justify-center">
-                <img
-                  src={`${process.env.PUBLIC_URL}/assets/img/${imageName}`}
-                  alt={`Image ${index + 6}`}
-                  className="w-60 h-60 m-2 rounded-md shadow-md object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        className="bg-white dark:bg-dark-blue"
+      >
+        <path
+          className="fill-light-blue dark:fill-bad-blue"
+          fillOpacity="1"
+          d="M0,192L60,170.7C120,149,240,107,360,122.7C480,139,600,213,720,245.3C840,277,960,267,1080,229.3C1200,192,1320,128,1380,96L1440,64L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+        ></path>
+      </svg>
 
-      <section className="bg-white dark:bg-blue-950 py-8">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-6 text-center">
-            Cuplikan Koleksi Terkini
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {[
-              "horizontal1.jpg",
-              "landscape3.jpg",
-              "potret2.jpg",
-              "potret4.jpg",
-              "landscape2.jpg",
-              "horizontal4.jpg",
-              "landscape1.jpg",
-              "horizontal3.jpg",
-              "potret3.jpg",
-            ].map((imageName, index) => (
-              <div
-                key={index}
-                className="w-full h-48 md:h-64 overflow-hidden rounded-md shadow-md"
-              >
-                <img
-                  src={`${process.env.PUBLIC_URL}/assets/img/${imageName}`}
-                  alt={`Image ${index + 6}`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="my-10 py-8">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-6 text-center">
-            Jelajahi Kenangan-kenangan
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {["landscape3.jpg", "landscape2.jpg", "landscape1.jpg"].map(
-              (imageName, index) => (
-                <div
-                  key={index}
-                  className="w-full h-auto rounded-md shadow-md object-cover"
-                >
+      {/* <div className="py-8">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-wrap gap-4 justify-center">
+              {[
+                "potret1.jpg",
+                "potret2.jpg",
+                "potret3.jpg",
+                "potret4.jpg",
+                "potret2.jpg",
+                "potret3.jpg",
+              ].map((imageName, index) => (
+                <div key={index} className="flex flex-wrap gap-4 justify-center">
                   <img
                     src={`${process.env.PUBLIC_URL}/assets/img/${imageName}`}
                     alt={`Image ${index + 6}`}
-                    className="w-full h-auto rounded-md shadow-md object-cover"
+                    className="w-60 h-60 m-2 rounded-md shadow-md object-cover"
                   />
                 </div>
-              )
-            )}
+              ))}
+            </div>
+          </div>
+        </div> */}
+
+      <div className="bg-gradient-to-b dark:from-dark-blue dark:to-bad-blue from-white to-light-blue py-8">
+        <div className="w-full pt-16 px-6 lg:px-16 overflow-hidden">
+          <SectionTitle title={"CUPLIKAN KOLEKSI TERKINI"} />
+          <div data-aos="fade-up" className="py-8">
+            <div className="container mx-auto px-0">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {Array.from({ length: 6 }).map((_, index) => (
+                  <ImageCard
+                    key={index}
+                    id={index}
+                    image={`${process.env.PUBLIC_URL}/assets/img/500x400.png`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      <div className=" mt-10 py-8">
+        <div className="w-full pt-16 px-6 lg:px-16 overflow-hidden">
+          <SectionTitle title={"JELAJAHI KENANGAN"} />
+          <div data-aos="fade-up" className="py-8">
+            <div className="container mx-auto px-0">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {Array.from({ length: 6 }).map((_, index) => (
+                  <ImageCard
+                    key={index}
+                    id={index}
+                    image={`${process.env.PUBLIC_URL}/assets/img/500x400.png`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        className="bg-light-blue dark:bg-bad-blue"
+      >
+        <path
+          className="fill-blue-600"
+          fillOpacity="1"
+          d="M0,160L48,181.3C96,203,192,245,288,224C384,203,480,117,576,74.7C672,32,768,32,864,74.7C960,117,1056,203,1152,202.7C1248,203,1344,117,1392,74.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+        ></path>
+      </svg>
     </GuestLayout>
   );
 };
