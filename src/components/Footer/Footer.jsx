@@ -170,7 +170,7 @@ const Footer = () => {
 
             <div className="flex flex-col">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63831.27697850042!2d127.34113804461661!3d0.7734318691184432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x329cb5b2d06bf953%3A0xdd5d26a342da135!2sTeknik%20Informatika%20Universitas%20Khairun%20Kampus%20III%20UNKHAIR!5e0!3m2!1sid!2sid!4v1720795373434!5m2!1sid!2sid"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.34078287147673!2d127.37429299307693!3d0.7758591999455596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x329cb567605bb341%3A0xdbed093be686d07d!2sSekret%20HMTI%20Unkhair!5e0!3m2!1sid!2sid!4v1720797514072!5m2!1sid!2sid"
                 width="330"
                 height="150"
                 loading="lazy"

@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.b45027ce.css",
-    "main.js": "/static/js/main.e09434b7.js",
+    "main.css": "/static/css/main.76acd42e.css",
+    "main.js": "/static/js/main.3f9efd7d.js",
     "static/media/hmti-logo.png": "/static/media/hmti-logo.26d0bce49e9cdd195673.png",
     "index.html": "/index.html",
-    "main.b45027ce.css.map": "/static/css/main.b45027ce.css.map",
-    "main.e09434b7.js.map": "/static/js/main.e09434b7.js.map"
+    "main.76acd42e.css.map": "/static/css/main.76acd42e.css.map",
+    "main.3f9efd7d.js.map": "/static/js/main.3f9efd7d.js.map"
   },
   "entrypoints": [
-    "static/css/main.b45027ce.css",
-    "static/js/main.e09434b7.js"
+    "static/css/main.76acd42e.css",
+    "static/js/main.3f9efd7d.js"
   ]
 }
