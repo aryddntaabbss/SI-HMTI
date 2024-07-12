@@ -9,16 +9,16 @@ import BounceLoading from "../../utils/BounceLoading";
 
 const DetailBerita = () => {
   const { slug } = useParams();
-  const [news, setNews] = useState();
+  const [berita, setBerita] = useState();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  const fetchNews = async () => {
+  const fetchBerita = async () => {
     try {
       const response = await axios.get(
-        `${BASE_API_URL}/api/news/${slug}/detail`
+        `${BASE_API_URL}/api/berita/${slug}`
       );
-      setNews(await response.data);
+      setBerita(await response.data);
     } catch (error) {
       console.error("Error:", error);
       setError(true);
@@ -27,7 +27,7 @@ const DetailBerita = () => {
   };
 
   useEffect(() => {
-    fetchNews();
+    fetchBerita();
   }, []);
 
   return (
@@ -48,29 +48,29 @@ const DetailBerita = () => {
               >
                 <div className="absolute bottom-0 w-full flex flex-col lg:justify-center justify-end lg:gap-8 gap-5 h-1/2 lg:px-28 px-10 py-10 bg-gradient-to-t from-good-blue dark:from-dark-blue">
                   <span className="w-fit py-2 md:px-8 px-5 bg-good-blue font-medium lg:text-xl text-white rounded-lg">
-                    {news?.news_category.title}
+                    {berita?.kategori.judul_kategori}
                   </span>
                   <h1 className="lg:max-w-[90%] font-bold md:text-5xl text-2xl text-light-blue md:leading-[70px] leading-[40px] text-shadow shadow-black">
-                    {news?.title}
+                    {berita?.judul}
                   </h1>
                 </div>
               </div>
               <div className="lg:px-28 px-10 py-5 dark:bg-gradient-to-b dark:from-good-blue dark:to-dark-blue text-sm md:text-base ">
                 <div>
                   <p>
-                    {news &&
-                      `${dateFormat(news?.created_at)} - ${
-                        news?.views
+                    {berita &&
+                      `${dateFormat(berita?.created_at)} - ${
+                        berita?.dibaca
                       } kali dibaca`}
                   </p>
                   <p>
-                    <strong>by {news?.author_name}</strong>
+                    <strong>by {berita?.penulis}</strong>
                   </p>
                 </div>
                 <section className=" lg:max-w-[780px] mx-auto py-10 flex flex-col gap-10 ">
-                  <p className="text-justify">{news?.content}</p>
+                  <div dangerouslySetInnerHTML={{ __html: berita?.konten }}></div>
                   <div className="">
-                    <img src={`${BASE_API_URL}/${news?.image}`} alt=""
+                    <img src={`${BASE_API_URL}/storage/${berita?.image}`} alt="gambar-berita"
                     className="max-h-[450px] mx-auto" />
                     {/* <p className="text-center py-2">
                   Gambar Ini Hanya Sebuah Ilustrasi Semata

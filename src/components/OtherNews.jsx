@@ -8,7 +8,7 @@ const OtherNews = () => {
 
   const fecthNews = async () => {
     try {
-      const response = await axios.get(`${BASE_API_URL}/api/news`);
+      const response = await axios.get(`${BASE_API_URL}/api/semua-berita`);
       setNews(await response.data);
     } catch (error) {
       console.error("Error:", error);
@@ -21,15 +21,15 @@ const OtherNews = () => {
 
   return (
     <div className="max-w-[90%] mx-auto my-32 py-7 flex md:flex-row flex-col justify-between gap-10 border-t-[3px] border-b-[3px] border-dark-blue dark:border-light-blue">
-      {news?.data.map((n, i) => {
+      {news?.map((n, i) => {
         if (i < 3) {
           return (
             <a key={i} href={`/berita/${n.slug}`} className="group">
               <p className="text-sm lg:text-base">{`${dateFormat(
                 n?.created_at
-              )} | ${n.author_name} `}</p>
+              )} | ${n.penulis} `}</p>
               <h2 className="py-2 font-semibold md:text-lg group-hover:text-good-blue transition-all">
-                {n.title}
+                {n.judul}
               </h2>
             </a>
           );
