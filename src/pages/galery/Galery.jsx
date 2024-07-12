@@ -18,7 +18,7 @@ const Galery = () => {
 
   return (
     <GuestLayout>
-      <div className="w-full bg-light-blue dark:bg-bad-blue flex items-center justify-center lg:my-60">
+      <div className="w-full bg-light-blue dark:bg-bad-blue flex items-center justify-center lg:py-60">
         <div className="container mx-auto px-8 lg:px-32 text-center">
           <div className="max-w-lg mx-auto">
             <h1 className="text-5xl font-bold mb-4">Galeri HMTI</h1>
