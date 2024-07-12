@@ -3,20 +3,21 @@ import { CiSearch } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
 
 const SearchForm = () => {
-    const [searchInput, setSearchInput] = useState("");
-    const navigate = useNavigate()
+  const [searchInput, setSearchInput] = useState("");
+  const navigate = useNavigate();
 
-    const handleSearch = () => {
-        if (searchInput.trim()) {
-            navigate(`/berita/cari/${searchInput}`)
-        }
-      };
-    
-      const handleKeyPress = (event) => {
-        if (event.key === "Enter") {
-          handleSearch();
-        }
-      };
+  const handleSearch = () => {
+    if (searchInput.trim()) {
+      window.scrollTo(0, 0);
+      navigate(`/berita/cari/${searchInput}`);
+    }
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
 
   return (
     <div data-aos="fade-up" className="w-full relative pt-1">
