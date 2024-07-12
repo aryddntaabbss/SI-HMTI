@@ -51,7 +51,7 @@ const BeritaPilihan = () => {
               .map((_, index) => <CardWithPicSkeleton key={index} />)
           ) : beritaPilihan.length === 0 ? (
             <p className="w-full text-center font-bold text-xl">
-              Berita Pilihan Tidak Ditemukan
+              Berita Pilihan Tidak Ada
             </p>
           ) : (
             beritaPilihan.length > 0 && (

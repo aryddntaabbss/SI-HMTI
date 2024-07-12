@@ -104,7 +104,7 @@ const Berita = () => {
                   .map((_, index) => <CardSemuaBeritaSkeleton key={index} />)
               ) : berita.length === 0 ? (
                 <p className="w-full text-center font-bold text-xl">
-                  Berita Tidak Ditemukan
+                  Berita Tidak Ada
                 </p>
               ) : (
                 berita.map((news) => (

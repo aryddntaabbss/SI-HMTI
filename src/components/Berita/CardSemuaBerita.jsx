@@ -10,14 +10,14 @@ const CardSemuaBerita = ({ slug, gambar, kategori, judul, penulis, tanggal }) =>
   };
 
   return (
-    <Link to={`/berita/${slug}`} className="flex flex-row w-full h-28 lg:h-56 lg:hover:scale-105 transition-all">
+    <Link onClick={() => window.scrollTo(0, 0)} to={`/berita/${slug}`} className="flex flex-row w-full h-28 lg:h-56 lg:hover:scale-105 transition-all">
       <img
         className="w-2/6 h-full object-cover rounded-xl shadow-md"
-        src={`${BASE_API_URL}/${gambar}`}
+        src={`${BASE_API_URL}/storage/${gambar}`}
         alt=""
       />
       <div className="flex flex-col justify-center w-2/3 pl-4 lg:pl-6 gap-1 lg:gap-3">
-        <p className="text-xs font-bold text-good-blue">{kategori}</p>
+        <p className="text-xs font-bold text-good-blue">• {kategori}</p>
         <h1 className="text-sm lg:text-3xl font-bold">
           {truncateTitle(judul)}
         </h1>
