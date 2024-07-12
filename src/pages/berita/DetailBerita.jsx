@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import GuestLayout from "../../layouts/GuestLayout";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { dateFormat } from "../../libs/date-libs";
 import { BASE_API_URL } from "../../constants/apiURL";
 import OtherNews from "../../components/OtherNews";
@@ -36,14 +36,18 @@ const DetailBerita = () => {
         {loading ? (
           <BounceLoading />
         ) : error ? (
-          <p>eror nih bos</p>
+          <div className='flex flex-col gap-3 justify-center items-center min-h-[90vh]'>
+            <p className='text-5xl font-bold'>404</p>
+            <h1 className='text-center text-lg'>Woops! Sepertinya berita yang anda cari tidak ditemukan!</h1>
+            <Link to={'/berita/kategori/semua-berita'} className='text-center text-lg font-semibold text-good-blue'>Kembali ke halaman berita</Link>
+          </div>
         ) : (
           <>
             <article>
               <div
                 className="relative h-[90vh] w-full bg-cover bg-center"
                 style={{
-                  backgroundImage: `url('/assets/img/berita-hero.jpg')`,
+                  backgroundImage: `url('${BASE_API_URL}/storage/${berita?.gambar}')`,
                 }}
               >
                 <div className="absolute bottom-0 w-full flex flex-col lg:justify-center justify-end lg:gap-8 gap-5 h-1/2 lg:px-28 px-10 py-10 bg-gradient-to-t from-good-blue dark:from-dark-blue">
@@ -59,8 +63,7 @@ const DetailBerita = () => {
                 <div>
                   <p>
                     {berita &&
-                      `${dateFormat(berita?.created_at)} - ${
-                        berita?.dibaca
+                      `${dateFormat(berita?.created_at)} - ${berita?.dibaca
                       } kali dibaca`}
                   </p>
                   <p>
@@ -69,12 +72,9 @@ const DetailBerita = () => {
                 </div>
                 <section className=" lg:max-w-[780px] mx-auto py-10 flex flex-col gap-10 ">
                   <div dangerouslySetInnerHTML={{ __html: berita?.konten }}></div>
-                  <div className="">
-                    <img src={`${BASE_API_URL}/storage/${berita?.image}`} alt="gambar-berita"
-                    className="max-h-[450px] mx-auto" />
-                    {/* <p className="text-center py-2">
-                  Gambar Ini Hanya Sebuah Ilustrasi Semata
-                </p> */}
+                  <div className="0">
+                    <img src={`${BASE_API_URL}/storage/${berita?.gambar}`} alt="gambar-berita"
+                      className="max-h-[450px] mx-auto rounded-xl" />
                   </div>
                 </section>
               </div>
