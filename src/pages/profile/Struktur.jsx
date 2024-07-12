@@ -48,20 +48,20 @@ const Struktur = () => {
               id="bendahara-umum"
               title="Bendahara Umum"
               nama={pengurus?.bendum.nama}
-              image={`${BASE_API_URL}/storage/${pengurus?.bendum.image}`}
+              image={`${BASE_API_URL}/storage/${pengurus?.bendum.foto}`}
               className="mt-60 md:mt-52"
             />
             <CardPengurus
               id="ketua-umum"
               title="Ketua Umum"
               nama={pengurus?.ketum.nama}
-              image={`${BASE_API_URL}/storage/${pengurus?.ketum.image}`}
+              image={`${BASE_API_URL}/storage/${pengurus?.ketum.foto}`}
             />
             <CardPengurus
               id="sekertaris-umum"
               title="Sekertaris Umum"
               nama={pengurus?.sekum.nama}
-              image={`${BASE_API_URL}/storage/${pengurus?.sekum.image}`}
+              image={`${BASE_API_URL}/storage/${pengurus?.sekum.foto}`}
               className="mt-60 md:mt-32"
             />
           </div>
@@ -85,12 +85,12 @@ const Struktur = () => {
                   <CardPengurus
                     title="Ketua Bidang"
                     nama={bidang.kabid?.nama}
-                    image={`${BASE_API_URL}/storage/${bidang.kabid?.image}`}
+                    image={`${BASE_API_URL}/storage/${bidang.kabid?.foto}`}
                   />
                   <CardPengurus
                     title="Sekertaris Bidang"
                     nama={bidang.sekbid?.nama}
-                    image={`${BASE_API_URL}/storage/${bidang.sekbid?.image}`}
+                    image={`${BASE_API_URL}/storage/${bidang.sekbid?.foto}`}
                     className="mt-32"
                   />
                 </BidangPengurus>
