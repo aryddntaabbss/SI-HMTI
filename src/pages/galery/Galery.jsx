@@ -4,28 +4,28 @@ import ImageCard from "../../components/Beranda/ImageCard";
 import GuestLayout from "../../layouts/GuestLayout";
 
 const Galery = () => {
-  const [searchTerm, setSearchTerm] = React.useState("");
+  // const [searchTerm, setSearchTerm] = React.useState("");
 
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
+  // const handleSearchChange = (e) => {
+  //   setSearchTerm(e.target.value);
+  // };
 
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    // Handle the search functionality here
-    console.log("Search term:", searchTerm);
-  };
+  // const handleSearchSubmit = (e) => {
+  //   e.preventDefault();
+  //   // Handle the search functionality here
+  //   console.log("Search term:", searchTerm);
+  // };
 
   return (
     <GuestLayout>
-      <div className="w-full bg-light-blue dark:bg-bad-blue flex items-center justify-center py-60 sl:py-16">
+      <div className="w-full bg-light-blue dark:bg-bad-blue flex items-center justify-center py-72 sl:py-16">
         <div className="container mx-auto px-8 lg:px-32 text-center">
           <div className="max-w-lg mx-auto">
             <h1 className="text-5xl font-bold mb-4">Galeri HMTI</h1>
             <p className="text-3xl mb-8">
               Simpan Sejuta Cerita, Biarkan <br /> Kenangan Berbicara
             </p>
-            <form
+            {/* <form
               className="relative flex items-center justify-center mb-8"
               onSubmit={handleSearchSubmit}
             >
@@ -55,7 +55,7 @@ const Galery = () => {
                   ></path>
                 </svg>
               </button>
-            </form>
+            </form> */}
           </div>
         </div>
       </div>
@@ -72,30 +72,7 @@ const Galery = () => {
         ></path>
       </svg>
 
-      {/* <div className="py-8">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-wrap gap-4 justify-center">
-              {[
-                "potret1.jpg",
-                "potret2.jpg",
-                "potret3.jpg",
-                "potret4.jpg",
-                "potret2.jpg",
-                "potret3.jpg",
-              ].map((imageName, index) => (
-                <div key={index} className="flex flex-wrap gap-4 justify-center">
-                  <img
-                    src={`${process.env.PUBLIC_URL}/assets/img/${imageName}`}
-                    alt={`Image ${index + 6}`}
-                    className="w-60 h-60 m-2 rounded-md shadow-md object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div> */}
-
-      <div className="bg-gradient-to-b dark:from-dark-blue dark:to-bad-blue from-white to-light-blue py-8">
+      <div className="bg-white dark:bg-dark-blue py-8">
         <div className="w-full pt-16 px-6 lg:px-16 overflow-hidden">
           <SectionTitle title={"CUPLIKAN KOLEKSI TERKINI"} />
           <div data-aos="fade-up" className="py-8">
@@ -114,7 +91,7 @@ const Galery = () => {
         </div>
       </div>
 
-      <div className=" mt-10 py-8">
+      <div className="bg-gradient-to-b dark:from-dark-blue dark:to-bad-blue from-white to-light-blue py-8">
         <div className="w-full pt-16 px-6 lg:px-16 overflow-hidden">
           <SectionTitle title={"JELAJAHI KENANGAN"} />
           <div data-aos="fade-up" className="py-8">

@@ -2,10 +2,10 @@ import React from "react";
 import LogoHmti from "../../assets/img/hmti-logo.png";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
   return (
     <>
-      <footer className="bg-blue-600 pt-5 lg:pt-0">
+      <footer className="bg-blue-600 pt-5 lg:pt-0 overflow-hidden">
         <div className="mx-auto w-full max-w-screen-xl px-10 pb-4 lg:pt-10">
           <div className="md:flex md:justify-between">
             <div className="mb-6 md:mb-0">
@@ -20,10 +20,12 @@ const Footer = () => {
                   <span>
                     Himpunan Mahasiswa <br /> Teknik Informatika
                   </span>
-                  <hr className="w-24 border-gray-300 sm:mx-auto  lg:my-2" />
+                  <div className="flex justify-center">
+                    <hr className="w-32 border-gray-300 sm:mx-auto" />
+                  </div>
                   <span>UNIVERSITAS KHAIRUN</span>
                 </div>
-                <div className="flex pt-8 sm:justify-center sm:mt-0">
+                <div className="flex pt-8 justify-center sm:mt-0">
                   <a href="/" className="text-white  hover:text-white ms-3">
                     <svg
                       className="w-7 h-7"
@@ -97,7 +99,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 gap-8 sm:gap-6 sm:grid-cols-3 md:w-2/4">
+            <div className="flex flex-cols justify-center gap-8 sm:gap-40 sm:flex-cols-3 md:w-2/4">
               <div>
                 <h2 className="mb-6 text-sm font-semibold text-white uppercase">
                   laman tautan
@@ -167,10 +169,15 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-col">
-              <div className="bg-white rounded-lg h-48 md:w-72 mb-3 text-center">
-                Map
-              </div>
-              <span className="text-white ">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63831.27697850042!2d127.34113804461661!3d0.7734318691184432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x329cb5b2d06bf953%3A0xdd5d26a342da135!2sTeknik%20Informatika%20Universitas%20Khairun%20Kampus%20III%20UNKHAIR!5e0!3m2!1sid!2sid!4v1720795373434!5m2!1sid!2sid"
+                width="330"
+                height="150"
+                loading="lazy"
+                className="rounded-[5px] mb-5"
+                title="Teknik Informatika Universitas Khairun Map"
+              ></iframe>
+              <span className="text-white">
                 Jl. Jati Metro, Jati, Kec. <br /> Ternate Sel., Kota Ternate,{" "}
                 <br />
                 Maluku Utara

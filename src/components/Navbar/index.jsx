@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import DarkModeToggle from "./DarkModeToggle";
 import LogoHmti from "../../assets/img/hmti-logo.png";
 import MobileNav from "./MobileNav";
@@ -15,7 +16,9 @@ const Navbar = () => {
         } md:static justify-between items-center w-full py-3 px-10 md:px-28 bg-white dark:bg-dark-blue transition-all md:transition-none duration-500`}
       >
         <div className="flex gap-20 items-center w-full">
-          <img src={LogoHmti} alt="HMTI" className="w-10 md:w-14" />
+          <Link to={"/"}>
+            <img src={LogoHmti} alt="HMTI" className="w-10 md:w-14" />
+          </Link>
           <nav className="hidden md:flex justify-between items-center w-full">
             <ul className="flex gap-10 font-medium">
               <NavList />
