@@ -10,25 +10,22 @@ import { BASE_API_URL } from "../../constants/apiURL";
 import { stringDash, stringTanpaKurung } from "../../libs/string-libs";
 
 const Struktur = () => {
-
-  const [pengurus, setPengurus] = useState()
+  const [pengurus, setPengurus] = useState();
 
   const fetchPengurus = async () => {
     try {
-      const response = await axios.get(
-        `${BASE_API_URL}/api/struktur`
-      );
+      const response = await axios.get(`${BASE_API_URL}/api/struktur`);
       setPengurus(response.data);
     } catch (error) {
       // console.error("Error:", error);
       // setError(true);
     }
     // setLoading(false);
-  }
+  };
 
   useEffect(() => {
-    fetchPengurus()
-  }, [])
+    fetchPengurus();
+  }, []);
 
   // console.log()
 
@@ -37,11 +34,11 @@ const Struktur = () => {
       <TopLink />
       <div className="flex min-h-screen overflow-hidden">
         {/* Sidebar */}
-        <div className="fixed lg:w-1/4 h-full p-4 overflow-y-auto">
+        <div className="flex lg:w-1/4 h-full p-4">
           <SidebarPengurus />
         </div>
         {/* Main Content */}
-        <div className="lg:ml-[25%] lg:w-3/4 flex flex-col items-center py-5 overflow-hidden">
+        <div className="lg:w-3/4 flex flex-col items-center py-5 ">
           <div className="flex flex-col justify-center items-center py-5 text-dark-blue dark:text-white text-lg font-semibold">
             <h1>Struktur Pengurus Organisasi</h1>
             <h1>Himpunan Mahasiswa Informatika</h1>
@@ -80,7 +77,12 @@ const Struktur = () => {
           {pengurus?.bidang?.map((bidang, index) => {
             return (
               <div key={index}>
-                <HeaderStruktur id={stringDash(stringTanpaKurung(bidang.nama_bidang).toLowerCase())} title={stringTanpaKurung(bidang.nama_bidang).toUpperCase()} />
+                <HeaderStruktur
+                  id={stringDash(
+                    stringTanpaKurung(bidang.nama_bidang).toLowerCase()
+                  )}
+                  title={stringTanpaKurung(bidang.nama_bidang).toUpperCase()}
+                />
                 <BidangPengurus>
                   <CardPengurus
                     title="Ketua Bidang"
@@ -95,12 +97,8 @@ const Struktur = () => {
                   />
                 </BidangPengurus>
               </div>
-            )
-          })
-
-          }
-
-          
+            );
+          })}
         </div>
       </div>
     </GuestLayout>
