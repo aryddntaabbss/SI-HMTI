@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d9c50862.css",
+    "main.js": "/static/js/main.5ea550f2.js",
+    "static/media/hmti-logo.png": "/static/media/hmti-logo.26d0bce49e9cdd195673.png",
+    "index.html": "/index.html",
+    "main.d9c50862.css.map": "/static/css/main.d9c50862.css.map",
+    "main.5ea550f2.js.map": "/static/js/main.5ea550f2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d9c50862.css",
+    "static/js/main.5ea550f2.js"
+  ]
+}
