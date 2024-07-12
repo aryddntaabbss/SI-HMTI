@@ -1,21 +1,48 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { BASE_API_URL } from '../../constants/apiURL';
+import { Link } from 'react-router-dom';
 
-const ProjectList = ({}) => {
+const ProjectList = ({ slug }) => {
+
+  const [project, setProjects] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  const fetchProjects = async () => {
+    try {
+      const response = await axios.get(`${BASE_API_URL}/api/kategori/${slug}/projects`);
+      setProjects(await response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+    setLoading(false)
+  }
+
+  useEffect(() => {
+    fetchProjects();
+  }, []);
+
   return (
-    <div className='pt-4 pb-12 grid grid-cols-2 md:grid-cols-3 gap-y-7'>
-      <div>
-        <div className='w-32 h-32 md:w-72 md:h-40 bg-cover bg-center rounded-xl my-3' style={{ backgroundImage: `url('https://images.unsplash.com/photo-1609921212029-bb5a28e60960?q=80&w=2052&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')` }}></div>
-        <h3 className='font-medium text-sm md:text-base'>Ini Judul Projectnya</h3>
-      </div>
-      <div>
-        <div className='w-32 h-32 md:w-72 md:h-40 bg-cover bg-center rounded-xl my-3' style={{ backgroundImage: `url('https://images.unsplash.com/photo-1609921212029-bb5a28e60960?q=80&w=2052&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')` }}></div>
-        <h3 className='font-medium text-sm md:text-base'>Ini Judul Projectnya</h3>
-      </div>
-      <div>
-        <div className='w-32 h-32 md:w-72 md:h-40 bg-cover bg-center rounded-xl my-3' style={{ backgroundImage: `url('https://images.unsplash.com/photo-1609921212029-bb5a28e60960?q=80&w=2052&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')` }}></div>
-        <h3 className='font-medium text-sm md:text-base'>Ini Judul Projectnya</h3>
-      </div>
-    </div>
+    <>
+      {project?.length ?
+        <div className='pt-4 pb-12 grid grid-cols-2 md:grid-cols-3 gap-y-7 gap-x-5'>
+          {project?.map((p, i) => {
+            return (
+              <div key={i}>
+                <div className='w-32 h-32 md:w-64 md:h-40 bg-cover bg-center rounded-xl my-3 overflow-hidden'>
+                  <img src={`${BASE_API_URL}/storage/${p.gambar_utama}`}
+                    alt="gambar-project"
+                    className='w-full h-full object-cover' />
+                </div>
+                <Link to={`/projects/${p.kategori.slug}/${p.slug}`} className='font-medium text-sm md:text-base hover:text-good-blue transition-all'>{p.judul}</Link>
+              </div>
+            )
+          })}
+        </div>
+        :
+        <h3 className='text-center italic font-medium py-10'>{loading ? 'Loading...' : 'Coming Soon!'}</h3>
+      }
+    </>
   )
 }
 

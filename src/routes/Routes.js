@@ -10,6 +10,7 @@ import { Biografi, VisiMisi, Struktur } from "../pages/profile/Index.jsx";
 import Galery from "../pages/galery/Galery";
 import Contact from "../pages/contact/Contact";
 import Projects from "../pages/projects/Projects.jsx";
+import DetailProject from "../pages/projects/DetailProject.jsx";
 import SearchBerita from "../pages/berita/SearchBerita.jsx";
 import ComingSoon from './../pages/ComingSoon';
 
@@ -37,6 +38,7 @@ const AppRoutes = () =>
 
 				<Route path="/galery" element={ <Galery /> } />
 				<Route path="/projects" element={ <Projects /> } />
+				<Route path="/projects/:slug/:project" element={ <DetailProject /> } />
 				<Route path="/contact" element={ <Contact /> } />
 
 				<Route path="/event" element={ <ComingSoon /> } />

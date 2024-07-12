@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import GuestLayout from '../../layouts/GuestLayout'
 import { Link } from 'react-router-dom'
 import { TbDeviceMobileCode, TbExternalLink } from "react-icons/tb";
@@ -7,12 +7,30 @@ import IconProject from '../../components/Project/IconProject';
 import { IoGameControllerOutline } from 'react-icons/io5';
 import { LuBrainCircuit, LuRadioTower } from 'react-icons/lu';
 import { GoFileMedia } from 'react-icons/go';
-import { HiMiniCpuChip } from 'react-icons/hi2';
 import { MdOutlineVpnLock } from 'react-icons/md';
 import ProjectHeader from '../../components/Project/ProjectHeader';
 import ProjectList from '../../components/Project/ProjectList';
+import axios from 'axios';
+import { BASE_API_URL } from '../../constants/apiURL';
+import { BiChip } from 'react-icons/bi';
 
 const Projects = () => {
+
+  const [kategori, setKategori] = useState()
+
+  const fetchKategori = async () => {
+    try {
+      const response = await axios.get(`${BASE_API_URL}/api/kategori-projects`);
+      setKategori(await response.data);
+    } catch (error) {
+
+    }
+  };
+
+  useEffect(() => {
+    fetchKategori();
+  }, []);
+
   return (
     <GuestLayout>
       <div className='min-h-screen py-28 px-10 bg-gradient-to-br from-blue-100 to-blue-300 dark:from-bad-blue dark:to-dark-blue flex flex-col items-center justify-center'>
@@ -38,7 +56,7 @@ const Projects = () => {
             <GoFileMedia size={27} />
           </IconProject>
           <IconProject title={'Internet of Things'}>
-            <HiMiniCpuChip size={27} />
+            <BiChip size={27} />
           </IconProject>
           <IconProject title={'AI & Machine Learning'}>
             <LuBrainCircuit size={27} />
@@ -52,48 +70,48 @@ const Projects = () => {
       <div className='grid grid-cols-6 md:grid-cols-3'>
         <div className='bg-slate-200 dark:bg-bad-blue px-5 md:px-10 py-14'>
           <ul className='flex flex-col gap-10 text-dark-blue dark:text-white '>
-            <li><Link to={'/'} className='flex items-center gap-5 font-medium'><RiComputerLine size={25} /> <p className='hidden md:block'>Web Development</p></Link></li>
-            <li><Link to={'/'} className='flex items-center gap-5 font-medium'><TbDeviceMobileCode size={25} /> <p className='hidden md:block'>Mobile Development</p></Link></li>
-            <li><Link to={'/'} className='flex items-center gap-5 font-medium'><IoGameControllerOutline size={25} /><p className='hidden md:block'>Game Development</p> </Link></li>
-            <li><Link to={'/'} className='flex items-center gap-5 font-medium'><LuRadioTower size={25} /><p className='hidden md:block'>Network Engineering</p> </Link></li>
-            <li><Link to={'/'} className='flex items-center gap-5 font-medium'><GoFileMedia size={25} /><p className='hidden md:block'>Multimedia</p> </Link></li>
-            <li><Link to={'/'} className='flex items-center gap-5 font-medium'><HiMiniCpuChip size={25} /><p className='hidden md:block'>Internet of Things</p> </Link></li>
-            <li><Link to={'/'} className='flex items-center gap-5 font-medium'><LuBrainCircuit size={25} /><p className='hidden md:block'>AI & Machine Learning</p> </Link></li>
-            <li><Link to={'/'} className='flex items-center gap-5 font-medium'><MdOutlineVpnLock size={25} /><p className='hidden md:block'>Ethical Cyber Security</p> </Link></li>
+            <li><a href='#web-development' className='flex items-center gap-5 font-medium'><RiComputerLine size={25} /> <p className='hidden md:block'>Web Development</p></a></li>
+            <li><a href={'#mobile-development'} className='flex items-center gap-5 font-medium'><TbDeviceMobileCode size={25} /> <p className='hidden md:block'>Mobile Development</p></a></li>
+            <li><a href={'#game-development'} className='flex items-center gap-5 font-medium'><IoGameControllerOutline size={25} /><p className='hidden md:block'>Game Development</p> </a></li>
+            <li><a href={'#network-engineering'} className='flex items-center gap-5 font-medium'><LuRadioTower size={25} /><p className='hidden md:block'>Network Engineering</p> </a></li>
+            <li><a href={'#multimedia'} className='flex items-center gap-5 font-medium'><GoFileMedia size={25} /><p className='hidden md:block'>Multimedia</p> </a></li>
+            <li><a href={'#internet-of-things'} className='flex items-center gap-5 font-medium'><BiChip size={25} /><p className='hidden md:block'>Internet of Things</p> </a></li>
+            <li><a href={'#ai-machine-learning'} className='flex items-center gap-5 font-medium'><LuBrainCircuit size={25} /><p className='hidden md:block'>AI & Machine Learning</p> </a></li>
+            <li><a href={'#ethical-cyber-security'} className='flex items-center gap-5 font-medium'><MdOutlineVpnLock size={25} /><p className='hidden md:block'>Ethical Cyber Security</p> </a></li>
           </ul>
         </div>
         <div className='col-span-5 md:col-span-2 px-4 md:px-10 pt-10 pb-56'>
-          <div>
+          <div id='web-development'>
             <ProjectHeader>Web Development's Projects</ProjectHeader>
-            <ProjectList />
+            <ProjectList slug={'web-development'} />
           </div>
-          <div>
+          <div id='mobile-development'>
             <ProjectHeader>Mobile Development's Projects</ProjectHeader>
-            <h3 className='text-center italic font-medium py-10'>Coming Soon!</h3>
+            <ProjectList slug={'mobile-development'} />
           </div>
-          <div>
+          <div id='game-development'>
             <ProjectHeader>Game Development's Projects</ProjectHeader>
-            <h3 className='text-center italic font-medium py-10'>Coming Soon!</h3>
+            <ProjectList slug={'game-development'} />
           </div>
-          <div>
+          <div id='network-engineering'>
             <ProjectHeader>Network Engineering's Projects</ProjectHeader>
-            <h3 className='text-center italic font-medium py-10'>Coming Soon!</h3>
+            <ProjectList slug={'network-engineering'} />
           </div>
-          <div>
+          <div id='multimedia'>
             <ProjectHeader>Multimedia's Projects</ProjectHeader>
-            <h3 className='text-center italic font-medium py-10'>Coming Soon!</h3>
+            <ProjectList slug={'multimedia'} />
           </div>
-          <div>
+          <div id='internet-of-things'>
             <ProjectHeader>IoT's Projects</ProjectHeader>
-            <h3 className='text-center italic font-medium py-10'>Coming Soon!</h3>
+            <ProjectList slug={'internet-of-things'} />
           </div>
-          <div>
+          <div id='ai-machine-learning'>
             <ProjectHeader>AI & Machine Learning's Projects</ProjectHeader>
-            <ProjectList />
+            <ProjectList slug={'ai-machine-learning'} />
           </div>
-          <div>
-            <ProjectHeader>Cyber Security's Projects</ProjectHeader>
-            <ProjectList />
+          <div id='ethical-cyber-security'>
+            <ProjectHeader >Cyber Security's Projects</ProjectHeader>
+            <ProjectList slug={'ethical-cyber-security'} />
           </div>
         </div>
       </div>
