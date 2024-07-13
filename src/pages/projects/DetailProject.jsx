@@ -2,22 +2,27 @@ import React, { useEffect, useState } from 'react'
 import GuestLayout from '../../layouts/GuestLayout'
 import { Link, useParams } from 'react-router-dom'
 import { FaAngleRight } from 'react-icons/fa'
-import CardProject from '../../components/Project/CardProject'
 import axios from 'axios'
 import { BASE_API_URL } from '../../constants/apiURL'
 import OtherProjects from './OtherProjects'
 import BounceLoading from '../../utils/BounceLoading'
 
 const DetailProject = () => {
-  const { project: projectSlug } = useParams()
+  const { slug: projectSlug, kategori: kategori } = useParams()
   const [project, setProject] = useState()
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(true)
 
   const fetchProject = async () => {
+    setLoading(true)
+    setError(false)
     try {
       const response = await axios.get(`${BASE_API_URL}/api/project/${projectSlug}`);
-      setProject(await response.data);
+      const result = await response.data
+      setProject(result);
+      if (kategori !== result.kategori.slug) {
+        setError(true)
+      }
     } catch (error) {
       setError(true)
     }
@@ -26,9 +31,12 @@ const DetailProject = () => {
 
   useEffect(() => {
     fetchProject()
-  }, [])
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [projectSlug, kategori])
 
-  console.log(project)
 
   return (
     <GuestLayout>

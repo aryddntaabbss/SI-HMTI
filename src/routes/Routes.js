@@ -38,7 +38,7 @@ const AppRoutes = () =>
 
 				<Route path="/galery" element={ <Galery /> } />
 				<Route path="/projects" element={ <Projects /> } />
-				<Route path="/projects/:slug/:project" element={ <DetailProject /> } />
+				<Route path="/projects/:kategori/:slug" element={ <DetailProject /> } />
 				<Route path="/contact" element={ <Contact /> } />
 
 				<Route path="/event" element={ <ComingSoon /> } />

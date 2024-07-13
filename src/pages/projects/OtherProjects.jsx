@@ -25,9 +25,11 @@ const OtherProjects = () => {
         if (i < 4) {
           return (
             <CardProject
+            key={i}
               title={p.judul}
               image={`${BASE_API_URL}/storage/${p.gambar_utama}`}
               category={p.kategori.judul_kategori}
+              link={`/projects/${p.kategori.slug}/${p.slug}`}
             />)
         }
       }
