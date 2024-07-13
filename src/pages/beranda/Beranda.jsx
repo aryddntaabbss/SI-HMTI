@@ -236,7 +236,7 @@ const Beranda = () => {
             <SectionTitle title={"HMTI PARTNERS"} />
               <div className="flex justify-center items-center flex-wrap p-6 md:px-28 gap-10 pt-10 pb-32">
                 {partners.map((partner) => (
-                  <Partners image={partner?.logo} name={partner?.nama} />
+                  <Partners key={partner.id} image={partner?.logo} name={partner?.nama} />
                 ))}
               </div>
             </div>
