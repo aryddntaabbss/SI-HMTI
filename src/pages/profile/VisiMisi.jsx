@@ -37,7 +37,7 @@ const VisiMisi = () => {
     return (
       <GuestLayout>
         <div className="flex justify-center items-center h-screen">
-          <p>Loading...</p>
+          <p> </p>
         </div>
       </GuestLayout>
     );
