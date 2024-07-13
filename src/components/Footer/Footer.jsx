@@ -26,7 +26,10 @@ const Footer = () => {
                   <span>UNIVERSITAS KHAIRUN</span>
                 </div>
                 <div className="flex pt-8 justify-center sm:mt-0">
-                  <a href="/" className="text-white  hover:text-white ms-3">
+                  <a
+                    href="https://www.instagram.com/hmti_unkhair?igsh=ZWc4NmQzNm5yczk2"
+                    className="text-white  hover:text-white ms-3"
+                  >
                     <svg
                       className="w-7 h-7"
                       aria-hidden="true"
@@ -43,7 +46,10 @@ const Footer = () => {
                     <span className="sr-only">Instagram page</span>
                   </a>
 
-                  <a href="/" className="text-white  hover:text-white ms-3">
+                  <a
+                    href="https://www.facebook.com/share/tY5yzZb1U55xiAMq/?mibextid=JRoKGi"
+                    className="text-white  hover:text-white ms-3"
+                  >
                     <svg
                       className="w-7 h-7"
                       aria-hidden="true"

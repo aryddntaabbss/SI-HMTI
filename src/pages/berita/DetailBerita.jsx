@@ -6,6 +6,7 @@ import { dateFormat } from "../../libs/date-libs";
 import { BASE_API_URL } from "../../constants/apiURL";
 import OtherNews from "../../components/OtherNews";
 import BounceLoading from "../../utils/BounceLoading";
+import { Helmet } from "react-helmet";
 
 const DetailBerita = () => {
   const { slug } = useParams();
@@ -15,9 +16,7 @@ const DetailBerita = () => {
 
   const fetchBerita = async () => {
     try {
-      const response = await axios.get(
-        `${BASE_API_URL}/api/berita/${slug}`
-      );
+      const response = await axios.get(`${BASE_API_URL}/api/berita/${slug}`);
       setBerita(await response.data);
     } catch (error) {
       console.error("Error:", error);
@@ -36,13 +35,40 @@ const DetailBerita = () => {
         {loading ? (
           <BounceLoading />
         ) : error ? (
-          <div className='flex flex-col gap-3 justify-center items-center min-h-[90vh]'>
-            <p className='text-5xl font-bold'>404</p>
-            <h1 className='text-center text-lg'>Woops! Sepertinya berita yang anda cari tidak ditemukan!</h1>
-            <Link to={'/berita/kategori/semua-berita'} className='text-center text-lg font-semibold text-good-blue'>Kembali ke halaman berita</Link>
+          <div className="flex flex-col gap-3 justify-center items-center min-h-[90vh]">
+            <p className="text-5xl font-bold">404</p>
+            <h1 className="text-center text-lg">
+              Woops! Sepertinya berita yang anda cari tidak ditemukan!
+            </h1>
+            <Link
+              to={"/berita/kategori/semua-berita"}
+              className="text-center text-lg font-semibold text-good-blue"
+            >
+              Kembali ke halaman berita
+            </Link>
           </div>
         ) : (
           <>
+            <Helmet>
+              <title>{berita?.judul} - Nama Situs Anda</title>
+              <meta name="description" content={berita?.deskripsi} />
+              <meta name="keywords" content={berita?.kategori.judul_kategori} />
+              <meta property="og:title" content={berita?.judul} />
+              <meta property="og:description" content={berita?.deskripsi} />
+              <meta
+                property="og:image"
+                content={`${BASE_API_URL}/storage/${berita?.gambar}`}
+              />
+              <meta property="og:url" content={window.location.href} />
+              <meta property="og:type" content="article" />
+              <meta name="twitter:card" content="summary_large_image" />
+              <meta name="twitter:title" content={berita?.judul} />
+              <meta name="twitter:description" content={berita?.deskripsi} />
+              <meta
+                name="twitter:image"
+                content={`${BASE_API_URL}/storage/${berita?.gambar}`}
+              />
+            </Helmet>
             <article>
               <div
                 className="relative h-[90vh] w-full bg-cover bg-center"
@@ -63,7 +89,8 @@ const DetailBerita = () => {
                 <div>
                   <p>
                     {berita &&
-                      `${dateFormat(berita?.created_at)} - ${berita?.dibaca
+                      `${dateFormat(berita?.created_at)} - ${
+                        berita?.dibaca
                       } kali dibaca`}
                   </p>
                   <p>
@@ -71,10 +98,15 @@ const DetailBerita = () => {
                   </p>
                 </div>
                 <section className=" lg:max-w-[780px] mx-auto py-10 flex flex-col gap-10 ">
-                  <div dangerouslySetInnerHTML={{ __html: berita?.konten }}></div>
+                  <div
+                    dangerouslySetInnerHTML={{ __html: berita?.konten }}
+                  ></div>
                   <div className="0">
-                    <img src={`${BASE_API_URL}/storage/${berita?.gambar}`} alt="gambar-berita"
-                      className="max-h-[450px] mx-auto rounded-xl" />
+                    <img
+                      src={`${BASE_API_URL}/storage/${berita?.gambar}`}
+                      alt="gambar-berita"
+                      className="max-h-[450px] mx-auto rounded-xl"
+                    />
                   </div>
                 </section>
               </div>
