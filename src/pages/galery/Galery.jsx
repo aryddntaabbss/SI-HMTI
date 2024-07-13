@@ -1,61 +1,91 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import AOS from "aos";
 import SectionTitle from "../../components/Beranda/SectionTitle";
 import ImageCard from "../../components/Beranda/ImageCard";
+import ImageCardSkeleton from "../../components/Beranda/ImageCardSkeleton";
 import GuestLayout from "../../layouts/GuestLayout";
+import { BASE_API_URL } from "../../constants/apiURL";
 
 const Galery = () => {
-  // const [searchTerm, setSearchTerm] = React.useState("");
+  const [loadingGallery, setLoadingGallery] = useState(true);
+  const [galleryNew, setGalleryNew] = useState([]);
+  const [galleryOld, setGalleryOld] = useState([]);
 
-  // const handleSearchChange = (e) => {
-  //   setSearchTerm(e.target.value);
-  // };
+  useEffect(() => {
+    fetchNewGallery();
+    fetchOldGallery();
+    AOS.init({
+      duration: 1000,
+    });
+  }, []);
 
-  // const handleSearchSubmit = (e) => {
-  //   e.preventDefault();
-  //   // Handle the search functionality here
-  //   console.log("Search term:", searchTerm);
-  // };
+  //  New Galery
+  const fetchNewGallery = async () => {
+    setLoadingGallery(true);
+    try {
+      const response = await axios.get(`${BASE_API_URL}/api/galeri-terbaru`);
+      setGalleryNew(await response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      setLoadingGallery(false);
+    }
+  };
+
+  //  Old Galery
+  const fetchOldGallery = async () => {
+    setLoadingGallery(true);
+    try {
+      const response = await axios.get(`${BASE_API_URL}/api/galeri-terlama`);
+      setGalleryOld(await response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      setLoadingGallery(false);
+    }
+  };
 
   return (
     <GuestLayout>
-      <div className="w-full bg-light-blue dark:bg-bad-blue flex items-center justify-center py-72 sl:py-16">
-        <div className="container mx-auto px-8 lg:px-32 text-center">
-          <div className="max-w-lg mx-auto">
-            <h1 className="text-5xl font-bold mb-4">Galeri HMTI</h1>
-            <p className="text-3xl mb-8">
-              Simpan Sejuta Cerita, Biarkan <br /> Kenangan Berbicara
-            </p>
-            {/* <form
-              className="relative flex items-center justify-center mb-8"
-              onSubmit={handleSearchSubmit}
-            >
-              <input
-                type="text"
-                value={searchTerm}
-                onChange={handleSearchChange}
-                placeholder="Cari Gambar..."
-                className="w-full max-w-lg px-4 py-2 border-0 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <button
-                type="submit"
-                className="absolute right-4 bg-transparent text-blue-500"
+      <div className="flex flex-col-reverse lg:flex-row w-full lg:min-h-screen bg-gradient-to-b from-white to-light-blue dark:from-dark-blue dark:to-bad-blue overflow-hidden">
+        <div className="w-full lg:w-1/2 px-6 py-5 lg:py-16 lg:pl-40 flex justify-center items-center">
+          <div
+            data-aos="fade-right"
+            className="flex flex-col gap-5 w-auto h-auto"
+          >
+            <h1 className="font-bold text-4xl lg:text-7xl">GALLERY HMTI</h1>
+            <h3 className="text-5xl">
+              Simpan Sejuta Cerita, Biarkan Kenangan Berbicara
+            </h3>
+            {/* <div className="flex gap-3 pt-3">
+              <Link
+                onClick={() => window.scrollTo(0, 0)}
+                to={"profile/biografi"}
+                className="border-2 border-good-blue text-good-blue px-4 py-2 rounded-md font-bold hover:bg-good-blue hover:scale-105 hover:text-light-blue transition-all"
               >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1116.65 7.65a7.5 7.5 0 010 10.7z"
-                  ></path>
-                </svg>
-              </button>
-            </form> */}
+                Biografi HMTI
+              </Link>
+              <Link
+                onClick={() => window.scrollTo(0, 0)}
+                to={"profile/struktur"}
+                className="bg-good-blue px-4 border-2 border-transparent text-light-blue py-2 rounded-md font-bold hover:bg-transparent hover:scale-105 hover:border-good-blue hover:text-good-blue transition-all"
+              >
+                Organisasi
+              </Link>
+            </div> */}
+          </div>
+        </div>
+        <div
+          data-aos="fade-left"
+          className="w-full lg:w-1/2 py-16 lg:pr-40 lg:pb-24 flex justify-center items-center"
+        >
+          <div className="relative w-full h-auto flex justify-center items-center">
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/img/galeryIMG.png`}
+              alt="Logo HMTI"
+              className="w-2/4 -z-0 lg:w-4/5 max-w-lg "
+            />
           </div>
         </div>
       </div>
@@ -72,43 +102,51 @@ const Galery = () => {
         ></path>
       </svg>
 
+      {/* New Galery */}
       <div className="bg-white dark:bg-dark-blue py-8">
         <div className="w-full pt-16 px-6 lg:px-16 overflow-hidden">
           <SectionTitle title={"CUPLIKAN KOLEKSI TERKINI"} />
-          <div data-aos="fade-up" className="py-8">
+          <section className="py-8">
             <div className="container mx-auto px-0">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {Array.from({ length: 6 }).map((_, index) => (
-                  <ImageCard
-                    key={index}
-                    id={index}
-                    image={`${process.env.PUBLIC_URL}/assets/img/500x400.png`}
-                  />
-                ))}
+                {loadingGallery
+                  ? Array(6)
+                      .fill(0)
+                      .map((_, index) => <ImageCardSkeleton key={index} />)
+                  : galleryNew
+                      .slice(0, 6)
+                      .map((gambar, index) => (
+                        <ImageCard key={gambar?.id} image={gambar?.gambar} />
+                      ))}
               </div>
             </div>
-          </div>
+          </section>
         </div>
       </div>
+      {/* End New Galery */}
 
+      {/* Old Galery */}
       <div className="bg-gradient-to-b dark:from-dark-blue dark:to-bad-blue from-white to-light-blue py-8">
         <div className="w-full pt-16 px-6 lg:px-16 overflow-hidden">
           <SectionTitle title={"JELAJAHI KENANGAN"} />
-          <div data-aos="fade-up" className="py-8">
+          <section className="py-8">
             <div className="container mx-auto px-0">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {Array.from({ length: 6 }).map((_, index) => (
-                  <ImageCard
-                    key={index}
-                    id={index}
-                    image={`${process.env.PUBLIC_URL}/assets/img/500x400.png`}
-                  />
-                ))}
+                {loadingGallery
+                  ? Array(6)
+                      .fill(0)
+                      .map((_, index) => <ImageCardSkeleton key={index} />)
+                  : galleryOld
+                      .slice(0, 6)
+                      .map((gambar, index) => (
+                        <ImageCard key={gambar?.id} image={gambar?.gambar} />
+                      ))}
               </div>
             </div>
-          </div>
+          </section>
         </div>
       </div>
+      {/* End Old Galery */}
 
       <svg
         xmlns="http://www.w3.org/2000/svg"
