@@ -16,6 +16,7 @@ const Biografi = () => {
     fetchData();
     AOS.init({
       duration: 1000,
+      once: true,
     });
   }, []);
 
@@ -51,7 +52,7 @@ const Biografi = () => {
             <div data-aos="fade-right">
               <h2 className="text-5xl font-bold mb-4">SEJARAH HMTI</h2>
               <div
-                className="text-2xl text-gray-700 dark:text-white"
+                className="text-2xl text-gray-700 dark:text-white text-justify"
                 dangerouslySetInnerHTML={{ __html: sejarah?.konten }}
               />
             </div>
@@ -69,11 +70,11 @@ const Biografi = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-8">
           <div
-            className="flex items-center justify-center order-2 md:order-1"
+            className="flex justify-center order-2 md:order-1 "
             data-aos="fade-right"
           >
             <ImageCard
-              className="w-3/5 h-auto rounded-lg shadow-lg"
+              className="w-3/5 h-auto rounded-lg shadow-lg "
               key={filosofi?.id}
               image={filosofi?.gambar}
             />
@@ -82,7 +83,7 @@ const Biografi = () => {
             <div data-aos="fade-left">
               <h2 className="text-5xl font-bold mb-4">FILOSOFI LOGO</h2>
               <div
-                className="text-2xl text-gray-700 dark:text-white"
+                className="text-2xl text-gray-700 dark:text-white text-justify"
                 dangerouslySetInnerHTML={{ __html: filosofi?.konten }}
               />
             </div>
