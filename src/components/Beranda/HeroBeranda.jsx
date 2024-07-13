@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import LogoHmti from "../../assets/img/hmti-logo.png";
 
 const HeroBeranda = () => {
   return (
@@ -64,7 +65,7 @@ const HeroBeranda = () => {
             </svg>
           </span>
           <img
-            src="/logoHmti.png"
+            src={LogoHmti}
             alt="Logo HMTI"
             className="w-2/4 -z-0 lg:w-4/5 max-w-lg"
           />

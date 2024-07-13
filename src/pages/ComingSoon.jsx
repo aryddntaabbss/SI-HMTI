@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import GuestLayout from "../layouts/GuestLayout";
+import LogoHmti from "../assets/img/hmti-logo.png";
 
 const ComingSoon = () => {
   useEffect(() => {
@@ -16,7 +17,7 @@ const ComingSoon = () => {
         <div className="text-center" data-aos="fade-in">
           <div className="mb-4" data-aos="zoom-in">
             <img
-              src={`${process.env.PUBLIC_URL}/logoHmti.png`}
+              src={LogoHmti}
               alt="HMTI LOGO"
               className="mx-auto w-60 rounded-lg my-10"
             />

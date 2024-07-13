@@ -85,17 +85,17 @@ const Beranda = () => {
               <EventCard
                 link={"/event"}
                 title={"MARCH EVENT"}
-                image={"/assets/img/400x550.png"}
+                image={"/assets/img/marchevent.JPG"}
               />
               <EventCard
                 link={"/event"}
                 title={"DIES NATALIS"}
-                image={"/assets/img/400x550.png"}
+                image={"/assets/img/dies.JPG"}
               />
               <EventCard
                 link={"/event"}
                 title={"IT-EXPO"}
-                image={"/assets/img/400x550.png"}
+                image={"/assets/img/expo.JPG"}
               />
             </div>
           </div>
@@ -151,8 +151,8 @@ const Beranda = () => {
                 <Link
                   data-aos="fade-up"
                   onClick={() => window.scrollTo(0, 0)}
+                  to="/berita/kategori/semua-berita"
                   className="border-2 border-good-blue text-good-blue px-4 py-2 rounded-md font-bold hover:bg-good-blue hover:scale-105 hover:text-light-blue transition-all"
-                  href="/berita/kategori/semua-berita"
                 >
                   Lihat Berita Lainnya
                 </Link>
@@ -201,8 +201,8 @@ const Beranda = () => {
             >
               <Link
                 onClick={() => window.scrollTo(0, 0)}
-                className="border-2 border-good-blue text-good-blue px-4 py-2 rounded-md font-bold hover:bg-good-blue hover:scale-105 hover:text-light-blue transition-all"
                 to={"/berita/kategori/semua-berita"}
+                className="border-2 border-good-blue text-good-blue px-4 py-2 rounded-md font-bold hover:bg-good-blue hover:scale-105 hover:text-light-blue transition-all"
               >
                 Lihat Berita Lainnya
               </Link>
@@ -231,43 +231,18 @@ const Beranda = () => {
           </div>
           {/* galery */}
 
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1440 320"
-            className="bg-light-blue dark:bg-bad-blue"
-          >
-            <path
-              className="fill-blue-600"
-              fillOpacity="1"
-              d="M0,160L48,181.3C96,203,192,245,288,224C384,203,480,117,576,74.7C672,32,768,32,864,74.7C960,117,1056,203,1152,202.7C1248,203,1344,117,1392,74.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            ></path>
-          </svg>
-
-          {/* partner */}
-          <div className="w-full bg-blue-600">
-            <div className="mb-4 font-bold text-center relative">
-              <span
-                data-aos="fade-left"
-                className="text-3xl md:text-5xl absolute inset-0 flex justify-center items-center text-white z-10"
-              >
-                HMTI PARTNERS
-              </span>
-              <h1
-                data-aos="fade-right"
-                className="text-6xl md:text-8xl italic text-transparent text-border relative z-0"
-              >
-                HMTI PARTNERS
-              </h1>
+            {/* partner */}
+            <div className="w-full bg-light-blue dark:bg-bad-blue pt-20">
+            <SectionTitle title={"HMTI PARTNERS"} />
+              <div className="flex justify-center items-center flex-wrap p-6 md:px-28 gap-10 pt-10 pb-32">
+                {partners.map((partner) => (
+                  <Partners image={partner?.logo} name={partner?.nama} />
+                ))}
+              </div>
             </div>
-            <div className="flex justify-center items-center flex-wrap p-6 md:px-28 gap-10 pt-10 pb-32">
-              {partners.map((partner) => (
-                <Partners image={partner?.logo} name={partner?.nama} />
-              ))}
-            </div>
+            {/* partner */}
           </div>
-          {/* partner */}
         </div>
-      </div>
     </GuestLayout>
   );
 };
