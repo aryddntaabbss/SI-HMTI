@@ -1,59 +1,73 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AOS from "aos";
-import "aos/dist/aos.css";
+import axios from "axios";
 import GuestLayout from "./../../layouts/GuestLayout";
 import HeaderStruktur from "../../components/HeaderStruktur";
 import TopLink from "./../../components/TopLink";
+import { BASE_API_URL } from "../../constants/apiURL";
 
 const VisiMisi = () => {
+  const [loadingKonten, setLoadingKonten] = useState(true);
+  const [visi, setVisi] = useState({});
+  const [misi, setMisi] = useState({});
+  const [tujuan, setTujuan] = useState({});
+
   useEffect(() => {
+    fetchData();
     AOS.init({
-      duration: 2000,
-      once: true,
+      duration: 1000,
     });
   }, []);
+
+  const fetchData = async () => {
+    setLoadingKonten(true);
+    try {
+      const response = await axios.get(`${BASE_API_URL}/api/visi-misi-tujuan`);
+      setVisi(response.data.visi);
+      setMisi(response.data.misi);
+      setTujuan(response.data.tujuan);
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      setLoadingKonten(false);
+    }
+  };
+
+  if (loadingKonten) {
+    return (
+      <GuestLayout>
+        <div className="flex justify-center items-center h-screen">
+          <p>Loading...</p>
+        </div>
+      </GuestLayout>
+    );
+  }
 
   return (
     <GuestLayout>
       <TopLink />
       <div className="container mx-auto py-10 px-4 relative overflow-hidden">
         <div className="mb-10 relative">
-          <HeaderStruktur id="visi" title="VISI" />
-          <p className="text-2xl lg:px-96 text-gray-700 dark:text-white text-center">
-            Mewujudkan HMTI yang proaktif dalam mewadahi aktivitas kemahasiswaan
-            serta menghasilkan mahasiswa yang handal dan kompeten di bidang IT
-            untuk masa depan yang lebih baik.
-          </p>
+          <HeaderStruktur id="visi" title="VISI" alt={visi.judul} />
+          <p
+            className="text-2xl lg:px-96 text-gray-700 dark:text-white text-center"
+            dangerouslySetInnerHTML={{ __html: visi?.konten }}
+          ></p>
         </div>
         <div className="mb-10 p-5">
-          <HeaderStruktur id="misi" title="MISI" />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div>
-              <ul className="list-disc text-2xl text-gray-700 dark:text-white mx-8">
-                <li className="mb-2">
-                  Mengoptimalkan peran HMTI sebagai wadah pengembangan ide dan
-                  kreativitas mahasiswa dengan pendekatan inklusif dan beragam.
-                </li>
-              </ul>
-            </div>
-            <div>
-              <ul className="list-disc text-2xl text-gray-700 dark:text-white mx-8">
-                <li className="mb-2">
-                  Mempererat hubungan antara civitas akademik, alumni, dan
-                  mahasiswa guna membangun relasi yang kuat dan berkelanjutan
-                  dalam mendukung perkembangan IT dan pengembangan karier
-                </li>
-              </ul>
-            </div>
-          </div>
+          <HeaderStruktur id="misi" title="MISI" alt={misi.judul} />
+          <p
+            className="text-2xl lg:px-96 text-gray-700 dark:text-white text-center"
+            dangerouslySetInnerHTML={{ __html: misi?.konten }}
+          ></p>
         </div>
 
         <div className="mb-10">
-          <HeaderStruktur id="tujuan" title="TUJUAN" />
-          <p className="text-2xl lg:px-96 text-gray-700 dark:text-white  text-center">
-            Mencapai kesejahteraan bersama melalui inovasi, kolaborasi, dan aksi
-            nyata yang bermanfaat bagi seluruh anggota dan masyarakat luas.
-          </p>
+          <HeaderStruktur id="tujuan" title="TUJUAN" alt={tujuan.judul} />
+          <p
+            className="text-2xl lg:px-96 text-gray-700 dark:text-white text-center"
+            dangerouslySetInnerHTML={{ __html: tujuan?.konten }}
+          ></p>
         </div>
       </div>
     </GuestLayout>
