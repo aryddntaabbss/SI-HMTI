@@ -48,32 +48,16 @@ const Galery = () => {
 
   return (
     <GuestLayout>
-      <div className="flex flex-col-reverse lg:flex-row w-full lg:min-h-screen bg-gradient-to-b from-white to-light-blue dark:from-dark-blue dark:to-bad-blue overflow-hidden">
-        <div className="w-full lg:w-1/2 px-6 py-5 lg:py-16 lg:pl-40 flex justify-center items-center">
+      <div className="flex flex-col-reverse py-28 lg:flex-row lg:max-h-screen bg-gradient-to-b from-white to-light-blue dark:from-dark-blue dark:to-bad-blue overflow-hidden">
+        <div className="w-full lg:w-1/2 px-6 py-5 lg:py-16 lg:pl-40  flex justify-center items-center">
           <div
             data-aos="fade-right"
             className="flex flex-col gap-5 w-auto h-auto"
           >
-            <h1 className="font-bold text-4xl lg:text-7xl">GALLERY HMTI</h1>
-            <h3 className="text-5xl">
+            <h1 className="font-bold text-6xl lg:text-7xl">GALLERY HMTI</h1>
+            <h3 className="text-3xl lg:text-5xl">
               Simpan Sejuta Cerita, Biarkan Kenangan Berbicara
             </h3>
-            {/* <div className="flex gap-3 pt-3">
-              <Link
-                onClick={() => window.scrollTo(0, 0)}
-                to={"profile/biografi"}
-                className="border-2 border-good-blue text-good-blue px-4 py-2 rounded-md font-bold hover:bg-good-blue hover:scale-105 hover:text-light-blue transition-all"
-              >
-                Biografi HMTI
-              </Link>
-              <Link
-                onClick={() => window.scrollTo(0, 0)}
-                to={"profile/struktur"}
-                className="bg-good-blue px-4 border-2 border-transparent text-light-blue py-2 rounded-md font-bold hover:bg-transparent hover:scale-105 hover:border-good-blue hover:text-good-blue transition-all"
-              >
-                Organisasi
-              </Link>
-            </div> */}
           </div>
         </div>
         <div
