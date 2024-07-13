@@ -5,6 +5,7 @@ import GuestLayout from "../../layouts/GuestLayout";
 import TopLink from "../../components/TopLink";
 import ImageCard from "../../components/Beranda/ImageCard";
 import { BASE_API_URL } from "../../constants/apiURL";
+import BounceLoading from "../../utils/BounceLoading";
 
 const Biografi = () => {
   const [loadingKonten, setLoadingKonten] = useState(true);
@@ -34,8 +35,8 @@ const Biografi = () => {
   if (loadingKonten) {
     return (
       <GuestLayout>
-        <div className="flex justify-center items-center h-screen">
-          <p> </p>
+        <div className="w-full">
+          <BounceLoading />
         </div>
       </GuestLayout>
     );
