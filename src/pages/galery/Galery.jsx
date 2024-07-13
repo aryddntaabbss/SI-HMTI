@@ -6,6 +6,7 @@ import ImageCard from "../../components/Beranda/ImageCard";
 import ImageCardSkeleton from "../../components/Beranda/ImageCardSkeleton";
 import GuestLayout from "../../layouts/GuestLayout";
 import { BASE_API_URL } from "../../constants/apiURL";
+import BounceLoading from "../../utils/BounceLoading";
 
 const Galery = () => {
   const [loadingGallery, setLoadingGallery] = useState(true);
@@ -45,6 +46,16 @@ const Galery = () => {
       setLoadingGallery(false);
     }
   };
+
+  if (loadingGallery) {
+    return (
+      <GuestLayout>
+        <div className="w-full">
+          <BounceLoading />
+        </div>
+      </GuestLayout>
+    );
+  }
 
   return (
     <GuestLayout>
