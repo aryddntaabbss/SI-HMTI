@@ -5,6 +5,7 @@ import GuestLayout from "./../../layouts/GuestLayout";
 import HeaderStruktur from "../../components/HeaderStruktur";
 import TopLink from "./../../components/TopLink";
 import { BASE_API_URL } from "../../constants/apiURL";
+import BounceLoading from "../../utils/BounceLoading";
 
 const VisiMisi = () => {
   const [loadingKonten, setLoadingKonten] = useState(true);
@@ -36,8 +37,8 @@ const VisiMisi = () => {
   if (loadingKonten) {
     return (
       <GuestLayout>
-        <div className="flex justify-center items-center h-screen">
-          <p> </p>
+        <div className="w-full">
+          <BounceLoading />
         </div>
       </GuestLayout>
     );
