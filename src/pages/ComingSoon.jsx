@@ -3,6 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import GuestLayout from "../layouts/GuestLayout";
 import LogoHmti from "../assets/img/hmti-logo.png";
+import HeaderStruktur from "../components/HeaderStruktur";
 
 const ComingSoon = () => {
   useEffect(() => {
@@ -13,7 +14,7 @@ const ComingSoon = () => {
 
   return (
     <GuestLayout>
-      <div className="h-screen flex items-center justify-center relative px-6">
+      <div className="h-screen flex items-center justify-center bg-gradient-to-b dark:from-dark-blue dark:to-bad-blue from-white to-light-blue relative px-6">
         <div className="text-center" data-aos="fade-in">
           <div className="mb-4" data-aos="zoom-in">
             <img
@@ -26,9 +27,9 @@ const ComingSoon = () => {
             className="text-5xl font-bold mb-2 text-blue-700"
             data-aos="fade-up"
           >
-            Comming Soon
+            <HeaderStruktur id="comming soon" title="COMMING SOON" />
           </h1>
-          <p className="text-xl mb-4" data-aos="fade-up">
+          <p className="text-xl font-extrabold mb-4" data-aos="fade-up">
             We are going to launch this Pages Very Soon. Stay Tune.
           </p>
         </div>

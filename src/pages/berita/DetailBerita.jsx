@@ -6,7 +6,6 @@ import { dateFormat } from "../../libs/date-libs";
 import { BASE_API_URL } from "../../constants/apiURL";
 import OtherNews from "../../components/OtherNews";
 import BounceLoading from "../../utils/BounceLoading";
-import { Helmet } from "react-helmet";
 
 const DetailBerita = () => {
   const { slug } = useParams();
@@ -49,26 +48,6 @@ const DetailBerita = () => {
           </div>
         ) : (
           <>
-            <Helmet>
-              <title>{berita?.judul} - Nama Situs Anda</title>
-              <meta name="description" content={berita?.deskripsi} />
-              <meta name="keywords" content={berita?.kategori.judul_kategori} />
-              <meta property="og:title" content={berita?.judul} />
-              <meta property="og:description" content={berita?.deskripsi} />
-              <meta
-                property="og:image"
-                content={`${BASE_API_URL}/storage/${berita?.gambar}`}
-              />
-              <meta property="og:url" content={window.location.href} />
-              <meta property="og:type" content="article" />
-              <meta name="twitter:card" content="summary_large_image" />
-              <meta name="twitter:title" content={berita?.judul} />
-              <meta name="twitter:description" content={berita?.deskripsi} />
-              <meta
-                name="twitter:image"
-                content={`${BASE_API_URL}/storage/${berita?.gambar}`}
-              />
-            </Helmet>
             <article>
               <div
                 className="relative h-[90vh] w-full bg-cover bg-center"

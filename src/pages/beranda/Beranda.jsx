@@ -231,18 +231,34 @@ const Beranda = () => {
           </div>
           {/* galery */}
 
-            {/* partner */}
-            <div className="w-full bg-light-blue dark:bg-bad-blue pt-20">
+          {/* partner */}
+          <div className="w-full bg-light-blue dark:bg-bad-blue pt-20">
             <SectionTitle title={"HMTI PARTNERS"} />
-              <div className="flex justify-center items-center flex-wrap p-6 md:px-28 gap-10 pt-10 pb-32">
-                {partners.map((partner) => (
-                  <Partners key={partner?.id} image={partner?.logo} name={partner?.nama} />
-                ))}
-              </div>
+            <div className="flex justify-center items-center flex-wrap p-6 md:px-28 gap-10 pt-10 pb-32">
+              {partners.map((partner) => (
+                <Partners
+                  key={partner?.id}
+                  image={partner?.logo}
+                  name={partner?.nama}
+                />
+              ))}
             </div>
-            {/* partner */}
           </div>
+          {/* partner */}
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+            className="bg-light-blue dark:bg-bad-blue"
+          >
+            <path
+              className="fill-blue-600"
+              fillOpacity="1"
+              d="M0,160L48,181.3C96,203,192,245,288,224C384,203,480,117,576,74.7C672,32,768,32,864,74.7C960,117,1056,203,1152,202.7C1248,203,1344,117,1392,74.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
+          </svg>
         </div>
+      </div>
     </GuestLayout>
   );
 };

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { BASE_API_URL } from '../../constants/apiURL';
-import axios from 'axios';
-import CardProject from '../../components/Project/CardProject';
+import React, { useEffect, useState } from "react";
+import { BASE_API_URL } from "../../constants/apiURL";
+import axios from "axios";
+import CardProject from "../../components/Project/CardProject";
 
 const OtherProjects = () => {
-  const [projects, setProjects] = useState([])
+  const [projects, setProjects] = useState([]);
 
   const fetchOtherProjects = async () => {
     try {
@@ -13,11 +13,11 @@ const OtherProjects = () => {
     } catch (error) {
       console.error("Error:", error);
     }
-  }
+  };
 
   useEffect(() => {
     fetchOtherProjects();
-  }, [])
+  }, []);
 
   return (
     <>
@@ -25,18 +25,17 @@ const OtherProjects = () => {
         if (i < 4) {
           return (
             <CardProject
-            key={i}
+              key={i}
               title={p.judul}
               image={`${BASE_API_URL}/storage/${p.gambar_utama}`}
               category={p.kategori.judul_kategori}
               link={`/projects/${p.kategori.slug}/${p.slug}`}
-            />)
+            />
+          );
         }
-      }
-      )
-      }
+      })}
     </>
-  )
-}
+  );
+};
 
-export default OtherProjects
+export default OtherProjects;
