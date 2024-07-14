@@ -1,5 +1,6 @@
 import React from "react";
 import LogoHmti from "../../assets/img/hmti-logo.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -112,19 +113,31 @@ const Footer = () => {
                 </h2>
                 <ul className="text-white font-medium">
                   <li className="mb-4">
-                    <a href="/" className="hover:underline">
+                    <Link
+                      onClick={() => window.scrollTo(0, 0)}
+                      to="/berita/kategori/semua-berita"
+                      className="hover:underline"
+                    >
                       Berita Terbaru
-                    </a>
+                    </Link>
                   </li>
                   <li className="mb-4">
-                    <a href="/" className="hover:underline">
+                    <Link
+                      onClick={() => window.scrollTo(0, 0)}
+                      to="/galery"
+                      className="hover:underline"
+                    >
                       Arsip Galeri
-                    </a>
+                    </Link>
                   </li>
                   <li className="mb-4">
-                    <a href="/" className="hover:underline">
+                    <Link
+                      onClick={() => window.scrollTo(0, 0)}
+                      to="/projects"
+                      className="hover:underline"
+                    >
                       Hasil Karya
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -134,19 +147,31 @@ const Footer = () => {
                 </h2>
                 <ul className="text-white font-medium">
                   <li className="mb-4">
-                    <a href="/" className="hover:underline">
+                    <Link
+                      onClick={() => window.scrollTo(0, 0)}
+                      to="/profile/biografi"
+                      className="hover:underline"
+                    >
                       Sejarah Singkat HMTI
-                    </a>
+                    </Link>
                   </li>
                   <li className="mb-4">
-                    <a href="/" className="hover:underline">
+                    <Link
+                      onClick={() => window.scrollTo(0, 0)}
+                      to="/profile/visi-misi"
+                      className="hover:underline"
+                    >
                       Visi & Misi
-                    </a>
+                    </Link>
                   </li>
                   <li className="mb-4">
-                    <a href="/" className="hover:underline">
+                    <Link
+                      onClick={() => window.scrollTo(0, 0)}
+                      to="/profile/struktur"
+                      className="hover:underline"
+                    >
                       Struktur Organisasi
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -156,19 +181,19 @@ const Footer = () => {
                 </h2>
                 <ul className="text-white font-medium">
                   <li className="mb-4">
-                    <a href="/" className="hover:underline">
+                    <Link onClick={() => window.scrollTo(0, 0)} to="/event" className="hover:underline">
                       IT EXPO
-                    </a>
+                    </Link>
                   </li>
                   <li className="mb-4">
-                    <a href="/" className="hover:underline">
+                    <Link onClick={() => window.scrollTo(0, 0)} to="/event" className="hover:underline">
                       March Event
-                    </a>
+                    </Link>
                   </li>
                   <li className="mb-4">
-                    <a href="/" className="hover:underline">
+                    <Link onClick={() => window.scrollTo(0, 0)} to="/event" className="hover:underline">
                       Dies Natalis
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -177,10 +202,9 @@ const Footer = () => {
             <div className="flex flex-col">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.34078287147673!2d127.37429299307693!3d0.7758591999455596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x329cb567605bb341%3A0xdbed093be686d07d!2sSekret%20HMTI%20Unkhair!5e0!3m2!1sid!2sid!4v1720797514072!5m2!1sid!2sid"
-                width="330"
                 height="150"
                 loading="lazy"
-                className="rounded-[5px] mb-5"
+                className="rounded-[5px] w-full mb-5"
                 title="Teknik Informatika Universitas Khairun Map"
               ></iframe>
               <span className="text-white">

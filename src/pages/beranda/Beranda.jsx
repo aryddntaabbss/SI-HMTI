@@ -85,17 +85,17 @@ const Beranda = () => {
               <EventCard
                 link={"/event"}
                 title={"MARCH EVENT"}
-                image={"/assets/img/marchevent.JPG"}
+                image={"/assets/img/marchevent-min.JPG"}
               />
               <EventCard
                 link={"/event"}
                 title={"DIES NATALIS"}
-                image={"/assets/img/dies.JPG"}
+                image={"/assets/img/dies-min.JPG"}
               />
               <EventCard
                 link={"/event"}
                 title={"IT-EXPO"}
-                image={"/assets/img/expo.JPG"}
+                image={"/assets/img/expo-min.JPG"}
               />
             </div>
           </div>

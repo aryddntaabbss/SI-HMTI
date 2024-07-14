@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const EventCard = ({link, image, title}) => {
+const EventCard = ({ link, image, title }) => {
   return (
     <Link
-      // to={link}
+      onClick={() => window.scrollTo(0, 0)}
+      to={link}
       data-aos="fade-up"
       className="relative w-full rounded-lg overflow-hidden h-[550px] shadow-lg"
     >
@@ -21,9 +22,7 @@ const EventCard = ({link, image, title}) => {
           >
             {title}
           </h1>
-          <h1 className="font-bold text-6xl text-white">
-            {title}
-          </h1>
+          <h1 className="font-bold text-6xl text-white">{title}</h1>
         </div>
       </div>
     </Link>
