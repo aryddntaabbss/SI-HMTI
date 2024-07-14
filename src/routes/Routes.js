@@ -9,6 +9,7 @@ import Projects from "../pages/projects/Projects.jsx";
 import DetailProject from "../pages/projects/DetailProject.jsx";
 import SearchBerita from "../pages/berita/SearchBerita.jsx";
 import ComingSoon from './../pages/ComingSoon';
+import NotFoundPage from "../pages/NotFoundPage.jsx";
 
 const AppRoutes = () =>
 {
@@ -34,6 +35,7 @@ const AppRoutes = () =>
 				<Route path="/contact" element={ <Contact /> } />
 
 				<Route path="/event" element={ <ComingSoon /> } />
+				<Route path="/*" element={ <NotFoundPage /> } />
 
 			</Routes>
 		</Router>

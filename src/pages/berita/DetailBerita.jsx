@@ -6,6 +6,7 @@ import { dateFormat } from "../../libs/date-libs";
 import { BASE_API_URL } from "../../constants/apiURL";
 import OtherNews from "../../components/OtherNews";
 import BounceLoading from "../../utils/BounceLoading";
+import NotFound from "../../components/NotFound";
 
 const DetailBerita = () => {
   const { slug } = useParams();
@@ -34,18 +35,9 @@ const DetailBerita = () => {
         {loading ? (
           <BounceLoading />
         ) : error ? (
-          <div className="flex flex-col gap-3 justify-center items-center min-h-[90vh]">
-            <p className="text-5xl font-bold">404</p>
-            <h1 className="text-center text-lg">
-              Woops! Sepertinya berita yang anda cari tidak ditemukan!
-            </h1>
-            <Link
-              to={"/berita/kategori/semua-berita"}
-              className="text-center text-lg font-semibold text-good-blue"
-            >
-              Kembali ke halaman berita
-            </Link>
-          </div>
+          <NotFound msg="Sepertinya berita yang anda cari tidak ditemukan."
+            btnText="Kembali ke Berita"
+            btnLink="/berita" />
         ) : (
           <>
             <article>

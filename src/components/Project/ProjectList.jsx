@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BASE_API_URL } from "../../constants/apiURL";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+
 
 const ProjectList = ({ slug }) => {
   const [project, setProjects] = useState([]);
@@ -21,6 +23,9 @@ const ProjectList = ({ slug }) => {
 
   useEffect(() => {
     fetchProjects();
+    AOS.init({
+      duration: 1500, // Durasi animasi dalam milidetik
+    });
   }, []);
 
   return (
@@ -29,7 +34,7 @@ const ProjectList = ({ slug }) => {
         <div className="pt-4 pb-12 grid grid-cols-2 md:grid-cols-3 gap-y-7 gap-x-5">
           {project?.map((p, i) => {
             return (
-              <div key={i}>
+              <div data-aos="fade-up" key={i}>
                 <div className="w-32 h-32 md:w-64 md:h-40 bg-cover bg-center rounded-xl my-3 overflow-hidden">
                   <Link to={`/projects/${p.kategori.slug}/${p.slug}`}>
                     <img

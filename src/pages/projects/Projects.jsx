@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import GuestLayout from '../../layouts/GuestLayout'
-import { Link } from 'react-router-dom'
 import { TbDeviceMobileCode, TbExternalLink } from "react-icons/tb";
 import { RiComputerLine } from "react-icons/ri";
 import IconProject from '../../components/Project/IconProject';
@@ -13,6 +12,8 @@ import ProjectList from '../../components/Project/ProjectList';
 import axios from 'axios';
 import { BASE_API_URL } from '../../constants/apiURL';
 import { BiChip } from 'react-icons/bi';
+import AOS from "aos";
+
 
 const Projects = () => {
 
@@ -29,17 +30,20 @@ const Projects = () => {
 
   useEffect(() => {
     fetchKategori();
+    AOS.init({
+      duration: 1500, // Durasi animasi dalam milidetik
+    });
   }, []);
 
   return (
     <GuestLayout>
       <div className='min-h-screen py-28 px-10 bg-gradient-to-br from-blue-100 to-blue-300 dark:from-bad-blue dark:to-dark-blue flex flex-col items-center justify-center'>
-        <h1 className='text-center text-5xl md:text-6xl text-dark-blue dark:text-light-blue font-bold'>HMTI Projects</h1>
-        <p className='text-center text-3xl md:text-5xl italic font-light py-14'>Lampaui Batas Imaji <br />Teknologi Dengan Inovasi.</p>
-        <Link to={'/'}
+        <h1 data-aos="fade-right" className='text-center text-4xl md:text-6xl text-dark-blue dark:text-light-blue font-bold'>HMTI Projects</h1>
+        <p data-aos="fade-left" className='text-center text-2xl md:text-5xl italic font-light py-14'>Lampaui Batas Imaji <br />Teknologi Dengan Inovasi.</p>
+        <div data-aos="fade-up"
           className=' bg-good-blue p-2 text-white rounded-lg flex items-center gap-2'>Jelajahi Karya <TbExternalLink size={21} />
-        </Link>
-        <div className='flex flex-wrap gap-4 md:gap-10 justify-center py-24'>
+        </div>
+        <div data-aos="fade-up" className='flex flex-wrap gap-4 md:gap-10 justify-center py-24'>
           <IconProject title={'Web Development'}>
             <RiComputerLine size={27} />
           </IconProject>
@@ -69,7 +73,7 @@ const Projects = () => {
 
       <div className='grid grid-cols-6 md:grid-cols-3'>
         <div className='bg-slate-200 dark:bg-bad-blue px-5 md:px-10 py-14'>
-          <ul className='flex flex-col gap-10 text-dark-blue dark:text-white '>
+          <ul data-aos="fade-right" className='flex flex-col gap-10 text-dark-blue dark:text-white '>
             <li><a href='#web-development' className='flex items-center gap-5 font-medium'><RiComputerLine size={25} /> <p className='hidden md:block'>Web Development</p></a></li>
             <li><a href={'#mobile-development'} className='flex items-center gap-5 font-medium'><TbDeviceMobileCode size={25} /> <p className='hidden md:block'>Mobile Development</p></a></li>
             <li><a href={'#game-development'} className='flex items-center gap-5 font-medium'><IoGameControllerOutline size={25} /><p className='hidden md:block'>Game Development</p> </a></li>

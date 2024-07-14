@@ -6,6 +6,7 @@ import axios from "axios";
 import { BASE_API_URL } from "../../constants/apiURL";
 import OtherProjects from "./OtherProjects";
 import BounceLoading from "../../utils/BounceLoading";
+import NotFound from "../../components/NotFound";
 
 const DetailProject = () => {
   const { slug: projectSlug, kategori: kategori } = useParams();
@@ -44,18 +45,9 @@ const DetailProject = () => {
       {loading ? (
         <BounceLoading />
       ) : error ? (
-        <div className="flex flex-col gap-3 justify-center items-center min-h-[90vh]">
-          <p className="text-5xl font-bold">404</p>
-          <h1 className="text-center text-lg">
-            Woops! Sepertinya project yang anda cari tidak ditemukan!
-          </h1>
-          <Link
-            to={"/projects"}
-            className="text-center text-lg font-semibold text-good-blue"
-          >
-            Kembali ke halaman projects
-          </Link>
-        </div>
+        <NotFound msg="Sepertinya project yang anda cari tidak ditemukan."
+          btnText="Kembali ke Projects"
+          btnLink="/projects" />
       ) : (
         <div className=" w-full px-3 py-10 lg:px-24">
           <div className="flex gap-1 items-center text-xs md:text-base">
