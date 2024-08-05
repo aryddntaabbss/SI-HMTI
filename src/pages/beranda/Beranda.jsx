@@ -37,7 +37,7 @@ const Beranda = () => {
       const response = await axios.get(`${BASE_API_URL}/api/berita-pilihan`);
       setBeritaPilihan(await response.data);
     } catch (error) {
-      console.error("Error:", error);
+      // console.error("Error:", error);
     } finally {
       setLoadingBeritaPilihan(false);
     }

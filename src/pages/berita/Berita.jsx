@@ -54,7 +54,7 @@ const Berita = () => {
       const response = await axios.get(urlKategori);
       setBerita(await response.data);
     } catch (error) {
-      console.error("Error:", error);
+      // console.error("Error:", error);
       setBerita([]);
     } finally {
       setLoading(false);

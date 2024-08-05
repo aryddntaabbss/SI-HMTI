@@ -19,7 +19,7 @@ const DetailBerita = () => {
       const response = await axios.get(`${BASE_API_URL}/api/berita/${slug}`);
       setBerita(await response.data);
     } catch (error) {
-      console.error("Error:", error);
+      // console.error("Error:", error);
       setError(true);
     }
     setLoading(false);

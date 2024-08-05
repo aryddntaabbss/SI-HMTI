@@ -27,7 +27,7 @@ const Biografi = () => {
       setSejarah(response.data.sejarah);
       setFilosofi(response.data.filosofi);
     } catch (error) {
-      console.error("Error:", error);
+      // console.error("Error:", error);
     } finally {
       setLoadingKonten(false);
     }

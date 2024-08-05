@@ -37,7 +37,7 @@ const Contact = () => {
     };
 
     // Log the payload to verify its structure
-    console.log("Payload being sent:", payload);
+    // console.log("Payload being sent:", payload);
 
     try {
       const response = await axios.post(`${BASE_API_URL}/api/kontak`, payload);
