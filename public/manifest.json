@@ -3,19 +3,19 @@
   "name": "SISTEM INFORMASI HIMPUNAN MAHASISWA TEKNIK INFORMATIKA (HMTI)",
   "icons": [
     {
-      "src": "hmti-icon.ico",
-      "type": "image/x-icon",
-      "sizes": "64x64 32x32 24x24 16x16"
+      "src": "./apple-touch-icon-60x60.png",
+      "type": "image/png",
+      "sizes": "60x60"
     },
     {
-      "src": "logo192.png",
+      "src": "./favicon-196x196.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "196x196"
     },
     {
-      "src": "logo512.png",
+      "src": "./mstile-310x310.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "310x310"
     }
   ],
   "start_url": ".",
