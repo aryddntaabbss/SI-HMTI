@@ -3,7 +3,6 @@ import { HiArrowCircleUp } from "react-icons/hi";
 import { HiArrowSmUp } from "react-icons/hi";
 import { TiArrowUp } from "react-icons/ti";
 
-
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -36,7 +35,7 @@ const ScrollToTopButton = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className={`fixed bg-dark-blue dark:bg-white text-white dark:text-dark-blue p-1 rounded-full bottom-5 right-10 animate-slideup transition-all`}
+          className={`fixed bg-dark-blue dark:bg-white text-white dark:text-dark-blue p-1 rounded-full bottom-24 md:bottom-5 right-5 md:right-10 animate-slideup transition-all`}
         >
           <HiArrowSmUp size={30} />
         </button>

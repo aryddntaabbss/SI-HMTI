@@ -6,7 +6,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
     <>
-      <footer className="bg-blue-600 pt-5 lg:pt-0 overflow-hidden">
+      <footer className="bg-blue-600 pt-5 lg:pt-0 overflow-hidden md:pb-0 pb-20">
         <div className="mx-auto w-full max-w-screen-xl px-10 pb-4 lg:pt-10">
           <div className="md:flex md:justify-between">
             <div className="mb-6 md:mb-0">
@@ -181,17 +181,29 @@ const Footer = () => {
                 </h2>
                 <ul className="text-white font-medium">
                   <li className="mb-4">
-                    <Link onClick={() => window.scrollTo(0, 0)} to="/event" className="hover:underline">
+                    <Link
+                      onClick={() => window.scrollTo(0, 0)}
+                      to="/event"
+                      className="hover:underline"
+                    >
                       IT EXPO
                     </Link>
                   </li>
                   <li className="mb-4">
-                    <Link onClick={() => window.scrollTo(0, 0)} to="/event" className="hover:underline">
+                    <Link
+                      onClick={() => window.scrollTo(0, 0)}
+                      to="/event"
+                      className="hover:underline"
+                    >
                       March Event
                     </Link>
                   </li>
                   <li className="mb-4">
-                    <Link onClick={() => window.scrollTo(0, 0)} to="/event" className="hover:underline">
+                    <Link
+                      onClick={() => window.scrollTo(0, 0)}
+                      to="/event"
+                      className="hover:underline"
+                    >
                       Dies Natalis
                     </Link>
                   </li>
