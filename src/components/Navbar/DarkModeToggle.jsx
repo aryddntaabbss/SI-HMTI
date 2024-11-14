@@ -42,7 +42,7 @@ const DarkModeToggle = () => {
     <>
       <button
         onClick={toggleMode}
-        className="py-1.5 lg:px-3 lg:rounded-md  text-2xl dark:text-white text-dark-blue lg:text-white lg:dark:text-dark-blue hover:text-blue-500  lg:bg-good-blue lg:dark:bg-white"
+        className="py-1.5 lg:px-3 lg:rounded-md lg:text-xl text-2xl dark:text-white text-dark-blue lg:text-white lg:dark:text-dark-blue hover:text-blue-500  lg:bg-good-blue lg:dark:bg-white"
       >
         {isDark ? <GrSun /> : <PiMoonFill />}
       </button>

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
@@ -11,6 +11,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const NavList = () => {
+  const location = useLocation();
+  const isActive =
+    location.pathname.includes("/galery") ||
+    location.pathname.includes("/kenangan");
   return (
     <>
       <div className="flex justify-center items-center">
@@ -75,14 +79,12 @@ const NavList = () => {
       </div>
       <div className="flex justify-center items-center">
         <NavLink
-          to={"/galery"}
-          className={({ isActive }) =>
-            `flex flex-col items-center ${
-              isActive ? "text-blue-500 text-2xl" : "text-dark-blue"
-            } ${
-              isActive ? "text-blue-500 text-2xl" : "dark:text-white"
-            }  hover:text-blue-500`
-          }
+          to="/galery"
+          className={`flex flex-col items-center ${
+            isActive
+              ? "text-blue-500 text-2xl"
+              : "text-dark-blue dark:text-white"
+          } hover:text-blue-500`}
         >
           <FontAwesomeIcon icon={faImages} />
           <span className="hidden lg:inline">Galeri</span>
