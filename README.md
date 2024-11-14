@@ -3,7 +3,9 @@
 ---
 **Deskripsi Proyek**  
 SI-HMTI adalah platform berbasis web yang dirancang untuk memfasilitasi berbagai kegiatan organisasi Himpunan Mahasiswa Teknik Informatika. Aplikasi ini memungkinkan anggota HMTI untuk mengakses informasi terkini, mengikuti acara, melihat pengumuman, serta berpartisipasi aktif dalam kegiatan organisasi. Dengan mengadopsi teknologi Progressive Web App (PWA), SI-HMTI memberikan pengalaman yang cepat, responsif, dan dapat diakses offline layaknya aplikasi native.
+
 ---
+
 **Fitur Utama**
 - **PWA Support**: Akses aplikasi secara offline dan kemampuan instalasi seperti aplikasi native.
 - **Push Notification**: Notifikasi instan untuk pengumuman, update acara, dan informasi penting.
