@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import LogoHmti from "../../assets/img/hmti-logo.png";
+import BackHero from "../../assets/img/backhero.gif";
 
 const HeroBeranda = () => {
   return (
@@ -35,39 +36,21 @@ const HeroBeranda = () => {
       </div>
       <div
         data-aos="fade-left"
-        className="w-full lg:w-1/2 py-16 lg:pr-40 lg:pb-24 flex justify-center items-center"
+        className="w-full lg:w-1/2 py-16 lg:pr-40 lg:pb-24 flex justify-center items-center relative"
       >
         <div className="relative w-full h-auto flex justify-center items-center">
-          <span className="absolute -top-5 lg:-top-10 -translate-x-1/">
-            <svg
-              className="w-[250px] h-[250px] lg:w-[500px] lg:h-[500px] opacity-60 rotate-180 "
-              viewBox="0 0 200 200"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill="#126BF1"
-                d="M28.9,20.1C19,33.8,-20.1,34,-29.8,20.4C-39.5,6.9,-19.8,-20.5,-0.2,-20.6C19.4,-20.7,38.8,6.4,28.9,20.1Z"
-                transform="translate(100 100) scale(2.3)"
-              />
-            </svg>
-          </span>
-          <span className="absolute -top-5 lg:-top-10 -translate-x-1/">
-            <svg
-              className="w-[250px] h-[250px] lg:w-[500px] lg:h-[500px] rotate-45 opacity-60"
-              viewBox="0 0 200 200"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill="#126BF1"
-                d="M35.9,23.8C23.5,42.2,-25.5,42.6,-37.5,24.3C-49.6,6.1,-24.8,-30.8,-0.3,-31C24.1,-31.2,48.3,5.3,35.9,23.8Z"
-                transform="translate(100 100) scale(1.7)"
-              />
-            </svg>
-          </span>
+          {/* Background Image */}
+          <img
+            src={BackHero}
+            alt="Back Hero"
+            className="absolute w-4/5 lg:w-5/6 min-h-full object-cover object-center z-0"
+          />
+
+          {/* Logo Image */}
           <img
             src={LogoHmti}
             alt="Logo HMTI"
-            className="w-2/4 -z-0 lg:w-4/5 max-w-lg"
+            className="w-2/3 lg:w-4/4 max-w-lg z-10"
           />
         </div>
       </div>

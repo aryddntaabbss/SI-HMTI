@@ -36,9 +36,6 @@ const Contact = () => {
       },
     };
 
-    // Log the payload to verify its structure
-    // console.log("Payload being sent:", payload);
-
     try {
       const response = await axios.post(`${BASE_API_URL}/api/kontak`, payload);
       if (response.status === 200) {
@@ -53,9 +50,8 @@ const Contact = () => {
         setError("Gagal mengirim pesan. Silakan coba lagi.");
       }
     } catch (err) {
-      console.error("Error while sending message:", err); // Log error details
+      console.error("Error while sending message:", err);
       if (err.response) {
-        console.error("Response data:", err.response.data);
         setError(`Kesalahan: ${err.response.data.message || err.message}`);
       } else {
         setError("Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.");
@@ -67,37 +63,38 @@ const Contact = () => {
 
   return (
     <GuestLayout>
-      <div className="h-full flex items-center container mx-auto lg:py-28 py-10 px-4 overflow-hidden">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div className="flex flex-col">
-            <div className="flex flex-col items-center">
-              <img
-                src={`${process.env.PUBLIC_URL}/assets/img/contact-banner.png`}
-                alt="Contact"
-                className="md:max-w-2xl rounded-lg my-10"
-              />
-            </div>
+      <div className="min-h-screen flex justify-center items-center bg-gradient-to-b dark:from-dark-blue dark:to-bad-blue from-white to-light-blue py-10">
+        <div className="container mx-auto px-6 lg:px-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Image Section */}
+          <div className="flex justify-center items-center">
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/img/contact.gif`}
+              alt="Contact"
+              className="max-w-full"
+            />
           </div>
 
-          <div className="flex flex-col">
-            <p className="text-5xl font-semibold mb-4 lg:text-6xl">
-              Mari Berbagi & Berkolaborasi, Sampaikan Pesan & Kesan Anda!
+          {/* Form Section */}
+          <div className="flex flex-col justify-center p-6">
+            <p className="text-4xl font-semibold mb-4 lg:text-5xl">
+              Mari Berbagi & Berkolaborasi
             </p>
-            <p className="text-2xl underline font-bold md:text-3xl mb-4">
+            <p className="text-xl font-bold text-gray-400 mb-4">
               #HMTITetapSatu
             </p>
-            <h2 className="text-5xl md:text-7xl font-bold italic text-blue-600 mb-10">
+            <h2 className="text-4xl lg:text-5xl font-bold text-blue-600 mb-8">
               Kontak Kami
             </h2>
-            <form className="flex flex-col" onSubmit={handleSubmit}>
-              <div className="flex flex-col md:flex-row bg-transparent">
+
+            <form className="flex flex-col space-y-6" onSubmit={handleSubmit}>
+              <div className="flex flex-col md:flex-row justify-between">
                 <input
                   type="text"
                   name="nama"
                   value={formData.nama}
                   onChange={handleChange}
                   placeholder="Nama"
-                  className="bg-transparent border-b-2 px-4 py-2 mb-4 md:mr-2 md:flex-grow focus:outline-none"
+                  className="bg-transparent border-b-2 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
                 <input
@@ -106,36 +103,40 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Email"
-                  className="bg-transparent border-b-2 px-4 py-2 mb-4 md:ml-2 md:flex-grow focus:outline-none"
+                  className="bg-transparent border-b-2 px-4 py-2 lg:mt-0 mt-6 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
               </div>
+
               <input
                 type="text"
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
                 placeholder="Subject"
-                className="bg-transparent border-b-2 px-4 py-2 mb-4 focus:outline-none"
+                className="bg-transparent border-b-2 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
+
               <textarea
                 name="pesan"
                 value={formData.pesan}
                 onChange={handleChange}
                 placeholder="Deskripsi"
-                className="bg-transparent border-b-2 px-4 py-2 mb-4 focus:outline-none"
+                className="bg-transparent border-b-2 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               ></textarea>
+
               <button
                 type="submit"
-                className={`bg-blue-500 rounded-lg text-white py-2 px-4 hover:bg-blue-600 transition duration-300 ${
+                className={`bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300 ${
                   loading ? "opacity-50 cursor-not-allowed" : ""
                 }`}
                 disabled={loading}
               >
                 {loading ? "Mengirim..." : "Kirim"}
               </button>
+
               {error && <p className="text-red-500 mt-4">{error}</p>}
             </form>
           </div>
