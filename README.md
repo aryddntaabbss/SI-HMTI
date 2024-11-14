@@ -19,7 +19,7 @@ SI-HMTI adalah platform berbasis web yang dirancang untuk memfasilitasi berbagai
 **Cara Memulai Proyek**
 1. Clone repository ini ke komputer Anda:
    ```bash
-   git clone https://github.com/username/SI-HMTI.git
+   git clone https://github.com/username/SI-HMTI.git](https://github.com/aryddntaabbss/SI-HMTI.git)
    ```
 2. Masuk ke direktori proyek:
    ```bash
