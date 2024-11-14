@@ -22,7 +22,7 @@ const AllGalery = () => {
   const fetchNewGallery = async () => {
     setLoadingGallery(true);
     try {
-      const response = await axios.get("/api/galeri-terbaru");
+      const response = await axios.get(`${BASE_API_URL}/api/galeri-terbaru`);
       setGalleryNew(await response.data);
     } catch (error) {
       console.error("Error:", error);
