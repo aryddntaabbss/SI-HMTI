@@ -4,6 +4,7 @@ import Berita from "../pages/berita/Berita";
 import DetailBerita from "../pages/berita/DetailBerita";
 import { Biografi, VisiMisi, Struktur } from "../pages/profile/Index.jsx";
 import Galery from "../pages/galery/Galery";
+import AllGalery from "../pages/galery/AllGalery";
 import Contact from "../pages/contact/Contact";
 import Projects from "../pages/projects/Projects.jsx";
 import DetailProject from "../pages/projects/DetailProject.jsx";
@@ -30,6 +31,7 @@ const AppRoutes = () =>
 				<Route path="/profile/visi-misi" element={ <VisiMisi /> } />
 
 				<Route path="/galery" element={ <Galery /> } />
+				<Route path="/kenangan" element={ <AllGalery /> } />
 				<Route path="/projects" element={ <Projects /> } />
 				<Route path="/projects/:kategori/:slug" element={ <DetailProject /> } />
 				<Route path="/contact" element={ <Contact /> } />

@@ -1,6 +1,7 @@
 {
   "name": "hmti-dashboard",
   "version": "0.1.0",
+  "proxy": "http://admin.hmti.unkhair.ac.id",
   "private": true,
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.6.0",

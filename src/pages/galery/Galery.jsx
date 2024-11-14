@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AOS from "aos";
+import { Link } from "react-router-dom";
 import SectionTitle from "../../components/Beranda/SectionTitle";
 import ImageCard from "../../components/Beranda/ImageCard";
 import ImageCardSkeleton from "../../components/Beranda/ImageCardSkeleton";
@@ -65,10 +66,19 @@ const Galery = () => {
             data-aos="fade-right"
             className="flex flex-col gap-5 w-auto h-auto"
           >
-            <h1 className="font-bold text-6xl lg:text-7xl">GALLERY HMTI</h1>
-            <h3 className="text-3xl lg:text-5xl">
+            <h1 className="font-bold text-4xl lg:text-6xl">GALLERY HMTI</h1>
+            <h3 className="text-2xl lg:text-4xl">
               Simpan Sejuta Cerita, Biarkan Kenangan Berbicara
             </h3>
+            <div className="flex gap-3 pt-3">
+              <Link
+                onClick={() => window.scrollTo(0, 0)}
+                to={"/kenangan"}
+                className="bg-good-blue px-4 border-2 border-transparent text-light-blue py-2 rounded-md font-bold hover:bg-transparent hover:scale-105 hover:border-good-blue hover:text-good-blue transition-all"
+              >
+                Kenangan HMTI
+              </Link>
+            </div>
           </div>
         </div>
         <div
