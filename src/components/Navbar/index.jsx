@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="hidden md:flex justify-between items-center w-full py-3 px-10 lg:px-28 bg-white dark:bg-dark-blue transition-all duration-500">
         <div className="flex lg:gap-20 gap-0 items-center w-full">
           <Link to={"/"}>
-            <img src={LogoHmti} alt="HMTI" className="w-10 md:hidden" />
+            <img src={LogoHmti} alt="HMTI" className="w-10" />
           </Link>
           <nav className="flex justify-between items-center w-full">
             <ul className="flex gap-10 font-medium">
