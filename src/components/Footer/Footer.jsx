@@ -6,8 +6,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
     <>
-      <footer className="bg-blue-600 pt-5 lg:pt-0 overflow-hidden md:pb-0 pb-20">
-        <div className="mx-auto w-full max-w-screen-xl px-10 pb-4 lg:pt-10">
+      <footer className="bg-blue-600 overflow-hidden md:py-0 py-20">
+        <div className="mx-auto w-full max-w-screen-xl px-10 lg:py-10">
           <div className="md:flex md:justify-between">
             <div className="mb-6 md:mb-0">
               <div href="/" className="block text-center">
@@ -106,10 +106,10 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="flex flex-cols justify-center gap-8 sm:gap-40 sm:flex-cols-3 md:w-2/4">
+            <div className="flex flex-cols justify-center gap-8 sm:gap-16 sm:flex-cols-3 md:w-2/4">
               <div>
-                <h2 className="mb-6 text-sm font-semibold text-white uppercase">
-                  laman tautan
+                <h2 className="mb-6 text-md font-semibold text-white uppercase">
+                  tautan
                 </h2>
                 <ul className="text-white font-medium">
                   <li className="mb-4">
@@ -142,7 +142,7 @@ const Footer = () => {
                 </ul>
               </div>
               <div>
-                <h2 className="mb-6 text-sm font-semibold uppercase text-white">
+                <h2 className="mb-6 text-md font-semibold uppercase text-white">
                   Organisasi
                 </h2>
                 <ul className="text-white font-medium">
@@ -176,7 +176,7 @@ const Footer = () => {
                 </ul>
               </div>
               <div>
-                <h2 className="mb-6 text-sm font-semibold uppercase text-white">
+                <h2 className="mb-6 text-md font-semibold uppercase text-white">
                   Events
                 </h2>
                 <ul className="text-white font-medium">
@@ -219,7 +219,7 @@ const Footer = () => {
                 className="rounded-[5px] w-full mb-5"
                 title="Teknik Informatika Universitas Khairun Map"
               ></iframe>
-              <span className="text-white">
+              <span className="text-white sm:text-start text-center">
                 Jl. Jati Metro, Jati, Kec. <br /> Ternate Sel., Kota Ternate,{" "}
                 <br />
                 Maluku Utara
@@ -228,7 +228,7 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col items-center sm:flex sm:items-center sm:justify-between mt-5">
-            <span className="text-sm text-white sm:text-center ">
+            <span className="text-sm text-white text-center ">
               Copyright ©{" "}
               <a href="/" className="hover:underline">
                 {currentYear} by HMTI UNKHAIR | Masa Periodisasi 2024-2025
