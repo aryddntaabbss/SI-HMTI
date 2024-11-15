@@ -4,6 +4,7 @@ import "aos/dist/aos.css";
 import axios from "axios";
 import SectionTitle from "../../components/Beranda/SectionTitle";
 import { BASE_API_URL } from "../../constants/apiURL";
+import { BASE_API_KEY } from "../../constants/apiURL";
 import GuestLayout from "../../layouts/GuestLayout";
 import ImageCard from "../../components/Beranda/ImageCard";
 import ImageCardSkeleton from "../../components/Beranda/ImageCardSkeleton";
@@ -22,7 +23,12 @@ const AllGalery = () => {
   const fetchNewGallery = async () => {
     setLoadingGallery(true);
     try {
-      const response = await axios.get(`${BASE_API_URL}/api/galeri-terbaru`);
+      const response = await axios.get(`${BASE_API_URL}/api/galeri-terbaru`, {
+        headers: {
+          "P3RT-HMTI-API-KEY": `${BASE_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+      });
       setGalleryNew(await response.data);
     } catch (error) {
       console.error("Error:", error);

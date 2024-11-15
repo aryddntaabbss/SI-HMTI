@@ -6,6 +6,7 @@ import CardSemuaBeritaSkeleton from "../../components/Berita/CardSemuaBeritaSkel
 import AOS from "aos";
 import axios from "axios";
 import { BASE_API_URL } from "../../constants/apiURL";
+import { BASE_API_KEY } from "../../constants/apiURL";
 import BeritaPilihan from "../../components/Berita/BeritaPilihan";
 
 const Berita = () => {
@@ -13,7 +14,7 @@ const Berita = () => {
   const [kategori, setKategori] = useState([]);
   const [berita, setBerita] = useState([]);
   const [loading, setLoading] = useState(true);
-  
+
   const { kategoriBerita } = useParams();
   const location = useLocation();
 
@@ -26,9 +27,19 @@ const Berita = () => {
 
   useEffect(() => {
     if (kategoriBerita === "semua-berita") {
-      setUrlKategori(`${BASE_API_URL}/api/semua-berita`);
+      setUrlKategori(`${BASE_API_URL}/api/semua-berita`, {
+        headers: {
+          "P3RT-HMTI-API-KEY": `${BASE_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+      });
     } else {
-      setUrlKategori(`${BASE_API_URL}/api/kategori/${kategoriBerita}/berita`);
+      setUrlKategori(`${BASE_API_URL}/api/kategori/${kategoriBerita}/berita`, {
+        headers: {
+          "P3RT-HMTI-API-KEY": `${BASE_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+      });
     }
   }, [kategoriBerita]);
 
@@ -40,7 +51,12 @@ const Berita = () => {
 
   const fetchKategori = async () => {
     try {
-      const response = await axios.get(`${BASE_API_URL}/api/kategori-berita`);
+      const response = await axios.get(`${BASE_API_URL}/api/kategori-berita`, {
+        headers: {
+          "P3RT-HMTI-API-KEY": `${BASE_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+      });
       setKategori(await response.data);
     } catch (error) {
       console.error("Error:", error);
@@ -51,7 +67,12 @@ const Berita = () => {
     setLoading(true);
     setBerita([]);
     try {
-      const response = await axios.get(urlKategori);
+      const response = await axios.get(urlKategori, {
+        headers: {
+          "P3RT-HMTI-API-KEY": `${BASE_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+      });
       setBerita(await response.data);
     } catch (error) {
       // console.error("Error:", error);
@@ -123,7 +144,7 @@ const Berita = () => {
             {/* card berita */}
           </div>
           <div className="w-full lg:w-2/6 px-3 mb-8 lg:mb-0">
-            <BeritaPilihan/>
+            <BeritaPilihan />
           </div>
         </div>
       </div>

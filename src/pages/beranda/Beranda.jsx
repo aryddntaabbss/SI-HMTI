@@ -10,6 +10,7 @@ import NewsCardSmartphone from "../../components/Beranda/NewsCardSmartphone";
 import ImageCard from "../../components/Beranda/ImageCard";
 import axios from "axios";
 import { BASE_API_URL } from "../../constants/apiURL";
+import { BASE_API_KEY } from "../../constants/apiURL";
 import NewsCardSmartphoneSkeleton from "../../components/Beranda/NewsCardSmartphoneSkeleton";
 import NewsCardSkeleton from "../../components/Beranda/NewsCardSkeleton";
 import Partners from "../../components/Beranda/Partners";
@@ -34,10 +35,15 @@ const Beranda = () => {
   const fetchBeritaPilihan = async () => {
     setLoadingBeritaPilihan(true);
     try {
-      const response = await axios.get(`${BASE_API_URL}/api/berita-pilihan`);
-      setBeritaPilihan(await response.data);
+      const response = await axios.get(`${BASE_API_URL}/api/berita-pilihan`, {
+        headers: {
+          "P3RT-HMTI-API-KEY": `${BASE_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+      });
+      setBeritaPilihan(response.data);
     } catch (error) {
-      // console.error("Error:", error);
+      console.error("Error:", error);
     } finally {
       setLoadingBeritaPilihan(false);
     }
@@ -46,7 +52,12 @@ const Beranda = () => {
   const fetchGallery = async () => {
     setLoadingGallery(true);
     try {
-      const response = await axios.get(`${BASE_API_URL}/api/galeri-terbaru`);
+      const response = await axios.get(`${BASE_API_URL}/api/galeri-terbaru`, {
+        headers: {
+          "P3RT-HMTI-API-KEY": `${BASE_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+      });
       setGallery(await response.data);
     } catch (error) {
       console.error("Error:", error);
@@ -57,7 +68,12 @@ const Beranda = () => {
 
   const fetchPartners = async () => {
     try {
-      const response = await axios.get(`${BASE_API_URL}/api/partners`);
+      const response = await axios.get(`${BASE_API_URL}/api/partners`, {
+        headers: {
+          "P3RT-HMTI-API-KEY": `${BASE_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+      });
       setPartners(await response.data);
     } catch (error) {
       console.error("Error:", error);

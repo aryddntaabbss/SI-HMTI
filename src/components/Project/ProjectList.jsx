@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BASE_API_URL } from "../../constants/apiURL";
+import { BASE_API_KEY } from "../../constants/apiURL";
 import { Link } from "react-router-dom";
 import AOS from "aos";
-
 
 const ProjectList = ({ slug }) => {
   const [project, setProjects] = useState([]);
@@ -12,7 +12,13 @@ const ProjectList = ({ slug }) => {
   const fetchProjects = async () => {
     try {
       const response = await axios.get(
-        `${BASE_API_URL}/api/kategori/${slug}/projects`
+        `${BASE_API_URL}/api/kategori/${slug}/projects`,
+        {
+          headers: {
+            "P3RT-HMTI-API-KEY": `${BASE_API_KEY}`,
+            "Content-Type": "application/json",
+          },
+        }
       );
       setProjects(await response.data);
     } catch (error) {

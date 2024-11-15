@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import GuestLayout from "../../layouts/GuestLayout";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { dateFormat } from "../../libs/date-libs";
 import { BASE_API_URL } from "../../constants/apiURL";
+import { BASE_API_KEY } from "../../constants/apiURL";
 import OtherNews from "../../components/OtherNews";
 import BounceLoading from "../../utils/BounceLoading";
 import NotFound from "../../components/NotFound";
@@ -16,7 +17,12 @@ const DetailBerita = () => {
 
   const fetchBerita = async () => {
     try {
-      const response = await axios.get(`${BASE_API_URL}/api/berita/${slug}`);
+      const response = await axios.get(`${BASE_API_URL}/api/berita/${slug}`, {
+        headers: {
+          "P3RT-HMTI-API-KEY": `${BASE_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+      });
       setBerita(await response.data);
     } catch (error) {
       // console.error("Error:", error);
@@ -35,9 +41,11 @@ const DetailBerita = () => {
         {loading ? (
           <BounceLoading />
         ) : error ? (
-          <NotFound msg="Sepertinya berita yang anda cari tidak ditemukan."
+          <NotFound
+            msg="Sepertinya berita yang anda cari tidak ditemukan."
             btnText="Kembali ke Berita"
-            btnLink="/berita" />
+            btnLink="/berita"
+          />
         ) : (
           <>
             <article>

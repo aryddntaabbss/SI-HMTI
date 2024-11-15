@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { FaAngleRight } from "react-icons/fa";
 import axios from "axios";
 import { BASE_API_URL } from "../../constants/apiURL";
+import { BASE_API_KEY } from "../../constants/apiURL";
 import OtherProjects from "./OtherProjects";
 import BounceLoading from "../../utils/BounceLoading";
 import NotFound from "../../components/NotFound";
@@ -18,8 +19,17 @@ const DetailProject = () => {
     setLoading(true);
     setError(false);
     try {
+      // const response = await axios.get(
+      //   `${BASE_API_URL}/api/project/${projectSlug}`
+      // );
       const response = await axios.get(
-        `${BASE_API_URL}/api/project/${projectSlug}`
+        `${BASE_API_URL}/api/project/${projectSlug}`,
+        {
+          headers: {
+            "P3RT-HMTI-API-KEY": `${BASE_API_KEY}`,
+            "Content-Type": "application/json",
+          },
+        }
       );
       const result = await response.data;
       setProject(result);
@@ -45,9 +55,11 @@ const DetailProject = () => {
       {loading ? (
         <BounceLoading />
       ) : error ? (
-        <NotFound msg="Sepertinya project yang anda cari tidak ditemukan."
+        <NotFound
+          msg="Sepertinya project yang anda cari tidak ditemukan."
           btnText="Kembali ke Projects"
-          btnLink="/projects" />
+          btnLink="/projects"
+        />
       ) : (
         <div className=" w-full px-3 py-10 lg:px-24">
           <div className="flex gap-1 items-center text-xs md:text-base">

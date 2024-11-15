@@ -5,6 +5,7 @@ import SearchForm from "./SearchForm";
 import AOS from "aos";
 import axios from "axios";
 import { BASE_API_URL } from "../../constants/apiURL";
+import { BASE_API_KEY } from "../../constants/apiURL";
 import CardWithPicSkeleton from "./CardBeritaPilihan/CardWithPicSkeleton";
 
 const BeritaPilihan = () => {
@@ -21,7 +22,12 @@ const BeritaPilihan = () => {
   const fetchBeritaPilihan = async () => {
     setLoadingBeritaPilihan(true);
     try {
-      const response = await axios.get(`${BASE_API_URL}/api/berita-pilihan`);
+      const response = await axios.get(`${BASE_API_URL}/api/berita-pilihan`, {
+        headers: {
+          "P3RT-HMTI-API-KEY": `${BASE_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+      });
       setBeritaPilihan(await response.data);
     } catch (error) {
       console.error("Error:", error);

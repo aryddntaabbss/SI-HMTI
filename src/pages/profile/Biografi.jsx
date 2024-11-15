@@ -5,6 +5,7 @@ import GuestLayout from "../../layouts/GuestLayout";
 import TopLink from "../../components/TopLink";
 import ImageCard from "../../components/Beranda/ImageCard";
 import { BASE_API_URL } from "../../constants/apiURL";
+import { BASE_API_KEY } from "../../constants/apiURL";
 import BounceLoading from "../../utils/BounceLoading";
 
 const Biografi = () => {
@@ -23,7 +24,12 @@ const Biografi = () => {
   const fetchData = async () => {
     setLoadingKonten(true);
     try {
-      const response = await axios.get(`${BASE_API_URL}/api/sejarah-filosofi`);
+      const response = await axios.get(`${BASE_API_URL}/api/sejarah-filosofi`, {
+        headers: {
+          "P3RT-HMTI-API-KEY": `${BASE_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+      });
       setSejarah(response.data.sejarah);
       setFilosofi(response.data.filosofi);
     } catch (error) {

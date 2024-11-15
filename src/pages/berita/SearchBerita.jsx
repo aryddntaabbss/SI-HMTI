@@ -5,6 +5,7 @@ import AOS from "aos";
 import CardSemuaBeritaSkeleton from "../../components/Berita/CardSemuaBeritaSkeleton";
 import CardSemuaBerita from "../../components/Berita/CardSemuaBerita";
 import { BASE_API_URL } from "../../constants/apiURL";
+import { BASE_API_KEY } from "../../constants/apiURL";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -19,13 +20,19 @@ const SearchBerita = () => {
     });
     fetchBerita();
   }, [slug]);
-  
+
   const fetchBerita = async () => {
     setLoading(true);
     setBerita([]);
     try {
       const response = await axios.get(
-        `${BASE_API_URL}/api/search?cari=${slug}`
+        `${BASE_API_URL}/api/search?cari=${slug}`,
+        {
+          headers: {
+            "P3RT-HMTI-API-KEY": `${BASE_API_KEY}`,
+            "Content-Type": "application/json",
+          },
+        }
       );
       setBerita(await response.data);
     } catch (error) {
@@ -47,16 +54,17 @@ const SearchBerita = () => {
           </div>
           <div className="w-full flex justify-center">
             {/* card berita */}
-            <div data-aos="fade-up" className="flex flex-col w-full lg:w-3/5 gap-7 pt-9">
-                <h1 className="font-bold w-full text-start">Hasil Pencarian "{slug}"</h1>
+            <div
+              data-aos="fade-up"
+              className="flex flex-col w-full lg:w-3/5 gap-7 pt-9"
+            >
+              <h1 className="font-bold w-full text-start">
+                Hasil Pencarian "{slug}"
+              </h1>
               {loading ? (
                 Array(3)
                   .fill(0)
-                  .map((_, index) => (
-                    <CardSemuaBeritaSkeleton
-                      key={index}
-                    />
-                  ))
+                  .map((_, index) => <CardSemuaBeritaSkeleton key={index} />)
               ) : berita.length === 0 ? (
                 <p className="w-full text-center font-bold text-xl">
                   Berita Tidak Ditemukan

@@ -7,6 +7,7 @@ import GuestLayout from "../../layouts/GuestLayout";
 import TopLink from "./../../components/TopLink";
 import axios from "axios";
 import { BASE_API_URL } from "../../constants/apiURL";
+import { BASE_API_KEY } from "../../constants/apiURL";
 import { stringDash, stringTanpaKurung } from "../../libs/string-libs";
 import BounceLoading from "../../utils/BounceLoading";
 
@@ -16,10 +17,14 @@ const Struktur = () => {
 
   const fetchPengurus = async () => {
     try {
-      const response = await axios.get(`${BASE_API_URL}/api/struktur`);
+      const response = await axios.get(`${BASE_API_URL}/api/struktur`, {
+        headers: {
+          "P3RT-HMTI-API-KEY": `${BASE_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+      });
       setPengurus(response.data);
-    } catch (error) {
-    }
+    } catch (error) {}
     setLoading(false);
   };
 

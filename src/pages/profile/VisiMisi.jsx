@@ -5,6 +5,7 @@ import GuestLayout from "./../../layouts/GuestLayout";
 import HeaderStruktur from "../../components/HeaderStruktur";
 import TopLink from "./../../components/TopLink";
 import { BASE_API_URL } from "../../constants/apiURL";
+import { BASE_API_KEY } from "../../constants/apiURL";
 import BounceLoading from "../../utils/BounceLoading";
 
 const VisiMisi = () => {
@@ -23,7 +24,12 @@ const VisiMisi = () => {
   const fetchData = async () => {
     setLoadingKonten(true);
     try {
-      const response = await axios.get(`${BASE_API_URL}/api/visi-misi-tujuan`);
+      const response = await axios.get(`${BASE_API_URL}/api/visi-misi-tujuan`, {
+        headers: {
+          "P3RT-HMTI-API-KEY": `${BASE_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+      });
       setVisi(response.data.visi);
       setMisi(response.data.misi);
       setTujuan(response.data.tujuan);
