@@ -1,6 +1,7 @@
 import React from "react";
 import LogoHmti from "../../assets/img/hmti-logo.png";
 import { Link } from "react-router-dom";
+import MyMap from "../MyMaps";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -13,9 +14,6 @@ const Footer = () => {
               <div href="/" className="block text-center">
                 <div className="flex flex-col items-center mb-3">
                   <img src={LogoHmti} className="h-32 mb-3" alt="Logo HMTI" />
-                  {/* <span className="text-2xl font-semibold whitespace-nowrap text-white">
-        Logo HMTI
-      </span> */}
                 </div>
                 <div className="text-white">
                   <span>
@@ -219,6 +217,7 @@ const Footer = () => {
                 className="rounded-[5px] w-full mb-5"
                 title="Teknik Informatika Universitas Khairun Map"
               ></iframe> */}
+              <MyMap />
               <span className="text-white sm:text-start text-center">
                 Jl. Jati Metro, Jati, Kec. <br /> Ternate Sel., Kota Ternate,{" "}
                 <br />
