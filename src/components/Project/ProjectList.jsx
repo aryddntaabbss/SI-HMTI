@@ -1,51 +1,57 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { BASE_API_URL } from "../../constants/apiURL";
-import { BASE_API_KEY } from "../../constants/apiURL";
+import { BASE_API_URL, BASE_API_KEY } from "../../constants/apiURL";
 import { Link } from "react-router-dom";
 import AOS from "aos";
 
 const ProjectList = ({ slug }) => {
-  const [project, setProjects] = useState([]);
+  const [projects, setProjects] = useState([]); // Renamed `project` to `projects` for clarity
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null); // Added state for error handling
 
+  // Fetch Projects from the API
   const fetchProjects = async () => {
     try {
       const response = await axios.get(
         `${BASE_API_URL}/api/kategori/${slug}/projects`,
         {
           headers: {
-            "P3RT-HMTI-API-KEY": `${BASE_API_KEY}`,
+            "P3RT-HMTI-API-KEY": BASE_API_KEY,
             "Content-Type": "application/json",
           },
         }
       );
-      setProjects(await response.data);
+      setProjects(response.data); // Directly set data to `projects`
     } catch (error) {
-      console.error("Error:", error);
+      setError("Failed to load projects."); // Set error message
+      console.error("Error:", error); // Log error for debugging
     }
-    setLoading(false);
+    setLoading(false); // Always set loading to false after fetching
   };
 
   useEffect(() => {
-    fetchProjects();
+    fetchProjects(); // Fetch projects when component mounts
     AOS.init({
-      duration: 1500, // Durasi animasi dalam milidetik
+      duration: 1500, // Set duration for animations
     });
-  }, []);
+  }, [slug]); // Only refetch when `slug` changes
 
   return (
     <>
-      {project?.length ? (
+      {loading ? (
+        <div className="loading-indicator">Loading...</div>
+      ) : error ? (
+        <div className="error-message">{error}</div>
+      ) : (
         <div className="pt-4 pb-12 grid grid-cols-2 md:grid-cols-3 gap-y-7 gap-x-5">
-          {project?.map((p, i) => {
-            return (
-              <div data-aos="fade-up" key={i}>
+          {projects.length ? (
+            projects.map((p, i) => (
+              <div key={i} data-aos="fade-up">
                 <div className="w-32 h-32 md:w-64 md:h-40 bg-cover bg-center rounded-xl my-3 overflow-hidden">
                   <Link to={`/projects/${p.kategori.slug}/${p.slug}`}>
                     <img
                       src={`${BASE_API_URL}/storage/${p.gambar_utama}`}
-                      alt="gambar-project"
+                      alt={`gambar-project-${p.slug}`}
                       className="w-full h-full object-cover"
                     />
                   </Link>
@@ -57,13 +63,11 @@ const ProjectList = ({ slug }) => {
                   {p.judul}
                 </Link>
               </div>
-            );
-          })}
+            ))
+          ) : (
+            <div>COMMING SOON !!!</div>
+          )}
         </div>
-      ) : (
-        <h3 className="text-center italic font-medium py-10">
-          {loading ? "Loading..." : "Coming Soon!"}
-        </h3>
       )}
     </>
   );

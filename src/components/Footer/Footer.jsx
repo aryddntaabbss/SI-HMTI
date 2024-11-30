@@ -11,7 +11,10 @@ const Footer = () => {
         <div className="mx-auto w-full max-w-screen-xl px-10 lg:py-10">
           <div className="md:flex md:justify-between">
             <div className="mb-6 md:mb-0">
-              <div href="/" className="block text-center">
+              <div
+                href="https://hmti.unkhair.ac.id"
+                className="block text-center"
+              >
                 <div className="flex flex-col items-center mb-3">
                   <img src={LogoHmti} className="h-32 mb-3" alt="Logo HMTI" />
                 </div>
@@ -66,7 +69,7 @@ const Footer = () => {
                   </a>
 
                   <a
-                    href="/"
+                    href="https://discord.com"
                     className="text-white hover: hover:text-white ms-3"
                   >
                     <svg
@@ -81,7 +84,10 @@ const Footer = () => {
                     <span className="sr-only">Discord community</span>
                   </a>
 
-                  <a href="/" className="text-white  hover:text-white ms-3">
+                  <a
+                    href="https://youtube.com"
+                    className="text-white  hover:text-white ms-3"
+                  >
                     <svg
                       className="w-7 h-7"
                       aria-hidden="true"
@@ -210,13 +216,6 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-col">
-              {/* <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249.34078287147673!2d127.37429299307693!3d0.7758591999455596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x329cb567605bb341%3A0xdbed093be686d07d!2sSekret%20HMTI%20Unkhair!5e0!3m2!1sid!2sid!4v1720797514072!5m2!1sid!2sid"
-                height="150"
-                loading="lazy"
-                className="rounded-[5px] w-full mb-5"
-                title="Teknik Informatika Universitas Khairun Map"
-              ></iframe> */}
               <MyMap />
               <span className="text-white sm:text-start text-center">
                 Jl. Jati Metro, Jati, Kec. <br /> Ternate Sel., Kota Ternate,{" "}
@@ -229,7 +228,7 @@ const Footer = () => {
           <div className="flex flex-col items-center sm:flex sm:items-center sm:justify-between mt-5">
             <span className="text-sm text-white text-center ">
               Copyright ©{" "}
-              <a href="/" className="hover:underline">
+              <a href="https://hmti.unkhair.ac.id" className="hover:underline">
                 {currentYear} by HMTI UNKHAIR | Masa Periodisasi 2024-2025
               </a>
             </span>

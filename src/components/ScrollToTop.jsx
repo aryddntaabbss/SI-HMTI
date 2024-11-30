@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { HiArrowCircleUp } from "react-icons/hi";
 import { HiArrowSmUp } from "react-icons/hi";
-import { TiArrowUp } from "react-icons/ti";
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
