@@ -55,7 +55,7 @@ const DetailBerita = () => {
                   backgroundImage: `url('${BASE_API_URL}/storage/${berita?.gambar}')`,
                 }}
               >
-                <div className="absolute bottom-0 w-full flex flex-col lg:justify-center justify-end lg:gap-8 gap-5 h-1/2 lg:px-28 px-10 py-10 bg-gradient-to-t from-white dark:from-dark-blue">
+                <div className="absolute bottom-0 w-full flex flex-col lg:justify-center justify-end lg:gap-8 gap-5 h-1/2 lg:px-28 px-10 py-10 bg-gradient-to-t from-good-blue dark:from-dark-blue">
                   <span className="w-fit py-2 md:px-8 px-5 bg-good-blue font-medium lg:text-xl text-white rounded-lg">
                     {berita?.kategori.judul_kategori}
                   </span>

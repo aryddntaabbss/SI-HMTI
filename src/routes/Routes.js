@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Beranda from "../pages/beranda/Beranda";
 import Berita from "../pages/berita/Berita";
 import DetailBerita from "../pages/berita/DetailBerita";
@@ -9,15 +10,40 @@ import Contact from "../pages/contact/Contact";
 import Projects from "../pages/projects/Projects";
 import DetailProject from "../pages/projects/DetailProject";
 import SearchBerita from "../pages/berita/SearchBerita";
-import ComingSoon from './../pages/ComingSoon';
+import ComingSoon from '../pages/ComingSoon';
 import NotFoundPage from "../pages/NotFoundPage";
+import Offline from "../components/Offline";
 
 const AppRoutes = () =>
 {
+	const [ isOffline, setIsOffline ] = useState( !navigator.onLine );
+
+	useEffect( () =>
+	{
+		const handleOffline = () => setIsOffline( true );
+		const handleOnline = () => setIsOffline( false );
+
+		window.addEventListener( "offline", handleOffline );
+		window.addEventListener( "online", handleOnline );
+
+		// Clean up listeners on component unmount
+		return () =>
+		{
+			window.removeEventListener( "offline", handleOffline );
+			window.removeEventListener( "online", handleOnline );
+		};
+	}, [] );
+
+	if ( isOffline )
+	{
+		return <Offline />;
+	}
+
 	return (
 		<Router>
 			<Routes>
 				{/*** General Route ***/ }
+
 				<Route path="/" element={ <Beranda /> } />
 				<Route path="/berita" element={ <Navigate to="/berita/kategori/semua-berita" /> } />
 				<Route path="/berita/kategori/:kategoriBerita" element={ <Berita /> } />
@@ -37,6 +63,7 @@ const AppRoutes = () =>
 
 				<Route path="/event" element={ <ComingSoon /> } />
 				<Route path="/*" element={ <NotFoundPage /> } />
+
 			</Routes>
 		</Router>
 	);

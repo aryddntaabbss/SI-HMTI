@@ -1,29 +1,30 @@
 import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
+import "leaflet/dist/leaflet.css"; // Pastikan untuk mengimpor CSS Leaflet
 
 const MyMap = () => {
-  const position = [0.7758591999455596, 127.37429299307693]; // Koordinat untuk posisi awal (misal: London)
+  const position = [0.7758591999455596, 127.37429299307693]; // Koordinat untuk posisi awal (misal: lokasi Sekretariat HMTI)
+
+  // Menggunakan import untuk ikon
+  const iconUrl = require("leaflet/dist/images/mark-hmti.png");
 
   return (
-    <div style={{ height: "150px" }}>
+    <div className="relative w-full z-0 mb-5 h-36">
       <MapContainer
-        className="rounded-[5px] w-full mb-5 h-36"
         center={position}
-        zoom={17}
+        zoom={13}
+        className="rounded-lg w-full h-full" // Tailwind CSS untuk styling
       >
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        />
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <Marker
           position={position}
           icon={
             new L.Icon({
-              iconUrl: require("leaflet/dist/images/marker-icon.png"),
-              iconSize: [25, 41],
-              iconAnchor: [12, 41],
-              popupAnchor: [1, -34],
+              iconUrl: iconUrl,
+              iconSize: [40, 40],
+              iconAnchor: [20, 40], // Menyesuaikan posisi anchor ikon
+              popupAnchor: [0, -40], // Menyesuaikan posisi popup
               shadowSize: [41, 41],
             })
           }
