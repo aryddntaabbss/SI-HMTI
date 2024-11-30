@@ -16,7 +16,7 @@ const ProjectList = ({ slug }) => {
         `${BASE_API_URL}/api/kategori/${slug}/projects`,
         {
           headers: {
-            "P3RT-HMTI-API-KEY": BASE_API_KEY,
+            "P3RT-HMTI-API-KEY": `${BASE_API_KEY}`,
             "Content-Type": "application/json",
           },
         }

@@ -6,8 +6,6 @@ import App from "./App";
 import { Provider } from "react-redux";
 import 'leaflet/dist/leaflet.css';
 
-import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
-
 const root = ReactDOM.createRoot( document.getElementById( "root" ) );
 root.render(
   <React.StrictMode>
@@ -16,5 +14,3 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
-
-serviceWorkerRegistration.register();
