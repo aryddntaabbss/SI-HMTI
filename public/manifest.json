@@ -1,0 +1,25 @@
+{
+  "short_name": "HMTI WEBSITE",
+  "name": "SISTEM INFORMASI HIMPUNAN MAHASISWA TEKNIK INFORMATIKA (HMTI)",
+  "icons": [
+    {
+      "src": "./apple-touch-icon-60x60.png",
+      "type": "image/png",
+      "sizes": "60x60"
+    },
+    {
+      "src": "./favicon-196x196.png",
+      "type": "image/png",
+      "sizes": "196x196"
+    },
+    {
+      "src": "./mstile-310x310.png",
+      "type": "image/png",
+      "sizes": "310x310"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
