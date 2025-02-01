@@ -21,24 +21,6 @@ SI-HMTI adalah platform berbasis web yang dirancang untuk memfasilitasi berbagai
 
 ---
 
-**Cara Memulai Proyek**
-1. Clone repository ini ke komputer Anda:
-   ```bash
-   git clone https://github.com/aryddntaabbss/SI-HMTI.git
-   ```
-2. Masuk ke direktori proyek:
-   ```bash
-   cd SI-HMTI
-   ```
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-4. Jalankan aplikasi:
-   ```bash
-   npm start
-   ```
----
 **Pesan Commit**
 
 1. feat : Menambahkan halaman/fitur baru
