@@ -47,7 +47,9 @@ const Struktur = () => {
           <div className="flex flex-col items-center justify-center">
             <div className="flex flex-col justify-center items-center py-5 text-dark-blue dark:text-white text-lg font-semibold">
               <h1>Struktur Pengurus Organisasi</h1>
-              <h1>Himpunan Mahasiswa Informatika</h1>
+              <h1 className="text-center hidden md:block">Himpunan Mahasiswa Teknik Informatika</h1>
+              <h1 className="text-center md:hidden">Himpunan Mahasiswa</h1>
+              <h1 className="text-center md:hidden">Teknik Informatika</h1>
               <h1>Periode 2024/2025</h1>
             </div>
             {/* KETUM, SEKUM, BENDUM */}
